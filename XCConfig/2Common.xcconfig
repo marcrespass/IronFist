@@ -1,0 +1,23 @@
+#include "1XcodeWarnings.xcconfig"
+
+ALWAYS_SEARCH_USER_PATHS = NO
+CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES
+CODE_SIGN_STYLE = Automatic
+COMBINE_HIDPI_IMAGES = YES
+DEVELOPMENT_TEAM = 2WW9KC8P4G
+ENABLE_NS_ASSERTIONS = YES
+INFOPLIST_FILE = $(PRODUCT_NAME)/Info.plist
+MARKETING_VERSION = 1.0
+PRODUCT_BUNDLE_PREFIX = com.iliosinc
+PRODUCT_NAME = $(TARGET_NAME)
+PROVISIONING_PROFILE_SPECIFIER =
+SWIFT_COMPILATION_MODE = singlefile
+SWIFT_VERSION = 5.0
+
+// Update this for the current year
+COPYRIGHT_YEAR = -2021-2021
+// Set this value for NSHumanReadableCopyright
+//     <key>NSHumanReadableCopyright</key>
+//     <string>$(COPYRIGHT_STRING)</string>
+COPYRIGHT_STRING = Copyright © $(COPYRIGHT_YEAR) ILIOS Inc. All rights reserved.
+GET_INFO_STRING = $(MARKETING_VERSION) ($(CFBundleVersion)) $(COPYRIGHT_STRING)
