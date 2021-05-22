@@ -9,31 +9,41 @@ import Foundation
 import AVFoundation
 
 public final class IronFistController: NSObject, ObservableObject {
-    static let timeIntervalValue = 3.0
+    // MARK: - Static Properties
+    static let timeIntervalValue = 3.0 // TESTING
 
     static func loadFromBundle() -> [IronFist] {
-        let array: [IronFist] = Bundle(for: Self.self).decode(from: "IronFistTest.json")
+        let array: [IronFist] = Bundle(for: Self.self).decode(from: "IronFistTest.json") // TESTING
         return array
     }
     // MARK: - Speech Properties
+    var speechVoice: AVSpeechSynthesisVoice?
     let speechSynthesizer = AVSpeechSynthesizer()
     let soStrongSynthesizer = AVSpeechSynthesizer()
-    var speechVoice: AVSpeechSynthesisVoice?
+    let finishSynthesizer = AVSpeechSynthesizer()
+    let soStrongSpeechUtterance = AVSpeechUtterance(string: "Wow. You are so strong.")
+    let finishSpeechUtterance = AVSpeechUtterance(string: "Well done!")
+
+    // MARK: - Published Properties
     @Published var timerInterval: TimeInterval = 0
     @Published var selectedIronFist: IronFist?
 
+    // MARK: - Properties
     weak var timer: Timer?
+    private (set) var ironFists: [IronFist]
+    private var playingIndex = 0
 
-    public let ironFists: [IronFist]
-    var playingIndex = 0
-
+    // MARK: - Init
     override public init() {
         let array = IronFistController.loadFromBundle()
         self.ironFists = array
         super.init()
 
+        soStrongSpeechUtterance.voice = self.speechVoice
+
         self.speechSynthesizer.delegate = self
         self.soStrongSynthesizer.delegate = self
+        self.finishSynthesizer.delegate = self
         for voice in AVSpeechSynthesisVoice.speechVoices() {
             if voice.name == "Nicky" {
                 debugPrint("ID: \(voice.identifier) | Name: \(voice.name) | Quality:  \(voice.quality)")
@@ -53,15 +63,17 @@ public final class IronFistController: NSObject, ObservableObject {
         self.speechSynthesizer.stopSpeaking(at: .immediate)
         self.timer?.invalidate()
         self.timer = nil
-        //        self.delegate?.stopPlaying()
     }
+}
 
+// MARK: - Private methods
+extension IronFistController {
     private func speakCurrentItem() {
-        guard let it = self.selectedIronFist else { return }
-        let text = it.spokenText
+        guard let ironFist = self.selectedIronFist else { return }
+        let text = ironFist.spokenText
         let speechUtterance = AVSpeechUtterance(string: text)
         speechUtterance.voice = self.speechVoice
-        debugPrint("Speaking: \(text)")
+        debugPrint("Speaking: \(ironFist.title)")
         self.speechSynthesizer.speak(speechUtterance)
     }
 
@@ -70,7 +82,6 @@ public final class IronFistController: NSObject, ObservableObject {
 
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
             self.timerInterval -= 1
-
             if self.timerInterval <= 0 {
                 self.finishCurrentItem()
             }
@@ -80,10 +91,7 @@ public final class IronFistController: NSObject, ObservableObject {
     private func finishCurrentItem() {
         self.timer?.invalidate()
         self.timer = nil
-
-        let speechUtterance = AVSpeechUtterance(string: "Wow. You are so strong.")
-        speechUtterance.voice = self.speechVoice
-        self.soStrongSynthesizer.speak(speechUtterance)
+        self.soStrongSynthesizer.speak(soStrongSpeechUtterance)
     }
 
     private func nextItem() {
@@ -91,6 +99,7 @@ public final class IronFistController: NSObject, ObservableObject {
         if self.playingIndex >= self.ironFists.count {
             self.playingIndex = 0
             self.selectedIronFist = nil
+            self.finishSynthesizer.speak(finishSpeechUtterance)
         } else {
             self.selectedIronFist = self.ironFists[self.playingIndex]
             self.speakCurrentItem()
@@ -103,6 +112,8 @@ extension IronFistController: AVSpeechSynthesizerDelegate {
     public func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish: AVSpeechUtterance) {
         if synthesizer == self.soStrongSynthesizer {
             self.nextItem()
+        } else if synthesizer == self.finishSynthesizer {
+            print("Finished - notify delegate")
         } else {
             self.startTimer()
         }
