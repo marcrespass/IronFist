@@ -9,13 +9,11 @@ public struct IronFist: Codable, Hashable, Identifiable {
     public let title: String
     public let exercise: String
 
-    public var shortExercise: String {
-        let it = "\(self.exercise.prefix(50))…"
-        return it
+    public var exerciseTruncated: String {
+        "\(self.exercise.prefix(50))…"
     }
 
     public var spokenText: String {
-        let text = "\(self.id) \(self.title). \(self.exercise). Begin."
-        return text
+        "\(self.id). \(self.title). \(self.exercise). Begin."
     }
 }

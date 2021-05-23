@@ -20,10 +20,10 @@ struct ContentView: View {
                             if highlight {
                                 Image(systemName: "chevron.forward.circle.fill")
                             }
-                            Text("\(ironFist.id)")
+                            Text("\(ironFist.id).")
                             Text(ironFist.title)
                         }
-                        Text(highlight ? ironFist.exercise : ironFist.shortExercise)
+                        Text(highlight ? ironFist.exercise : ironFist.exerciseTruncated)
                             .font(.caption)
                     }
                     .listRowBackground(highlight ? Color.green: Color.clear)
