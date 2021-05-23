@@ -19,13 +19,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D35EEBE3265B0C0F008CE2E2 /* App-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "App-Debug.xcconfig"; sourceTree = "<group>"; };
+		D35EEBE4265B0C0F008CE2E2 /* App-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "App-Release.xcconfig"; sourceTree = "<group>"; };
+		D35EEBE5265B0C0F008CE2E2 /* 2Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = 2Common.xcconfig; sourceTree = "<group>"; };
+		D35EEBE6265B0C0F008CE2E2 /* App-Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "App-Shared.xcconfig"; sourceTree = "<group>"; };
+		D35EEBE7265B0C0F008CE2E2 /* 1XcodeWarnings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = 1XcodeWarnings.xcconfig; sourceTree = "<group>"; };
 		D3833DF426595C37006C6867 /* IronFistTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = IronFistTest.json; sourceTree = "<group>"; };
-		D3833DF726595CE0006C6867 /* App-ios-Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "App-ios-Shared.xcconfig"; sourceTree = "<group>"; };
-		D3833DF826595CE0006C6867 /* 2Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = 2Common.xcconfig; sourceTree = "<group>"; };
-		D3833DF926595CE0006C6867 /* 3Common-ios.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "3Common-ios.xcconfig"; sourceTree = "<group>"; };
-		D3833DFA26595CE0006C6867 /* App-ios-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "App-ios-Debug.xcconfig"; sourceTree = "<group>"; };
-		D3833DFB26595CE0006C6867 /* App-ios-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "App-ios-Release.xcconfig"; sourceTree = "<group>"; };
-		D3833DFC26595CE0006C6867 /* 1XcodeWarnings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = 1XcodeWarnings.xcconfig; sourceTree = "<group>"; };
 		D3D0BD4D26587EE300CDF718 /* IronFist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IronFist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3D0BD5426587EE400CDF718 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3D0BD5726587EE400CDF718 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -49,15 +48,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D3833DF626595CE0006C6867 /* XCConfig */ = {
+		D35EEBE2265B0C0F008CE2E2 /* XCConfig */ = {
 			isa = PBXGroup;
 			children = (
-				D3833DFC26595CE0006C6867 /* 1XcodeWarnings.xcconfig */,
-				D3833DF826595CE0006C6867 /* 2Common.xcconfig */,
-				D3833DF926595CE0006C6867 /* 3Common-ios.xcconfig */,
-				D3833DFA26595CE0006C6867 /* App-ios-Debug.xcconfig */,
-				D3833DFB26595CE0006C6867 /* App-ios-Release.xcconfig */,
-				D3833DF726595CE0006C6867 /* App-ios-Shared.xcconfig */,
+				D35EEBE7265B0C0F008CE2E2 /* 1XcodeWarnings.xcconfig */,
+				D35EEBE5265B0C0F008CE2E2 /* 2Common.xcconfig */,
+				D35EEBE3265B0C0F008CE2E2 /* App-Debug.xcconfig */,
+				D35EEBE4265B0C0F008CE2E2 /* App-Release.xcconfig */,
+				D35EEBE6265B0C0F008CE2E2 /* App-Shared.xcconfig */,
 			);
 			path = XCConfig;
 			sourceTree = "<group>";
@@ -65,7 +63,7 @@
 		D3D0BD4426587EE300CDF718 = {
 			isa = PBXGroup;
 			children = (
-				D3833DF626595CE0006C6867 /* XCConfig */,
+				D35EEBE2265B0C0F008CE2E2 /* XCConfig */,
 				D3D0BD4F26587EE300CDF718 /* IronFist */,
 				D3D0BD4E26587EE300CDF718 /* Products */,
 			);
@@ -201,14 +199,14 @@
 		};
 		D3D0BD5D26587EE400CDF718 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D3833DFA26595CE0006C6867 /* App-ios-Debug.xcconfig */;
+			baseConfigurationReference = D35EEBE3265B0C0F008CE2E2 /* App-Debug.xcconfig */;
 			buildSettings = {
 			};
 			name = Debug;
 		};
 		D3D0BD5E26587EE400CDF718 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D3833DFB26595CE0006C6867 /* App-ios-Release.xcconfig */;
+			baseConfigurationReference = D35EEBE4265B0C0F008CE2E2 /* App-Release.xcconfig */;
 			buildSettings = {
 			};
 			name = Release;

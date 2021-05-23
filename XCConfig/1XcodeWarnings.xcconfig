@@ -105,4 +105,3 @@ GCC_WARN_UNUSED_VALUE = YES
 GCC_WARN_UNUSED_VARIABLE = YES
 
 WARNING_CFLAGS = -Wobjc-interface-ivars
-OTHER_SWIFT_FLAGS = -Xfrontend -warn-long-expression-type-checking=1000
