@@ -12,6 +12,7 @@ struct IronFistApp: App {
     @StateObject var controller: IronFistController
 
     init() {
+        UserDefaults.standard.register(defaults: ["RestTime" : 5, "FistTime" : 15])
         let controller = IronFistController()
         _controller = StateObject(wrappedValue: controller)
     }
