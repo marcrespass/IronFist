@@ -43,10 +43,17 @@ struct ContentView: View {
                     Button(action: {
                         self.controller.startIronFist()
                     }, label: {
-                        Text("Start")
+                        Text(self.controller.timerRunning ? "Stop" : "Start")
                     })
                     Spacer()
-                    Text("\(controller.timerInterval)")
+                    if self.controller.timerRunning {
+                        Text("\(controller.timerInterval)")
+                    } else {
+                        HStack {
+                            Text("Fist: \(controller.fistTime)")
+                            Text("Rest: \(controller.restTime)")
+                        }
+                    }
                 }
             }
         }

@@ -21,12 +21,15 @@ public final class IronFistController: NSObject, ObservableObject {
     let speechSynthesizer = AVSpeechSynthesizer()
     let soStrongSynthesizer = AVSpeechSynthesizer()
     let finishSynthesizer = AVSpeechSynthesizer()
-    let soStrongSpeechUtterance = AVSpeechUtterance(string: "Wow. You are so strong.")
+    let soStrongSpeechUtterance = AVSpeechUtterance(string: "Wow. You are so strong. Rest.")
     let finishSpeechUtterance = AVSpeechUtterance(string: "Well done!")
 
     // MARK: - Published Properties
     @Published var timerInterval: TimeInterval = 0
     @Published var selectedIronFist: IronFist?
+    @Published var fistTime: Int
+    @Published var restTime: Int
+    @Published var timerRunning = false
 
     // MARK: - Properties
     weak var timer: Timer?
@@ -37,6 +40,13 @@ public final class IronFistController: NSObject, ObservableObject {
     override public init() {
         let array = IronFistController.loadFromBundle()
         self.ironFists = array
+        let ft = UserDefaults.standard.integer(forKey: "FistTime")
+        debugPrint("FistTime: \(ft)")
+        self.fistTime = ft
+        let rt = UserDefaults.standard.integer(forKey: "RestTime")
+        debugPrint("RestTime: \(rt)")
+        self.restTime = rt
+        
         super.init()
 
         soStrongSpeechUtterance.voice = self.speechVoice
@@ -56,6 +66,7 @@ public final class IronFistController: NSObject, ObservableObject {
     func startIronFist() {
         self.playingIndex = 0
         self.selectedIronFist = self.ironFists[self.playingIndex]
+        self.timerRunning = true
         self.speakCurrentItem()
     }
 
@@ -63,6 +74,14 @@ public final class IronFistController: NSObject, ObservableObject {
         self.speechSynthesizer.stopSpeaking(at: .immediate)
         self.timer?.invalidate()
         self.timer = nil
+    }
+
+    func saveSettings() {
+        debugPrint("FistTime: \(self.fistTime)")
+        debugPrint("RestTime: \(self.restTime)")
+
+        UserDefaults.standard.set(self.fistTime, forKey: "FistTime")
+        UserDefaults.standard.set(self.restTime, forKey: "RestTime")
     }
 }
 
@@ -77,8 +96,9 @@ extension IronFistController {
         self.speechSynthesizer.speak(speechUtterance)
     }
 
-    private func startTimer() {
-        self.timerInterval = IronFistController.timeIntervalValue
+    private func startFist() {
+        self.timerInterval = TimeInterval(self.fistTime)
+        self.timerRunning = true
 
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
             self.timerInterval -= 1
@@ -94,11 +114,26 @@ extension IronFistController {
         self.soStrongSynthesizer.speak(soStrongSpeechUtterance)
     }
 
+    private func restHands() {
+        self.timerInterval = TimeInterval(self.restTime)
+        self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
+            self.timerInterval -= 1
+            if self.timerInterval <= 0 {
+                self.timer?.invalidate()
+                self.timer = nil
+
+                self.nextItem()
+            }
+        })
+    }
+
     private func nextItem() {
         self.playingIndex += 1
         if self.playingIndex >= self.ironFists.count {
             self.playingIndex = 0
             self.selectedIronFist = nil
+            self.timerRunning = false
+
             self.finishSynthesizer.speak(finishSpeechUtterance)
         } else {
             self.selectedIronFist = self.ironFists[self.playingIndex]
@@ -111,11 +146,11 @@ extension IronFistController {
 extension IronFistController: AVSpeechSynthesizerDelegate {
     public func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish: AVSpeechUtterance) {
         if synthesizer == self.soStrongSynthesizer {
-            self.nextItem()
+            self.restHands()
         } else if synthesizer == self.finishSynthesizer {
             print("Finished - notify delegate")
         } else {
-            self.startTimer()
+            self.startFist()
         }
     }
 }
