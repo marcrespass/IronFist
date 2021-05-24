@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var controller: IronFistController
+    @State private var showingSettings = false
 
     var body: some View {
         NavigationView {
@@ -29,10 +30,15 @@ struct ContentView: View {
                     .listRowBackground(highlight ? Color.green: Color.clear)
                 }
             }
+            // MER 2021-05-24 Consider .popover instead of a .sheet
+            .sheet(isPresented: $showingSettings, content: {
+                SettingsView()
+            })
             .navigationTitle("Iron Fist")
             // https://www.appcoda.com/swiftui-toolbar/
             // https://swiftwithmajid.com/2020/07/15/mastering-toolbars-in-swiftui/
             .toolbar {
+                settingsToolbarItem
                 ToolbarItemGroup(placement: .bottomBar) {
                     Button(action: {
                         self.controller.startIronFist()
@@ -42,6 +48,16 @@ struct ContentView: View {
                     Spacer()
                     Text("\(controller.timerInterval)")
                 }
+            }
+        }
+    }
+
+    var settingsToolbarItem: some ToolbarContent {
+        ToolbarItem(placement: .navigationBarTrailing) {
+            Button {
+                showingSettings.toggle()
+            } label: {
+                Label("Settings", systemImage: "gear")
             }
         }
     }
