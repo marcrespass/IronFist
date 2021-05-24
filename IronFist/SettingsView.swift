@@ -7,24 +7,31 @@
 
 import SwiftUI
 
+extension NumberFormatter {
+    static var plainNumberFormatter: NumberFormatter {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .none
+        return formatter
+    }
+}
+
 struct SettingsView: View {
+    var controller: IronFistController
     @Environment(\.presentationMode) var presentationMode
-    @State private var fistTime: String
-    @State private var restTime: String
+    @State private var localFistTime: Int
+    @State private var localRestTime: Int
 
-    init() {
-        let t = UserDefaults.standard.integer(forKey: "FistTime")
-        let r = UserDefaults.standard.integer(forKey: "RestTime")
-
-        _fistTime = State(wrappedValue: String(t))
-        _restTime = State(wrappedValue: String(r))
+    init(controller: IronFistController) {
+        self.controller = controller
+        _localFistTime = State(wrappedValue: controller.fistTime)
+        _localRestTime = State(wrappedValue: controller.restTime)
     }
 
     var body: some View {
         Form {
             Section(header: Text(NSLocalizedString("Settings", comment: ""))) {
-                TextField("Item name", text: $fistTime)
-                TextField("Description", text: $restTime)
+                Stepper("Fist time: \(localFistTime)", value: $localFistTime)
+                Stepper("Rest time: \(localRestTime)", value: $localRestTime)
             }
             Section {
                 Button("Done") { presentationMode.wrappedValue.dismiss() }
@@ -35,17 +42,15 @@ struct SettingsView: View {
     }
 
     func save() {
-        if let title = Int(fistTime) {
-            UserDefaults.standard.set(title, forKey: "FistTime")
-        }
-        if let detail = Int(restTime) {
-            UserDefaults.standard.set(detail, forKey: "RestTime")
-        }
+        self.controller.saveSettings()
     }
 }
 
 struct SettingsView_Previews: PreviewProvider {
+    static var controller = IronFistController()
+
     static var previews: some View {
-        SettingsView()
+        SettingsView(controller: controller)
+            .previewLayout(.sizeThatFits)
     }
 }
