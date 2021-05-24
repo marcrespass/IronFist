@@ -25,7 +25,7 @@ struct ContentView: View {
                             Text(ironFist.title)
                         }
                         Text(highlight ? ironFist.exercise : ironFist.exerciseTruncated)
-                            .font(.caption)
+                            .font(highlight ? .body : .caption)
                     }
                     .listRowBackground(highlight ? Color.green: Color.clear)
                 }
@@ -41,7 +41,7 @@ struct ContentView: View {
                 settingsToolbarItem
                 ToolbarItemGroup(placement: .bottomBar) {
                     Button(action: {
-                        self.controller.startIronFist()
+                        self.controller.toggleRunning()
                     }, label: {
                         Text(self.controller.timerRunning ? "Stop" : "Start")
                     })
