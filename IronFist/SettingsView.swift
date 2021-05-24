@@ -7,31 +7,15 @@
 
 import SwiftUI
 
-extension NumberFormatter {
-    static var plainNumberFormatter: NumberFormatter {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .none
-        return formatter
-    }
-}
-
 struct SettingsView: View {
-    var controller: IronFistController
+    @EnvironmentObject var controller: IronFistController
     @Environment(\.presentationMode) var presentationMode
-    @State private var localFistTime: Int
-    @State private var localRestTime: Int
-
-    init(controller: IronFistController) {
-        self.controller = controller
-        _localFistTime = State(wrappedValue: controller.fistTime)
-        _localRestTime = State(wrappedValue: controller.restTime)
-    }
 
     var body: some View {
         Form {
             Section(header: Text(NSLocalizedString("Settings", comment: ""))) {
-                Stepper("Fist time: \(localFistTime)", value: $localFistTime)
-                Stepper("Rest time: \(localRestTime)", value: $localRestTime)
+                Stepper("Fist time: \(controller.fistTime)", value: $controller.fistTime)
+                Stepper("Rest time: \(controller.restTime)", value: $controller.restTime)
             }
             Section {
                 Button("Done") { presentationMode.wrappedValue.dismiss() }
@@ -50,7 +34,8 @@ struct SettingsView_Previews: PreviewProvider {
     static var controller = IronFistController()
 
     static var previews: some View {
-        SettingsView(controller: controller)
+        SettingsView()
             .previewLayout(.sizeThatFits)
+            .environmentObject(controller)
     }
 }
