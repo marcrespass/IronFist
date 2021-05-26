@@ -14,14 +14,13 @@ struct SettingsView: View {
     var body: some View {
         Form {
             Section(header: Text(NSLocalizedString("Settings", comment: ""))) {
-                Stepper("Fist time: \(controller.fistTime)", value: $controller.fistTime)
+                Stepper("Rice time: \(controller.fistTime)", value: $controller.fistTime)
                 Stepper("Rest time: \(controller.restTime)", value: $controller.restTime)
             }
             Section {
                 Button("Done") { presentationMode.wrappedValue.dismiss() }
             }
         }
-        .navigationTitle("Edit Item")
         .onDisappear(perform: save)
     }
 

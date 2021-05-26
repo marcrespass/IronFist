@@ -70,7 +70,7 @@ public final class IronFistController: NSObject, ObservableObject {
     }
 
     func saveSettings() {
-        UserDefaults.standard.set(self.fistTime, forKey: "FistTime")
+        UserDefaults.standard.set(self.fistTime, forKey: "RiceTime")
         UserDefaults.standard.set(self.restTime, forKey: "RestTime")
     }
 }

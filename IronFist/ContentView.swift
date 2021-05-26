@@ -34,6 +34,7 @@ struct ContentView: View {
             .sheet(isPresented: $showingSettings, content: {
                 SettingsView()
             })
+            .listStyle(InsetGroupedListStyle())
             .navigationTitle("Iron Fist")
             // https://www.appcoda.com/swiftui-toolbar/
             // https://swiftwithmajid.com/2020/07/15/mastering-toolbars-in-swiftui/
@@ -49,9 +50,9 @@ struct ContentView: View {
                     if self.controller.timerRunning {
                         Text("\(controller.timerInterval)")
                     } else {
-                        HStack {
-                            Text("Fist: \(controller.fistTime)")
-                            Text("Rest: \(controller.restTime)")
+                        VStack(alignment: .trailing) {
+                            Text("Rice time: \(controller.fistTime)")
+                            Text("Rest time: \(controller.restTime)")
                         }
                     }
                 }
