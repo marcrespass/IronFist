@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  IronFist
+
+  Created by Marc Respass on 5/26/21.
+  
+*/
+
+"Start" = "Start";
+"Stop" = "Stop";
+"Rice" = "Rice";
+"Rest" = "Rest";
+"Rice time: %lld" = "Rice time: %lld";
+"Rest time: %lld" = "Rest time:  %lld";
+"Done" = "Done";
+"Settings" = "Settings";

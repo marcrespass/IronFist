@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D35F4954265E9DE50066FBE4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D35F4956265E9DE50066FBE4 /* Localizable.strings */; };
 		D3833DF526595C37006C6867 /* IronFistTest.json in Resources */ = {isa = PBXBuildFile; fileRef = D3833DF426595C37006C6867 /* IronFistTest.json */; };
 		D3B6492E265BF1DB00FC88E4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6492D265BF1DB00FC88E4 /* SettingsView.swift */; };
 		D3D0BD5526587EE400CDF718 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3D0BD5426587EE400CDF718 /* Assets.xcassets */; };
@@ -25,6 +26,8 @@
 		D35EEBE5265B0C0F008CE2E2 /* 2Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = 2Common.xcconfig; sourceTree = "<group>"; };
 		D35EEBE6265B0C0F008CE2E2 /* App-Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "App-Shared.xcconfig"; sourceTree = "<group>"; };
 		D35EEBE7265B0C0F008CE2E2 /* 1XcodeWarnings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = 1XcodeWarnings.xcconfig; sourceTree = "<group>"; };
+		D35F4955265E9DE50066FBE4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D35F4957265E9DE70066FBE4 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D3833DF426595C37006C6867 /* IronFistTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = IronFistTest.json; sourceTree = "<group>"; };
 		D3B6492D265BF1DB00FC88E4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D3D0BD4D26587EE300CDF718 /* IronFist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IronFist.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +92,7 @@
 				D3833DF426595C37006C6867 /* IronFistTest.json */,
 				D3D0BD6326587F1500CDF718 /* IronFist.swift */,
 				D3D0BD6026587F1500CDF718 /* IronFistController.swift */,
+				D35F4956265E9DE50066FBE4 /* Localizable.strings */,
 				D3D0BD6526587F1500CDF718 /* Bundle+Extensions.swift */,
 				D3D0BD5426587EE400CDF718 /* Assets.xcassets */,
 				D3D0BD5926587EE400CDF718 /* Info.plist */,
@@ -147,6 +151,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = D3D0BD4426587EE300CDF718;
 			productRefGroup = D3D0BD4E26587EE300CDF718 /* Products */;
@@ -163,6 +168,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D35F4954265E9DE50066FBE4 /* Localizable.strings in Resources */,
 				D3D0BD5826587EE400CDF718 /* Preview Assets.xcassets in Resources */,
 				D3D0BD6826587F1500CDF718 /* IronFist.json in Resources */,
 				D3D0BD5526587EE400CDF718 /* Assets.xcassets in Resources */,
@@ -187,6 +193,18 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D35F4956265E9DE50066FBE4 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D35F4955265E9DE50066FBE4 /* en */,
+				D35F4957265E9DE70066FBE4 /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D3D0BD5A26587EE400CDF718 /* Debug */ = {

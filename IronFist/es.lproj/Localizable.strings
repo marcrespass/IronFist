@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  IronFist
+
+  Created by Marc Respass on 5/26/21.
+  
+*/
+
+"Start" = "Comenzar";
+"Stop" = "Parar";
+"Rice" = "Arroze";
+"Rest" = "Descansar";
+"Rice time: %lld" = "Tiempo de arroz: %lld";
+"Rest time: %lld" = "Tiempo de descanso: %lld";
+"Done" = "OK";
+"Settings" = "Configuración";
