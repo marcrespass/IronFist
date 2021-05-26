@@ -46,11 +46,6 @@ public final class IronFistController: NSObject, ObservableObject {
         
         super.init()
 
-        soStrongSpeechUtterance.voice = self.speechVoice
-
-        self.speechSynthesizer.delegate = self
-        self.soStrongSynthesizer.delegate = self
-        self.finishSynthesizer.delegate = self
         for voice in AVSpeechSynthesisVoice.speechVoices() {
             if voice.name == "Nicky" {
                 debugPrint("ID: \(voice.identifier) | Name: \(voice.name) | Quality:  \(voice.quality)")
@@ -58,6 +53,12 @@ public final class IronFistController: NSObject, ObservableObject {
                 break
             }
         }
+
+        self.speechSynthesizer.delegate = self
+        self.soStrongSynthesizer.delegate = self
+        self.soStrongSpeechUtterance.voice = self.speechVoice
+        self.finishSynthesizer.delegate = self
+        self.finishSpeechUtterance.voice = self.speechVoice
     }
 
     func toggleRunning() {
