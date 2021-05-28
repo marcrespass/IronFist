@@ -7,6 +7,7 @@
 
 import Foundation
 import AVFoundation
+import UIKit
 
 public final class IronFistController: NSObject, ObservableObject {
     private static func loadFromBundle() -> [IronFist] {
@@ -26,7 +27,11 @@ public final class IronFistController: NSObject, ObservableObject {
     @Published private (set) var selectedIronFist: IronFist?
     @Published var fistTime: Int
     @Published var restTime: Int
-    @Published private (set) var timerRunning = false
+    @Published private (set) var timerRunning = false {
+        didSet {
+            UIApplication.shared.isIdleTimerDisabled = timerRunning
+        }
+    }
 
     // MARK: - Properties
     private weak var timer: Timer?
@@ -104,7 +109,6 @@ extension IronFistController {
 
     private func startFist() {
         self.timerInterval = TimeInterval(self.fistTime)
-        self.timerRunning = true
 
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
             self.timerInterval -= 1

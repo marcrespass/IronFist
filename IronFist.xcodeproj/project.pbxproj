@@ -10,6 +10,8 @@
 		D35F4954265E9DE50066FBE4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D35F4956265E9DE50066FBE4 /* Localizable.strings */; };
 		D3833DF526595C37006C6867 /* IronFistTest.json in Resources */ = {isa = PBXBuildFile; fileRef = D3833DF426595C37006C6867 /* IronFistTest.json */; };
 		D3B6492E265BF1DB00FC88E4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6492D265BF1DB00FC88E4 /* SettingsView.swift */; };
+		D3C7B81C2661905A003831A7 /* GroupedListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C7B81B2661905A003831A7 /* GroupedListHeader.swift */; };
+		D3C7B81E26619190003831A7 /* IronFistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C7B81D26619190003831A7 /* IronFistRow.swift */; };
 		D3D0BD5526587EE400CDF718 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3D0BD5426587EE400CDF718 /* Assets.xcassets */; };
 		D3D0BD5826587EE400CDF718 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3D0BD5726587EE400CDF718 /* Preview Assets.xcassets */; };
 		D3D0BD6626587F1500CDF718 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D0BD5F26587F1500CDF718 /* ContentView.swift */; };
@@ -30,6 +32,8 @@
 		D35F4957265E9DE70066FBE4 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D3833DF426595C37006C6867 /* IronFistTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = IronFistTest.json; sourceTree = "<group>"; };
 		D3B6492D265BF1DB00FC88E4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		D3C7B81B2661905A003831A7 /* GroupedListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedListHeader.swift; sourceTree = "<group>"; };
+		D3C7B81D26619190003831A7 /* IronFistRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IronFistRow.swift; sourceTree = "<group>"; };
 		D3D0BD4D26587EE300CDF718 /* IronFist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IronFist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3D0BD5426587EE400CDF718 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3D0BD5726587EE400CDF718 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -87,6 +91,8 @@
 			children = (
 				D3D0BD6226587F1500CDF718 /* IronFistApp.swift */,
 				D3D0BD5F26587F1500CDF718 /* ContentView.swift */,
+				D3C7B81D26619190003831A7 /* IronFistRow.swift */,
+				D3C7B81B2661905A003831A7 /* GroupedListHeader.swift */,
 				D3B6492D265BF1DB00FC88E4 /* SettingsView.swift */,
 				D3D0BD6126587F1500CDF718 /* IronFist.json */,
 				D3833DF426595C37006C6867 /* IronFistTest.json */,
@@ -185,10 +191,12 @@
 			files = (
 				D3D0BD6926587F1500CDF718 /* IronFistApp.swift in Sources */,
 				D3D0BD6C26587F1500CDF718 /* Bundle+Extensions.swift in Sources */,
+				D3C7B81E26619190003831A7 /* IronFistRow.swift in Sources */,
 				D3D0BD6626587F1500CDF718 /* ContentView.swift in Sources */,
 				D3B6492E265BF1DB00FC88E4 /* SettingsView.swift in Sources */,
 				D3D0BD6726587F1500CDF718 /* IronFistController.swift in Sources */,
 				D3D0BD6A26587F1500CDF718 /* IronFist.swift in Sources */,
+				D3C7B81C2661905A003831A7 /* GroupedListHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
