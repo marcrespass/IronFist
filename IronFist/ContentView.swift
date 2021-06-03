@@ -22,7 +22,8 @@ struct ContentView: View {
             }
             // MER 2021-05-24 Consider .popover instead of a .sheet
             .sheet(isPresented: $showingSettings, content: { SettingsView() })
-            .listStyle(InsetGroupedListStyle())
+            .listStyle(InsetListStyle())
+
             .navigationTitle("Iron Fist")
             .toolbar {
                 startStopToolbarItem
@@ -70,7 +71,7 @@ struct ContentView_Previews: PreviewProvider {
 
     static var previews: some View {
         ContentView()
-            .previewLayout(.sizeThatFits)
+//            .previewLayout(.sizeThatFits)
             .environmentObject(controller)
     }
 }

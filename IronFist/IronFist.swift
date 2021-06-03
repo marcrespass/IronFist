@@ -7,13 +7,13 @@ import Foundation
 public struct IronFist: Codable, Hashable, Identifiable {
     public var id: Int
     public let title: String
-    public let exercise: String
+    public let instruction: String
 
-    public var exerciseTruncated: String {
-        "\(self.exercise.prefix(50))…"
+    public var instructionTruncated: String {
+        "\(self.instruction.prefix(50))…"
     }
 
     public var spokenText: String {
-        "\(self.id). \(self.title). \(self.exercise). Begin."
+        "\(self.id). \(self.title). \(self.instruction). Begin."
     }
 }

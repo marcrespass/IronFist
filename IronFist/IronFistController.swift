@@ -11,9 +11,18 @@ import UIKit
 
 public final class IronFistController: NSObject, ObservableObject {
     private static func loadFromBundle() -> [IronFist] {
-        let array: [IronFist] = Bundle(for: Self.self).decode(from: "IronFist.json") // TESTING
+        let array: [IronFist] = Bundle(for: Self.self).decode(from: "IronFist.json")
+        if ProcessInfo.processInfo.arguments.contains("-testingMode") {
+            return Array(array.prefix(3))
+        }
         return array
     }
+
+    public static var sampleIronFist: IronFist {
+        guard let it = loadFromBundle().first else { fatalError() }
+        return it
+    }
+
     // MARK: - Speech Properties
     private var speechVoice: AVSpeechSynthesisVoice?
     private let speechSynthesizer = AVSpeechSynthesizer()
@@ -83,9 +92,9 @@ public final class IronFistController: NSObject, ObservableObject {
 // MARK: - Private methods
 extension IronFistController {
     private func start() {
+        self.timerRunning = true
         self.playingIndex = 0
         self.selectedIronFist = self.ironFists[self.playingIndex]
-        self.timerRunning = true
         self.speakCurrentItem()
     }
 
