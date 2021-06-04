@@ -36,9 +36,10 @@ struct TimerProgressCircle: View {
                 .frame(width: baseSize, height: baseSize)
                 .shadow(color: self.controller.state.shadowColor, radius: shadowRadius)
             VStack {
-                Text(self.controller.state.symbol)
+                Text(verbatim: self.controller.state.symbol)
                     .font(Font.system(size: imageFontSize, weight: .black, design: .rounded))
-                Text("\(self.controller.countdownString)")
+                    .animation(.default)
+                Text(verbatim: "\(self.controller.countdownString)")
                     .font(Font.system(size: textFontSize, weight: .heavy, design: .rounded).monospacedDigit())
             }
             .foregroundColor(self.controller.state.baseAccentColor)
