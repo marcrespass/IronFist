@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct IronFistRow: View {
-    @EnvironmentObject var controller: IronFistController
+    @EnvironmentObject var controller: TimerController
 
     let ironFist: IronFist
 
@@ -30,7 +30,7 @@ struct IronFistRow: View {
 }
 
 struct IronFistRow_Previews: PreviewProvider {
-    static var controller = IronFistController()
+    static var controller = TimerController()
     static var previews: some View {
         IronFistRow(ironFist: controller.ironFists[5])
             .previewLayout(.sizeThatFits)

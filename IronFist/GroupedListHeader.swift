@@ -9,7 +9,7 @@ import SwiftUI
 
 // https://thehappyprogrammer.com/custom-list-in-swiftui/
 struct GroupedListHeader: View {
-    @EnvironmentObject var controller: IronFistController
+    @EnvironmentObject var controller: TimerController
     @Environment(\.presentationMode) var presentationMode
 
     var body: some View {

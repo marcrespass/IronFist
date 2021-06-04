@@ -9,11 +9,11 @@ import SwiftUI
 
 @main
 struct IronFistApp: App {
-    @StateObject var controller: IronFistController
+    @StateObject var controller: TimerController
 
     init() {
         UserDefaults.standard.register(defaults: ["RestTime" : 5, "FistTime" : 15])
-        let controller = IronFistController()
+        let controller = TimerController()
         _controller = StateObject(wrappedValue: controller)
     }
 
