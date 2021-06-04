@@ -73,13 +73,11 @@ public final class TimerController: NSObject, ObservableObject {
         debugPrint("RestTime: \(self.restTime)")
         self.configureTimer()
 
-        for voice in AVSpeechSynthesisVoice.speechVoices() {
-            if voice.name == "Nicky" {
-                debugPrint("ID: \(voice.identifier) | Name: \(voice.name) | Quality:  \(voice.quality)")
-                self.speechVoice = voice
-                break
-            }
+        let englishVoices = AVSpeechSynthesisVoice.speechVoices().filter { voice in
+            debugPrint("Lang: \(voice.language) | Name: \(voice.name) | Quality:  \(voice.quality.rawValue)");
+            return voice.language == "en-US"
         }
+        self.speechVoice = englishVoices.first
 
         // MARK: - Speech setup
         self.ironFistSynthesizer.delegate = self
