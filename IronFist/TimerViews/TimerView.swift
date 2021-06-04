@@ -9,19 +9,20 @@ import SwiftUI
 
 struct TimerView: View {
     @EnvironmentObject var controller: TimerController
-    let ironFist: IronFist
 
     var body: some View {
         VStack {
             TimerProgressCircle()
             VStack(alignment: .leading) {
                 HStack {
-                    Text("\(ironFist.id).")
-                    Text(ironFist.title)
+                    if let ironFist = controller.selectedIronFist {
+                        Text("\(ironFist.id).")
+                        Text(ironFist.title)
+                    }
                 }
                 .foregroundColor(self.controller.state.baseAccentColor)
                 .font(.title.weight(.semibold))
-                Text(ironFist.instruction)
+                Text(controller.selectedIronFist?.instruction ?? "Waiting…")
                     .font(.body)
             }
             .padding()
@@ -34,6 +35,12 @@ struct TimerView: View {
             Spacer()
         }
         .padding([.leading, .trailing])
+        .onAppear(perform: {
+            self.controller.start()
+        })
+        .onDisappear(perform: {
+            self.controller.stop()
+        })
     }
 }
 
@@ -41,7 +48,7 @@ struct TimerView_Previews: PreviewProvider {
     static var controller = TimerController()
 
     static var previews: some View {
-        TimerView(ironFist: IronFistController.sampleIronFist)
+        TimerView()
             .environmentObject(controller)
     }
 }
