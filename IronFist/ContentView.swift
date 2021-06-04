@@ -16,21 +16,25 @@ struct ContentView: View {
         NavigationView {
             VStack {
                 NavigationLink(destination: TimerView(), isActive: $isShowingDetailView) { EmptyView() }
-
+                GroupedListHeader()
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .padding([.leading, .trailing])
+                    .background(Color.gray)
+//                    .padding(EdgeInsets(top: 2, leading: 8, bottom: 2, trailing: 8))
                 List {
-                    Section(header: GroupedListHeader()) {
+//                    Section(header: GroupedListHeader()) {
                         ForEach (controller.ironFists) { ironFist in
                             IronFistRow(ironFist: ironFist)
                         }
-                    }
+//                    }
                 }
                 // MER 2021-05-24 Consider .popover instead of a .sheet
                 .sheet(isPresented: $showingSettings, content: { SettingsView() })
-                .listStyle(InsetListStyle())
+                .listStyle(DefaultListStyle())
                 .navigationTitle(controller.timerRunning ? "Cancel" : "Iron Fist")
                 .toolbar {
                     startStopToolbarItem
-                    //                timerValueToolbarItem
                     settingsToolbarItem
                 }
             }
@@ -50,12 +54,6 @@ extension ContentView {
         }
     }
 
-    var timerValueToolbarItem: some ToolbarContent {
-        ToolbarItem(placement: .principal) {
-            Text(controller.countdownString)
-        }
-    }
-
     var settingsToolbarItem: some ToolbarContent {
         ToolbarItem(placement: .navigationBarTrailing) {
             Button {
@@ -72,8 +70,12 @@ struct ContentView_Previews: PreviewProvider {
     static var controller = TimerController()
 
     static var previews: some View {
-        ContentView()
-            //            .previewLayout(.sizeThatFits)
-            .environmentObject(controller)
+        Group {
+            ContentView()
+                .environmentObject(controller)
+            ContentView()
+                .preferredColorScheme(.dark)
+                .environmentObject(controller)
+        }
     }
 }
