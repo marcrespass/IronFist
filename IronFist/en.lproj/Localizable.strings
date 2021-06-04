@@ -12,7 +12,8 @@
 "Stop" = "Stop";
 "Rice" = "Rice";
 "Rest" = "Rest";
-"Rice time: %lld" = "Rice time: %lld";
-"Rest time: %lld" = "Rest time:  %lld";
+"Rice time: %lld" = "Time in rice: %lld";
+"Rest time: %lld" = "Rest:  %lld";
 "Done" = "Done";
 "Settings" = "Settings";
+"Finished…" = "Finished…";

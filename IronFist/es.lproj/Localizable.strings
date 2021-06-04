@@ -12,7 +12,8 @@
 "Stop" = "Parar";
 "Rice" = "Arroz";
 "Rest" = "Descansar";
-"Rice time: %lld" = "Tiempo de arroz: %lld";
-"Rest time: %lld" = "Tiempo de descanso: %lld";
+"Rice time: %lld" = "Tiempo en arroz: %lld";
+"Rest time: %lld" = "Descanso: %lld";
 "Done" = "OK";
 "Settings" = "Configuración";
+"Finished…" = "Terminado…";
