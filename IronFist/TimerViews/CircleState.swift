@@ -10,22 +10,27 @@ import SwiftUI
 public enum CircleState: Equatable {
     case fist
     case rest
+    case waiting
 
     public var shadowColor: Color {
         switch self {
             case .fist:
-                return Color("shadowColor-1")
+                return Color("shadowColorFist")
             case .rest:
-                return Color("shadowColor-2")
+                return Color("shadowColorRest")
+            case .waiting:
+                return Color("shadowColorWait")
         }
     }
 
     public var baseAccentColor: Color {
         switch self {
             case .fist:
-                return Color("baseAccentColor-1")
+                return Color("accentColorFist")
             case .rest:
-                return Color("baseAccentColor-2")
+                return Color("accentColorRest")
+            case .waiting:
+                return Color("accentColorWait")
         }
     }
 
@@ -35,6 +40,8 @@ public enum CircleState: Equatable {
                 return "👊"
             case .rest:
                 return "🖐"
+            case .waiting:
+                return "✊"
         }
     }
 

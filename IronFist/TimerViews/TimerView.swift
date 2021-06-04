@@ -22,7 +22,7 @@ struct TimerView: View {
                 }
                 .foregroundColor(self.controller.state.baseAccentColor)
                 .font(.title.weight(.semibold))
-                Text(controller.selectedIronFist?.instruction ?? "Waiting…")
+                Text(controller.selectedIronFist?.instruction ?? "Finished…")
                     .font(.body)
             }
             .padding()
@@ -48,7 +48,12 @@ struct TimerView_Previews: PreviewProvider {
     static var controller = TimerController()
 
     static var previews: some View {
-        TimerView()
-            .environmentObject(controller)
+        Group {
+            TimerView()
+                .environmentObject(controller)
+            TimerView()
+                .preferredColorScheme(.dark)
+                .environmentObject(controller)
+        }
     }
 }

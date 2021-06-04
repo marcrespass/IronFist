@@ -31,7 +31,7 @@ public final class TimerController: NSObject, ObservableObject {
     @Published private (set) var selectedIronFist: IronFist?
     @Published private (set) var countdownString: String = "0"
     @Published private (set) var tenths: CGFloat = 1
-    @Published private (set) var state: CircleState = .fist  {
+    @Published private (set) var state: CircleState = .waiting  {
         didSet {
             self.configureTimer()
         }
@@ -159,7 +159,7 @@ public final class TimerController: NSObject, ObservableObject {
                         strongSelf.state = .rest
                         strongSelf.soStrongSynthesizer.speak(strongSelf.soStrongSpeechUtterance)
                     } else {
-                        strongSelf.state = .fist
+                        strongSelf.state = .waiting
                         strongSelf.nextItem()
                     }
                 }
@@ -170,13 +170,13 @@ public final class TimerController: NSObject, ObservableObject {
     private func stopTimer() {
         self.timerSeconds = 0
         self.cancelTimers()
-        self.state = .fist
+        self.state = .waiting
     }
 
     private func cancelTimers() {
-        self.cancellable = nil
         self.cancellableTimerPublisher?.cancel()
         self.cancellableTimerPublisher = nil
+        self.cancellable = nil
     }
 }
 
