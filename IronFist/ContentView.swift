@@ -8,27 +8,32 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var controller: IronFistController
+    @EnvironmentObject var controller: TimerController
     @State private var showingSettings = false
+    @State private var isShowingDetailView = false
 
     var body: some View {
         NavigationView {
-            List {
-                Section(header: GroupedListHeader()) {
-                    ForEach (controller.ironFists) { ironFist in
-                        IronFistRow(ironFist: ironFist)
+            VStack {
+                NavigationLink(destination: TimerView(), isActive: $isShowingDetailView) { EmptyView() }
+
+                List {
+                    Section(header: GroupedListHeader()) {
+                        ForEach (controller.ironFists) { ironFist in
+                            IronFistRow(ironFist: ironFist)
+                        }
                     }
                 }
-            }
-            // MER 2021-05-24 Consider .popover instead of a .sheet
-            .sheet(isPresented: $showingSettings, content: { SettingsView() })
-            .listStyle(InsetListStyle())
+                // MER 2021-05-24 Consider .popover instead of a .sheet
+                .sheet(isPresented: $showingSettings, content: { SettingsView() })
+                .listStyle(InsetListStyle())
 
-            .navigationTitle("Iron Fist")
-            .toolbar {
-                startStopToolbarItem
-                timerValueToolbarItem
-                settingsToolbarItem
+                .navigationTitle(controller.timerRunning ? "Cancel" : "Iron Fist")
+                .toolbar {
+                    startStopToolbarItem
+                    //                timerValueToolbarItem
+                    settingsToolbarItem
+                }
             }
         }
     }
@@ -40,17 +45,15 @@ extension ContentView {
     // https://swiftwithmajid.com/2020/07/15/mastering-toolbars-in-swiftui/
     var startStopToolbarItem: some ToolbarContent {
         ToolbarItem(placement: .navigationBarLeading) {
-            Button(action: {
-                self.controller.toggleRunning()
-            }, label: {
-                Text(self.controller.timerRunning ? "Stop" : "Start")
-            })
+            Button(self.controller.timerRunning ? "Stop" : "Start") {
+                self.isShowingDetailView = true
+            }
         }
     }
 
     var timerValueToolbarItem: some ToolbarContent {
         ToolbarItem(placement: .principal) {
-            Text(self.controller.timerRunning ? "\(Int(controller.timerInterval))" : "")
+            Text(controller.countdownString)
         }
     }
 
@@ -67,11 +70,11 @@ extension ContentView {
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var controller = IronFistController()
+    static var controller = TimerController()
 
     static var previews: some View {
         ContentView()
-//            .previewLayout(.sizeThatFits)
+            //            .previewLayout(.sizeThatFits)
             .environmentObject(controller)
     }
 }
