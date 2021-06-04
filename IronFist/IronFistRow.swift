@@ -22,7 +22,8 @@ struct IronFistRow: View {
                 Text("\(ironFist.id).")
                 Text(ironFist.title)
             }
-            Text(highlight ? ironFist.instruction : ironFist.instructionTruncated)
+            Text(ironFist.instruction)
+                .lineLimit(1)
                 .font(highlight ? .body : .caption)
         }
         .listRowBackground(highlight ? Color.green: Color.clear)
