@@ -87,6 +87,7 @@ public final class TimerController: NSObject, ObservableObject {
 
     // MARK: - Public methods
     public func start() {
+        self.configureTimer()
         self.timerRunning = true
         self.playingIndex = 0
         self.selectedIronFist = self.ironFists[self.playingIndex]
@@ -151,8 +152,7 @@ public final class TimerController: NSObject, ObservableObject {
                 if strongSelf.timerSeconds > 0 {
                     let fraction = strongSelf.timerSeconds.truncatingRemainder(dividingBy: 1)
                     strongSelf.tenths = CGFloat(fraction)
-                    let countdownNumber = NSNumber(value: strongSelf.timerSeconds)
-                    strongSelf.countdownString = strongSelf.displayFormatter.string(from: countdownNumber) ?? "error"
+                    strongSelf.countdownString = strongSelf.displayFormatter.string(from: NSNumber(value: strongSelf.timerSeconds)) ?? "error"
                 } else {
                     strongSelf.cancelTimers()
                     if strongSelf.state == .fist {
