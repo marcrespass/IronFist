@@ -7,12 +7,17 @@
 
 import SwiftUI
 
+public enum Constants {
+    static let kFistTime = "FistTime"
+    static let kRestTime = "RestTime"
+}
+
 @main
 struct IronFistApp: App {
     @StateObject var controller: TimerController
 
     init() {
-        UserDefaults.standard.register(defaults: ["RestTime" : 5, "FistTime" : 15])
+        UserDefaults.standard.register(defaults: [Constants.kRestTime : 5, Constants.kFistTime : 15])
         let controller = TimerController()
         _controller = StateObject(wrappedValue: controller)
     }

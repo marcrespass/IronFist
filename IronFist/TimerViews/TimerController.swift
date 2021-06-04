@@ -65,12 +65,10 @@ public final class TimerController: NSObject, ObservableObject {
     public override init() {
         self.timerPublisher = Timer.publish(every: 0.1, on: RunLoop.main, in: .common)
         self.ironFists = TimerController.loadIronFistsFromBundle()
-        self.fistTime = UserDefaults.standard.integer(forKey: "FistTime")
-        self.restTime = UserDefaults.standard.integer(forKey: "RestTime")
+        self.fistTime = UserDefaults.standard.integer(forKey: Constants.kFistTime)
+        self.restTime = UserDefaults.standard.integer(forKey: Constants.kRestTime)
 
         super.init()
-        debugPrint("FistTime: \(self.fistTime)")
-        debugPrint("RestTime: \(self.restTime)")
         self.configureTimer()
 
         let englishVoices = AVSpeechSynthesisVoice.speechVoices().filter { voice in
@@ -106,8 +104,8 @@ public final class TimerController: NSObject, ObservableObject {
     }
 
     public func saveSettings() {
-        UserDefaults.standard.set(self.fistTime, forKey: "RiceTime")
-        UserDefaults.standard.set(self.restTime, forKey: "RestTime")
+        UserDefaults.standard.set(self.fistTime, forKey: Constants.kFistTime)
+        UserDefaults.standard.set(self.restTime, forKey: Constants.kRestTime)
     }
 
     // MARK: - Private methods

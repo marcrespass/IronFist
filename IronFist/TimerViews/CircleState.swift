@@ -40,10 +40,10 @@ public enum CircleState: Equatable {
 
     public var timerValue: TimeInterval {
         switch self {
-            case .fist:
-                return TimeInterval(UserDefaults.standard.integer(forKey: "FistTime"))
+            case .fist, .waiting:
+                return TimeInterval(UserDefaults.standard.integer(forKey: Constants.kFistTime))
             case .rest:
-                return TimeInterval(UserDefaults.standard.integer(forKey: "RestTime"))
+                return TimeInterval(UserDefaults.standard.integer(forKey: Constants.kRestTime))
         }
     }
 }
