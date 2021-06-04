@@ -6,9 +6,11 @@
   
 */
 
+"Iron Fist" = "Puño de hierro";
+"Cancel" = "Cancelar";
 "Start" = "Comenzar";
 "Stop" = "Parar";
-"Rice" = "Arroze";
+"Rice" = "Arroz";
 "Rest" = "Descansar";
 "Rice time: %lld" = "Tiempo de arroz: %lld";
 "Rest time: %lld" = "Tiempo de descanso: %lld";
