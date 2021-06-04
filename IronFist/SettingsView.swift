@@ -21,11 +21,7 @@ struct SettingsView: View {
                 Button("Done") { presentationMode.wrappedValue.dismiss() }
             }
         }
-        .onDisappear(perform: save)
-    }
-
-    func save() {
-        self.controller.saveSettings()
+        .onDisappear(perform: controller.saveSettings)
     }
 }
 
