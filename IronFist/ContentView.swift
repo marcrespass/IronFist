@@ -27,7 +27,6 @@ struct ContentView: View {
                 // MER 2021-05-24 Consider .popover instead of a .sheet
                 .sheet(isPresented: $showingSettings, content: { SettingsView() })
                 .listStyle(InsetListStyle())
-
                 .navigationTitle(controller.timerRunning ? "Cancel" : "Iron Fist")
                 .toolbar {
                     startStopToolbarItem
