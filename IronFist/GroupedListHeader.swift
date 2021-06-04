@@ -10,7 +10,6 @@ import SwiftUI
 // https://thehappyprogrammer.com/custom-list-in-swiftui/
 struct GroupedListHeader: View {
     @EnvironmentObject var controller: TimerController
-    @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
         HStack {
@@ -18,5 +17,14 @@ struct GroupedListHeader: View {
             Spacer()
             Text("Rest time: \(controller.restTime)")
         }
+    }
+}
+
+struct GroupedListHeader_Previews: PreviewProvider {
+    static var controller = TimerController()
+
+    static var previews: some View {
+        GroupedListHeader()
+            .environmentObject(controller)
     }
 }
