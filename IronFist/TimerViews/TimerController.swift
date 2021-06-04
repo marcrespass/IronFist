@@ -72,15 +72,11 @@ public final class TimerController: NSObject, ObservableObject {
         self.configureTimer()
 
         let englishVoices = AVSpeechSynthesisVoice.speechVoices().filter { voice in
-            debugPrint("Lang: \(voice.language) | Name: \(voice.name) | Quality:  \(voice.quality.rawValue)");
             return voice.language == "en-US"
         }
         self.speechVoice = englishVoices.first
 
         // MARK: - Speech setup
-        self.ironFistSynthesizer.delegate = self
-        self.soStrongSynthesizer.delegate = self
-        self.finishSynthesizer.delegate = self
         self.soStrongSpeechUtterance.voice = self.speechVoice
         self.finishSpeechUtterance.voice = self.speechVoice
     }
@@ -99,6 +95,11 @@ public final class TimerController: NSObject, ObservableObject {
         self.ironFistSynthesizer.stopSpeaking(at: .immediate)
         self.soStrongSynthesizer.stopSpeaking(at: .immediate)
         self.finishSynthesizer.stopSpeaking(at: .immediate)
+
+        self.ironFistSynthesizer.delegate = nil
+        self.soStrongSynthesizer.delegate = nil
+        self.finishSynthesizer.delegate = nil
+
         self.stopTimer()
         self.playingIndex = 0
         self.selectedIronFist = nil
@@ -115,6 +116,7 @@ public final class TimerController: NSObject, ObservableObject {
 
         if self.playingIndex >= self.ironFists.count {
             self.finishSynthesizer.speak(finishSpeechUtterance)
+            self.finishSynthesizer.delegate = self
         } else {
             self.selectedIronFist = self.ironFists[self.playingIndex]
             self.speakCurrentItem()
@@ -127,8 +129,8 @@ public final class TimerController: NSObject, ObservableObject {
         let text = ironFist.spokenText
         let speechUtterance = AVSpeechUtterance(string: text)
         speechUtterance.voice = self.speechVoice
-        debugPrint("Speaking: \(ironFist.title)")
         self.ironFistSynthesizer.speak(speechUtterance)
+        self.ironFistSynthesizer.delegate = self
     }
 
     private func configureTimer(showTenths: Bool = false) {
@@ -158,6 +160,7 @@ public final class TimerController: NSObject, ObservableObject {
                     if strongSelf.state == .fist {
                         strongSelf.state = .rest
                         strongSelf.soStrongSynthesizer.speak(strongSelf.soStrongSpeechUtterance)
+                        strongSelf.soStrongSynthesizer.delegate = self
                     } else {
                         strongSelf.state = .waiting
                         strongSelf.nextItem()
@@ -187,7 +190,7 @@ extension TimerController: AVSpeechSynthesizerDelegate {
             self.state = .rest
             self.startTimer()
         } else if synthesizer == self.finishSynthesizer {
-            debugPrint("Finished - notify delegate")
+            debugPrint("Finished - ¿avisar el delegato?")
             self.stop()
         } else {
             self.state = .fist
