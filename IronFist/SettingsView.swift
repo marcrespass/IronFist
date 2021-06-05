@@ -12,16 +12,25 @@ struct SettingsView: View {
     @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
-        Form {
-            Section(header: Text(NSLocalizedString("Settings", comment: ""))) {
-                Stepper("Rice time: \(controller.fistTime)", value: $controller.fistTime)
-                Stepper("Rest time: \(controller.restTime)", value: $controller.restTime)
+        VStack {
+            HStack {
+                Text("Settings")
+                    .font(.largeTitle.bold())
+                Spacer()
+                Button("Done") {
+                    self.controller.saveSettings()
+                    presentationMode.wrappedValue.dismiss()
+                }
             }
-            Section {
-                Button("Done") { presentationMode.wrappedValue.dismiss() }
+            .padding([.top, .leading, .trailing])
+
+            Form {
+                Section {
+                    Stepper("Rice time: \(controller.fistTime)", value: $controller.fistTime)
+                    Stepper("Rest time: \(controller.restTime)", value: $controller.restTime)
+                }
             }
         }
-        .onDisappear(perform: controller.saveSettings)
     }
 }
 
