@@ -17,6 +17,10 @@ struct GroupedListHeader: View {
             Spacer()
             Text("Rest time: \(controller.restTime)")
         }
+        .font(.headline)
+        .foregroundColor(.white)
+        .padding([.leading, .trailing])
+        .background(Color.gray)
     }
 }
 
