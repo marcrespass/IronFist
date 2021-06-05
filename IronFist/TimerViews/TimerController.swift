@@ -84,14 +84,19 @@ public final class TimerController: NSObject, ObservableObject {
     // MARK: - Public methods
     public func start() {
         self.configureTimer()
+
         self.timerRunning = true
         self.playingIndex = 0
         self.selectedIronFist = self.ironFists[self.playingIndex]
+
         self.speakCurrentItem()
     }
 
     public func stop() {
         self.timerRunning = false
+        self.timerSeconds = 0
+        self.cancelTimers()
+
         self.ironFistSynthesizer.stopSpeaking(at: .immediate)
         self.soStrongSynthesizer.stopSpeaking(at: .immediate)
         self.finishSynthesizer.stopSpeaking(at: .immediate)
@@ -100,7 +105,7 @@ public final class TimerController: NSObject, ObservableObject {
         self.soStrongSynthesizer.delegate = nil
         self.finishSynthesizer.delegate = nil
 
-        self.stopTimer()
+        self.state = .waiting
         self.playingIndex = 0
         self.selectedIronFist = nil
     }
@@ -111,7 +116,7 @@ public final class TimerController: NSObject, ObservableObject {
     }
 
     // MARK: - Private methods
-    private func nextItem() {
+    private func speakNextItem() {
         self.playingIndex += 1
 
         if self.playingIndex >= self.ironFists.count {
@@ -163,17 +168,11 @@ public final class TimerController: NSObject, ObservableObject {
                         strongSelf.soStrongSynthesizer.delegate = self
                     } else {
                         strongSelf.state = .waiting
-                        strongSelf.nextItem()
+                        strongSelf.speakNextItem()
                     }
                 }
             }
         self.cancellableTimerPublisher = self.timerPublisher.connect()
-    }
-
-    private func stopTimer() {
-        self.timerSeconds = 0
-        self.cancelTimers()
-        self.state = .waiting
     }
 
     private func cancelTimers() {
@@ -186,6 +185,7 @@ public final class TimerController: NSObject, ObservableObject {
 // MARK: - AVSpeechSynthesizerDelegate
 extension TimerController: AVSpeechSynthesizerDelegate {
     public func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish: AVSpeechUtterance) {
+        // synthesizer.delegate = nil // when the speech is finished, nil the delegate to prevent any lingering problems
         if synthesizer == self.soStrongSynthesizer {
             self.state = .rest
             self.startTimer()
