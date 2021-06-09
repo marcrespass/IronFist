@@ -13,7 +13,7 @@ struct TimerView: View {
     var body: some View {
         VStack {
             TimerProgressCircle()
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading) { // Iron fist title and instruction display
                 HStack {
                     if let ironFist = controller.selectedIronFist {
                         Text("\(ironFist.id).")
