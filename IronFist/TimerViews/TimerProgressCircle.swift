@@ -19,7 +19,6 @@
 import SwiftUI
 
 struct TimerProgressCircle: View {
-
     private let baseSize: CGFloat = 220
     private let lineWidth: CGFloat = 20
     private let shadowRadius: CGFloat = 20
@@ -28,6 +27,17 @@ struct TimerProgressCircle: View {
     private let completionStart: CGFloat = 0
 
     @EnvironmentObject var controller: TimerController
+
+    var body: some View {
+        VStack {
+            ZStack {
+                circleCenterView()
+                    .padding()
+                progressCircle()
+            }
+        }
+        .padding()
+    }
 
     fileprivate func circleCenterView() -> some View {
         ZStack {
@@ -55,18 +65,7 @@ struct TimerProgressCircle: View {
             .padding()
             .rotationEffect(.degrees(-90))
             .shadow(color: self.controller.state.shadowColor, radius: shadowRadius)
-//            .animation(.easeOut) // MER 2021-06-01 animations don't work well and the leaping actually helps count the tenths
-    }
-
-    var body: some View {
-        VStack {
-            ZStack {
-                circleCenterView()
-                    .padding()
-                progressCircle()
-            }
-        }
-        .padding()
+        //            .animation(.easeOut) // MER 2021-06-01 animations don't work well and the leaping actually helps count the tenths
     }
 }
 
@@ -77,7 +76,7 @@ struct CircleGraph_Previews: PreviewProvider {
         VStack {
             TimerProgressCircle()
                 .previewDevice("iPhone SE (2nd generation)")
-//                .preferredColorScheme(.dark)
+            //                .preferredColorScheme(.dark)
                 .environmentObject(controller)
             Spacer()
         }
