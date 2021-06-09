@@ -11,7 +11,11 @@ import CoreGraphics
 import AVFoundation
 import UIKit
 
+/// Data is read-only and loaded from a JSON in the app bundle
+/// This object is the AVSpeechSynthesizerDelegate
+/// It manages a timer, manages speech, and manages the current selection
 public final class TimerController: NSObject, ObservableObject {
+    // MARK: - Private Static Properties
     private static func loadIronFistsFromBundle() -> [IronFist] {
         let array: [IronFist] = Bundle(for: Self.self).decode(from: "IronFist.json")
         if ProcessInfo.processInfo.arguments.contains("-testingMode") {
@@ -70,15 +74,7 @@ public final class TimerController: NSObject, ObservableObject {
 
         super.init()
         self.configureTimer()
-
-        let englishVoices = AVSpeechSynthesisVoice.speechVoices().filter { voice in
-            return voice.language == "en-US"
-        }
-        self.speechVoice = englishVoices.first
-
-        // MARK: - Speech setup
-        self.soStrongSpeechUtterance.voice = self.speechVoice
-        self.finishSpeechUtterance.voice = self.speechVoice
+        self.configureSpeech()
     }
 
     // MARK: - Public methods
@@ -114,8 +110,27 @@ public final class TimerController: NSObject, ObservableObject {
         UserDefaults.standard.set(self.fistTime, forKey: Constants.kFistTime)
         UserDefaults.standard.set(self.restTime, forKey: Constants.kRestTime)
     }
+}
 
-    // MARK: - Private methods
+// MARK: - Private methods
+extension TimerController {
+    private func configureSpeech() {
+        let englishVoices = AVSpeechSynthesisVoice.speechVoices().filter { voice in
+            return voice.language == "en-US"
+        }
+        self.speechVoice = englishVoices.first
+
+        self.soStrongSpeechUtterance.voice = self.speechVoice
+        self.finishSpeechUtterance.voice = self.speechVoice
+    }
+
+    private func configureTimer(showTenths: Bool = false) {
+        self.timerSeconds = self.state.timerValue
+        self.tenths = 1
+        self.displayFormatter = showTenths ? Formatters.decimalFormatter : Formatters.plainFormatter
+        self.countdownString = self.displayFormatter.string(from: NSNumber(value: self.timerSeconds)) ?? "error"
+    }
+
     private func speakNextItem() {
         self.playingIndex += 1
 
@@ -136,13 +151,6 @@ public final class TimerController: NSObject, ObservableObject {
         speechUtterance.voice = self.speechVoice
         self.ironFistSynthesizer.speak(speechUtterance)
         self.ironFistSynthesizer.delegate = self
-    }
-
-    private func configureTimer(showTenths: Bool = false) {
-        self.timerSeconds = self.state.timerValue
-        self.tenths = 1
-        self.displayFormatter = showTenths ? Formatters.decimalFormatter : Formatters.plainFormatter
-        self.countdownString = self.displayFormatter.string(from: NSNumber(value: self.timerSeconds)) ?? "error"
     }
 
     private func startTimer() {
