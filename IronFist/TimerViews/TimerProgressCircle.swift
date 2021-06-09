@@ -77,7 +77,7 @@ struct CircleGraph_Previews: PreviewProvider {
         VStack {
             TimerProgressCircle()
                 .previewDevice("iPhone SE (2nd generation)")
-                .preferredColorScheme(.light)
+//                .preferredColorScheme(.dark)
                 .environmentObject(controller)
             Spacer()
         }
