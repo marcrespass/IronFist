@@ -68,7 +68,6 @@
 		D359700526696AA000AC2CCB /* TimerViews */ = {
 			isa = PBXGroup;
 			children = (
-				D3596FFD266969A500AC2CCB /* TimerController.swift */,
 				D359700626696AC700AC2CCB /* TimerView.swift */,
 				D3596FFE266969A500AC2CCB /* TimerProgressCircle.swift */,
 				D3597001266969BB00AC2CCB /* CircleState.swift */,
@@ -93,6 +92,7 @@
 			children = (
 				D3D0BD6126587F1500CDF718 /* IronFist.json */,
 				D3D0BD6326587F1500CDF718 /* IronFist.swift */,
+				D3596FFD266969A500AC2CCB /* TimerController.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
