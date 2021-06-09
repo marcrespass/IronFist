@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D3199D99266A9AC400DA4A7A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3199D98266A9AC400DA4A7A /* Colors.xcassets */; };
-		D3596FFF266969A500AC2CCB /* TimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3596FFD266969A500AC2CCB /* TimerController.swift */; };
+		D3596FFF266969A500AC2CCB /* IronFistController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3596FFD266969A500AC2CCB /* IronFistController.swift */; };
 		D3597000266969A500AC2CCB /* TimerProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3596FFE266969A500AC2CCB /* TimerProgressCircle.swift */; };
 		D3597002266969BC00AC2CCB /* CircleState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3597001266969BB00AC2CCB /* CircleState.swift */; };
 		D3597004266969C700AC2CCB /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3597003266969C700AC2CCB /* Formatters.swift */; };
@@ -28,7 +28,7 @@
 
 /* Begin PBXFileReference section */
 		D3199D98266A9AC400DA4A7A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
-		D3596FFD266969A500AC2CCB /* TimerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerController.swift; sourceTree = "<group>"; };
+		D3596FFD266969A500AC2CCB /* IronFistController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IronFistController.swift; sourceTree = "<group>"; };
 		D3596FFE266969A500AC2CCB /* TimerProgressCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerProgressCircle.swift; sourceTree = "<group>"; };
 		D3597001266969BB00AC2CCB /* CircleState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleState.swift; sourceTree = "<group>"; };
 		D3597003266969C700AC2CCB /* Formatters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
@@ -92,7 +92,7 @@
 			children = (
 				D3D0BD6126587F1500CDF718 /* IronFist.json */,
 				D3D0BD6326587F1500CDF718 /* IronFist.swift */,
-				D3596FFD266969A500AC2CCB /* TimerController.swift */,
+				D3596FFD266969A500AC2CCB /* IronFistController.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -243,7 +243,7 @@
 			files = (
 				D3D0BD6926587F1500CDF718 /* IronFistApp.swift in Sources */,
 				D3D0BD6C26587F1500CDF718 /* Bundle+Extensions.swift in Sources */,
-				D3596FFF266969A500AC2CCB /* TimerController.swift in Sources */,
+				D3596FFF266969A500AC2CCB /* IronFistController.swift in Sources */,
 				D3C7B81E26619190003831A7 /* IronFistRow.swift in Sources */,
 				D3D0BD6626587F1500CDF718 /* ContentView.swift in Sources */,
 				D359700726696AC700AC2CCB /* TimerView.swift in Sources */,

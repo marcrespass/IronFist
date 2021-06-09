@@ -14,7 +14,7 @@ import UIKit
 /// Data is read-only and loaded from a JSON in the app bundle
 /// This object is the AVSpeechSynthesizerDelegate
 /// It manages a timer, manages speech, and manages the current selection
-public final class TimerController: NSObject, ObservableObject {
+public final class IronFistController: NSObject, ObservableObject {
     // MARK: - Private Static Properties
     private static func loadIronFistsFromBundle() -> [IronFist] {
         let array: [IronFist] = Bundle(for: Self.self).decode(from: "IronFist.json")
@@ -68,7 +68,7 @@ public final class TimerController: NSObject, ObservableObject {
 
     public override init() {
         self.timerPublisher = Timer.publish(every: 0.1, on: RunLoop.main, in: .common)
-        self.ironFists = TimerController.loadIronFistsFromBundle()
+        self.ironFists = IronFistController.loadIronFistsFromBundle()
         self.fistTime = UserDefaults.standard.integer(forKey: Constants.kFistTime)
         self.restTime = UserDefaults.standard.integer(forKey: Constants.kRestTime)
 
@@ -113,7 +113,7 @@ public final class TimerController: NSObject, ObservableObject {
 }
 
 // MARK: - Private methods
-extension TimerController {
+extension IronFistController {
     private func configureSpeech() {
         let englishVoices = AVSpeechSynthesisVoice.speechVoices().filter { voice in
             return voice.language == "en-US"
@@ -191,7 +191,7 @@ extension TimerController {
 }
 
 // MARK: - AVSpeechSynthesizerDelegate
-extension TimerController: AVSpeechSynthesizerDelegate {
+extension IronFistController: AVSpeechSynthesizerDelegate {
     public func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish: AVSpeechUtterance) {
         // synthesizer.delegate = nil // when the speech is finished, nil the delegate to prevent any lingering problems
         if synthesizer == self.soStrongSynthesizer {

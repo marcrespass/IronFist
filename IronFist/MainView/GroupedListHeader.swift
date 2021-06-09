@@ -9,7 +9,7 @@ import SwiftUI
 
 // https://thehappyprogrammer.com/custom-list-in-swiftui/
 struct GroupedListHeader: View {
-    @EnvironmentObject var controller: TimerController
+    @EnvironmentObject var controller: IronFistController
 
     var body: some View {
         HStack {
@@ -25,7 +25,7 @@ struct GroupedListHeader: View {
 }
 
 struct GroupedListHeader_Previews: PreviewProvider {
-    static var controller = TimerController()
+    static var controller = IronFistController()
 
     static var previews: some View {
         GroupedListHeader()

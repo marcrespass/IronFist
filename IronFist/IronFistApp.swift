@@ -14,11 +14,11 @@ public enum Constants {
 
 @main
 struct IronFistApp: App {
-    @StateObject var controller: TimerController
+    @StateObject var controller: IronFistController
 
     init() {
         UserDefaults.standard.register(defaults: [Constants.kRestTime : 5, Constants.kFistTime : 15])
-        let controller = TimerController()
+        let controller = IronFistController()
         _controller = StateObject(wrappedValue: controller)
     }
 

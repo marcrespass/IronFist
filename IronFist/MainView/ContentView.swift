@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var controller: TimerController
+    @EnvironmentObject var controller: IronFistController
     @State private var showingSettings = false
     @State private var isShowingDetailView = false
 
@@ -59,7 +59,7 @@ extension ContentView {
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var controller = TimerController()
+    static var controller = IronFistController()
 
     static var previews: some View {
         Group {

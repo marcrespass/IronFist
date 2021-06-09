@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @EnvironmentObject var controller: TimerController
+    @EnvironmentObject var controller: IronFistController
     @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
@@ -35,7 +35,7 @@ struct SettingsView: View {
 }
 
 struct SettingsView_Previews: PreviewProvider {
-    static var controller = TimerController()
+    static var controller = IronFistController()
 
     static var previews: some View {
         SettingsView()

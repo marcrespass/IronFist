@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TimerView: View {
-    @EnvironmentObject var controller: TimerController
+    @EnvironmentObject var controller: IronFistController
 
     var body: some View {
         VStack {
@@ -45,7 +45,7 @@ struct TimerView: View {
 }
 
 struct TimerView_Previews: PreviewProvider {
-    static var controller = TimerController()
+    static var controller = IronFistController()
 
     static var previews: some View {
         Group {

@@ -26,7 +26,7 @@ struct TimerProgressCircle: View {
     private let textFontSize: CGFloat = 80
     private let completionStart: CGFloat = 0
 
-    @EnvironmentObject var controller: TimerController
+    @EnvironmentObject var controller: IronFistController
 
     var body: some View {
         VStack {
@@ -70,7 +70,7 @@ struct TimerProgressCircle: View {
 }
 
 struct CircleGraph_Previews: PreviewProvider {
-    static var controller = TimerController()
+    static var controller = IronFistController()
 
     static var previews: some View {
         VStack {
