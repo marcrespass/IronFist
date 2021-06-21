@@ -29,6 +29,9 @@ struct SettingsView: View {
                     Stepper("Rice time: \(controller.fistTime)", value: $controller.fistTime)
                     Stepper("Rest time: \(controller.restTime)", value: $controller.restTime)
                 }
+                Section {
+                    Toggle("Speak exercises", isOn: $controller.speakExercises)
+                }
             }
         }
     }
