@@ -64,7 +64,6 @@ public final class IronFistController: NSObject, ObservableObject {
     private let ironFistSynthesizer = AVSpeechSynthesizer()
     private let soStrongSynthesizer = AVSpeechSynthesizer()
     private let finishSynthesizer = AVSpeechSynthesizer()
-//    private let soStrongSpeechUtterance = AVSpeechUtterance(string: "Wow. You are so strong. Rest.")
     private let finishSpeechUtterance = AVSpeechUtterance(string: "Well done!")
 
     public override init() {
@@ -138,7 +137,6 @@ extension IronFistController {
         }
         self.speechVoice = englishVoices.first
 
-//        self.soStrongSpeechUtterance.voice = self.speechVoice
         self.finishSpeechUtterance.voice = self.speechVoice
     }
 
