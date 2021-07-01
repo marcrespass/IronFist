@@ -31,6 +31,7 @@ struct SettingsView: View {
                 }
                 Section {
                     Toggle("Speak exercises", isOn: $controller.speakExercises)
+//                    Toggle("Speak rests", isOn: $controller.speakExercises)
                 }
             }
         }

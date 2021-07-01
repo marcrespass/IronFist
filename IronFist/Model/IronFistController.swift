@@ -32,6 +32,7 @@ public final class IronFistController: NSObject, ObservableObject {
     // MARK: - Published Properties
     @Published var fistTime: Int
     @Published var restTime: Int
+    @Published var speakExercises: Bool
     @Published private (set) var selectedIronFist: IronFist?
     @Published private (set) var countdownString: String = "0"
     @Published private (set) var tenths: CGFloat = 1
@@ -71,8 +72,11 @@ public final class IronFistController: NSObject, ObservableObject {
         self.ironFists = IronFistController.loadIronFistsFromBundle()
         self.fistTime = UserDefaults.standard.integer(forKey: Constants.kFistTime)
         self.restTime = UserDefaults.standard.integer(forKey: Constants.kRestTime)
+        self.speakExercises = UserDefaults.standard.bool(forKey: Constants.kSpeakExercises)
 
         super.init()
+        self.selectedIronFist = self.ironFists[self.playingIndex]
+
         self.configureTimer()
         self.configureSpeech()
     }
@@ -109,6 +113,7 @@ public final class IronFistController: NSObject, ObservableObject {
     public func saveSettings() {
         UserDefaults.standard.set(self.fistTime, forKey: Constants.kFistTime)
         UserDefaults.standard.set(self.restTime, forKey: Constants.kRestTime)
+        UserDefaults.standard.set(self.speakExercises, forKey: Constants.kSpeakExercises)
     }
 }
 
