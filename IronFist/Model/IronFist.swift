@@ -9,7 +9,11 @@ public struct IronFist: Codable, Hashable, Identifiable {
     public let title: String
     public let instruction: String
 
-    public var spokenText: String {
+    public var titleInstructionText: String {
         "\(self.id). \(self.title). \(self.instruction). Begin."
+    }
+
+    public var titleText: String {
+        "\(self.id). \(self.title). Begin."
     }
 }
