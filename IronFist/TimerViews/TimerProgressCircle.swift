@@ -44,27 +44,27 @@ struct TimerProgressCircle: View {
             Circle()
                 .fill(Color.white)
                 .frame(width: baseSize, height: baseSize)
-                .shadow(color: self.controller.state.shadowColor, radius: shadowRadius)
+                .shadow(color: self.controller.circleState.shadowColor, radius: shadowRadius)
             VStack {
-                Text(verbatim: self.controller.state.symbol)
+                Text(verbatim: self.controller.circleState.symbol)
                     .font(Font.system(size: imageFontSize, weight: .black, design: .rounded))
                     .animation(.default)
                 Text(verbatim: "\(self.controller.countdownString)")
                     .font(Font.system(size: textFontSize, weight: .heavy, design: .rounded).monospacedDigit())
             }
-            .foregroundColor(self.controller.state.baseAccentColor)
+            .foregroundColor(self.controller.circleState.baseAccentColor)
         }
     }
 
     fileprivate func progressCircle() -> some View {
         Circle()
             .trim(from: completionStart, to: self.controller.tenths)
-            .stroke(self.controller.state.baseAccentColor,
+            .stroke(self.controller.circleState.baseAccentColor,
                     style: StrokeStyle(lineWidth: lineWidth, lineCap: CGLineCap.round))
             .frame(width: baseSize + lineWidth, height: baseSize + lineWidth)
             .padding()
             .rotationEffect(.degrees(-90))
-            .shadow(color: self.controller.state.shadowColor, radius: shadowRadius)
+            .shadow(color: self.controller.circleState.shadowColor, radius: shadowRadius)
         //            .animation(.easeOut) // MER 2021-06-01 animations don't work well and the leaping actually helps count the tenths
     }
 }
