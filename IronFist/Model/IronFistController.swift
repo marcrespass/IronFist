@@ -25,8 +25,8 @@ public final class IronFistController: NSObject, ObservableObject {
     }
 
     public static var ironFistSample: IronFist {
-        guard let it = loadIronFistsFromBundle().first else { fatalError("There  must be one but there isn't") }
-        return it
+        guard let sample = loadIronFistsFromBundle().first else { fatalError("There  must be one but there isn't") }
+        return sample
     }
 
     // MARK: - Published Properties
@@ -36,7 +36,7 @@ public final class IronFistController: NSObject, ObservableObject {
     @Published private (set) var selectedIronFist: IronFist?
     @Published private (set) var countdownString: String = "0"
     @Published private (set) var tenths: CGFloat = 1
-    @Published private (set) var circleState: CircleState = .waiting  {
+    @Published private (set) var circleState: CircleState = .waiting {
         didSet {
             self.configureTimer()
         }
@@ -66,7 +66,7 @@ public final class IronFistController: NSObject, ObservableObject {
     private let finishSynthesizer = AVSpeechSynthesizer()
     private let finishSpeechUtterance = AVSpeechUtterance(string: "Well done!")
 
-    public override init() {
+    override public init() {
         self.timerPublisher = Timer.publish(every: 0.1, on: RunLoop.main, in: .common)
         self.ironFists = IronFistController.loadIronFistsFromBundle()
         self.fistTime = UserDefaults.standard.integer(forKey: Constants.kFistTime)
@@ -89,6 +89,7 @@ public final class IronFistController: NSObject, ObservableObject {
     public func toggle() {
         if self.timerRunning {
             self.stop()
+            self.ready()
         } else {
             self.start()
         }

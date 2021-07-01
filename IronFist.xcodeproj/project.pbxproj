@@ -27,6 +27,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D3048AD5268E51B200504711 /* build-script */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "build-script"; sourceTree = "<group>"; };
+		D3048AD6268E51B200504711 /* swiftlint-command */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "swiftlint-command"; sourceTree = "<group>"; };
+		D3048AD7268E51B200504711 /* swiftformat-command */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "swiftformat-command"; sourceTree = "<group>"; };
+		D3048AD9268E526000504711 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		D3048ADA268E526500504711 /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
 		D3199D98266A9AC400DA4A7A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		D3596FFD266969A500AC2CCB /* IronFistController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IronFistController.swift; sourceTree = "<group>"; };
 		D3596FFE266969A500AC2CCB /* TimerProgressCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerProgressCircle.swift; sourceTree = "<group>"; };
@@ -65,6 +70,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D3048AD4268E51B200504711 /* Build-Phases */ = {
+			isa = PBXGroup;
+			children = (
+				D3048AD5268E51B200504711 /* build-script */,
+				D3048AD6268E51B200504711 /* swiftlint-command */,
+				D3048AD7268E51B200504711 /* swiftformat-command */,
+			);
+			path = "Build-Phases";
+			sourceTree = "<group>";
+		};
 		D359700526696AA000AC2CCB /* TimerViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +142,9 @@
 		D3D0BD4426587EE300CDF718 = {
 			isa = PBXGroup;
 			children = (
+				D3048AD9268E526000504711 /* .swiftlint.yml */,
+				D3048ADA268E526500504711 /* .swiftformat */,
+				D3048AD4268E51B200504711 /* Build-Phases */,
 				D35EEBE2265B0C0F008CE2E2 /* XCConfig */,
 				D3D0BD4F26587EE300CDF718 /* IronFist */,
 				D3D0BD4E26587EE300CDF718 /* Products */,
@@ -174,6 +192,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D3D0BD5C26587EE400CDF718 /* Build configuration list for PBXNativeTarget "IronFist" */;
 			buildPhases = (
+				D3048AD8268E51C400504711 /* SwiftLint */,
 				D3D0BD4926587EE300CDF718 /* Sources */,
 				D3D0BD4A26587EE300CDF718 /* Frameworks */,
 				D3D0BD4B26587EE300CDF718 /* Resources */,
@@ -235,6 +254,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D3048AD8268E51C400504711 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$SRCROOT/Build-Phases/swiftlint-command\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D3D0BD4926587EE300CDF718 /* Sources */ = {

@@ -1,0 +1,17 @@
+opt_in_rules: # some rules are only opt-in
+  - empty_count
+  - convenience_type
+  - empty_string
+  - fatal_error_message
+  - file_name
+  - first_where
+  - modifier_order
+  - private_action
+  - private_outlet
+  - toggle_bool
+disabled_rules: # rule identifiers to exclude from running
+  - line_length
+  - trailing_whitespace
+  - identifier_name
+  - switch_case_alignment
+excluded: # paths to ignore during linting. Takes precedence over `included`.

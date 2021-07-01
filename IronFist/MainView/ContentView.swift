@@ -18,7 +18,7 @@ struct ContentView: View {
                 NavigationLink(destination: TimerView(), isActive: $isShowingDetailView) { EmptyView() }
                 GroupedListHeader()
                 List {
-                    ForEach (controller.ironFists) { ironFist in
+                    ForEach(controller.ironFists) { ironFist in
                         IronFistRow(ironFist: ironFist)
                     }
                 }

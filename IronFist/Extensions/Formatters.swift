@@ -9,30 +9,30 @@ import Foundation
 
 public enum Formatters {
     static var decimalFormatter: NumberFormatter {
-        let it = NumberFormatter()
-        it.numberStyle = .decimal
-        it.minimumIntegerDigits = 1
-        it.minimumFractionDigits = 1
-        it.maximumFractionDigits = 1
-        return it
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.minimumIntegerDigits = 1
+        formatter.minimumFractionDigits = 1
+        formatter.maximumFractionDigits = 1
+        return formatter
     }
 
     static var plainFormatter: NumberFormatter {
-        let it = NumberFormatter()
-        it.numberStyle = .none
-        it.roundingMode = .ceiling
-        it.minimumIntegerDigits = 1
-        it.minimumFractionDigits = 0
-        it.maximumFractionDigits = 0
-        return it
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .none
+        formatter.roundingMode = .ceiling
+        formatter.minimumIntegerDigits = 1
+        formatter.minimumFractionDigits = 0
+        formatter.maximumFractionDigits = 0
+        return formatter
     }
 
     static var fractionFormatter: NumberFormatter {
-        let it = NumberFormatter()
-        it.numberStyle = .decimal
-        it.maximumIntegerDigits = 0
-        it.minimumFractionDigits = 1
-        it.maximumFractionDigits = 1
-        return it
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.maximumIntegerDigits = 0
+        formatter.minimumFractionDigits = 1
+        formatter.maximumFractionDigits = 1
+        return formatter
     }
 }

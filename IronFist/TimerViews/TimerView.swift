@@ -16,9 +16,9 @@ struct TimerView: View {
                 self.controller.toggle()
             } label: {
                 Text(self.controller.timerRunning ? "Stop" : "Begin")
-                    .fontWeight(.bold)
+//                    .fontWeight(.bold)
                     .font(.title)
-                    .padding()
+                    .padding(EdgeInsets(top: 8, leading: 12, bottom: 8, trailing: 12))
                     .background(self.controller.timerRunning ? Color.red : Color.green)
                     .foregroundColor(.white)
                     .clipShape(Capsule())
