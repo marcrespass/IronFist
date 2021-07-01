@@ -1,5 +1,0 @@
-#!/bin/zsh
-
-source ~/.zshrc
-
-swiftformat -disable wrapMultilineStatementBraces 
