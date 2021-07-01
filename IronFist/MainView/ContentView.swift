@@ -65,9 +65,9 @@ struct ContentView_Previews: PreviewProvider {
         Group {
             ContentView()
                 .environmentObject(controller)
-            ContentView()
-                .preferredColorScheme(.dark)
-                .environmentObject(controller)
+//            ContentView()
+//                .preferredColorScheme(.dark)
+//                .environmentObject(controller)
         }
     }
 }

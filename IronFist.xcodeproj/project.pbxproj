@@ -48,7 +48,7 @@
 		D3D0BD5726587EE400CDF718 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D3D0BD5926587EE400CDF718 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3D0BD5F26587F1500CDF718 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		D3D0BD6126587F1500CDF718 /* IronFist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = IronFist.json; sourceTree = "<group>"; };
+		D3D0BD6126587F1500CDF718 /* IronFist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = IronFist.json; sourceTree = "<group>"; wrapsLines = 0; };
 		D3D0BD6226587F1500CDF718 /* IronFistApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IronFistApp.swift; sourceTree = "<group>"; };
 		D3D0BD6326587F1500CDF718 /* IronFist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IronFist.swift; sourceTree = "<group>"; };
 		D3D0BD6526587F1500CDF718 /* Bundle+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
