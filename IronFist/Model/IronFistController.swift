@@ -95,12 +95,9 @@ public final class IronFistController: NSObject, ObservableObject {
     }
 
     public func start() {
+        self.ready()
         self.configureTimer()
-
         self.timerRunning = true
-        self.playingIndex = 0
-        self.selectedIronFist = self.ironFists[self.playingIndex]
-
         self.handleCurrentItem()
     }
 
@@ -147,14 +144,19 @@ extension IronFistController {
         self.countdownString = self.displayFormatter.string(from: NSNumber(value: self.timerSeconds)) ?? "error"
     }
 
-    private func configureNextItem() {
+    private func advanceItem() {
         self.playingIndex += 1
 
+        if self.playingIndex < self.ironFists.count {
+            self.selectedIronFist = self.ironFists[self.playingIndex]
+        }
+    }
+
+    private func configureNextItem() {
         if self.playingIndex >= self.ironFists.count {
             self.finishSynthesizer.speak(finishSpeechUtterance)
             self.finishSynthesizer.delegate = self
         } else {
-            self.selectedIronFist = self.ironFists[self.playingIndex]
             self.handleCurrentItem()
         }
     }
@@ -194,6 +196,7 @@ extension IronFistController {
                         speechUtterance.voice = strongSelf.speechVoice
                         strongSelf.soStrongSynthesizer.speak(speechUtterance)
                         strongSelf.soStrongSynthesizer.delegate = self
+                        strongSelf.advanceItem()
                     } else {
                         strongSelf.circleState = .waiting
                         strongSelf.configureNextItem()
@@ -213,12 +216,10 @@ extension IronFistController {
 // MARK: - AVSpeechSynthesizerDelegate
 extension IronFistController: AVSpeechSynthesizerDelegate {
     public func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish: AVSpeechUtterance) {
-        // synthesizer.delegate = nil // when the speech is finished, nil the delegate to prevent any lingering problems
         if synthesizer == self.soStrongSynthesizer {
             self.circleState = .rest
             self.startTimer()
         } else if synthesizer == self.finishSynthesizer {
-            debugPrint("Finished - ¿avisar el delegato?")
             self.stop()
         } else {
             self.circleState = .fist
