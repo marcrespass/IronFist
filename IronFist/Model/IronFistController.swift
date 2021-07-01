@@ -82,6 +82,11 @@ public final class IronFistController: NSObject, ObservableObject {
     }
 
     // MARK: - Public methods
+    public func ready() {
+        self.playingIndex = 0
+        self.selectedIronFist = self.ironFists[self.playingIndex]
+    }
+
     public func toggle() {
         if self.timerRunning {
             self.stop()

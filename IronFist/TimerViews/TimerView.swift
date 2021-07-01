@@ -47,9 +47,9 @@ struct TimerView: View {
             Spacer()
         }
         .padding([.leading, .trailing])
-//        .onAppear(perform: {
-//            self.controller.ready()
-//        })
+        .onAppear(perform: {
+            self.controller.ready()
+        })
         .onDisappear(perform: {
             self.controller.stop()
         })
