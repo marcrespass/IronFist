@@ -64,7 +64,7 @@ public final class IronFistController: NSObject, ObservableObject {
     private let ironFistSynthesizer = AVSpeechSynthesizer()
     private let soStrongSynthesizer = AVSpeechSynthesizer()
     private let finishSynthesizer = AVSpeechSynthesizer()
-    private let soStrongSpeechUtterance = AVSpeechUtterance(string: "Wow. You are so strong. Rest.")
+//    private let soStrongSpeechUtterance = AVSpeechUtterance(string: "Wow. You are so strong. Rest.")
     private let finishSpeechUtterance = AVSpeechUtterance(string: "Well done!")
 
     public override init() {
@@ -97,7 +97,7 @@ public final class IronFistController: NSObject, ObservableObject {
         self.playingIndex = 0
         self.selectedIronFist = self.ironFists[self.playingIndex]
 
-        self.speakCurrentItem()
+        self.handleCurrentItem()
     }
 
     public func stop() {
@@ -133,7 +133,7 @@ extension IronFistController {
         }
         self.speechVoice = englishVoices.first
 
-        self.soStrongSpeechUtterance.voice = self.speechVoice
+//        self.soStrongSpeechUtterance.voice = self.speechVoice
         self.finishSpeechUtterance.voice = self.speechVoice
     }
 
@@ -144,7 +144,7 @@ extension IronFistController {
         self.countdownString = self.displayFormatter.string(from: NSNumber(value: self.timerSeconds)) ?? "error"
     }
 
-    private func speakNextItem() {
+    private func configureNextItem() {
         self.playingIndex += 1
 
         if self.playingIndex >= self.ironFists.count {
@@ -152,14 +152,14 @@ extension IronFistController {
             self.finishSynthesizer.delegate = self
         } else {
             self.selectedIronFist = self.ironFists[self.playingIndex]
-            self.speakCurrentItem()
+            self.handleCurrentItem()
         }
     }
 
-    private func speakCurrentItem() {
+    private func handleCurrentItem() {
         guard let ironFist = self.selectedIronFist else { return }
 
-        let text = ironFist.spokenText
+        let text = self.speakExercises ? ironFist.titleInstructionText : ironFist.titleText
         let speechUtterance = AVSpeechUtterance(string: text)
         speechUtterance.voice = self.speechVoice
         self.ironFistSynthesizer.speak(speechUtterance)
@@ -174,9 +174,9 @@ extension IronFistController {
             .map { date in
                 return date.distance(to: self.stopTime)
             }
-            .sink { [weak self] value in
+            .sink { [weak self] timerTimeInterval in
                 guard let strongSelf = self else { return }
-                strongSelf.timerSeconds = value
+                strongSelf.timerSeconds = timerTimeInterval
                 if strongSelf.timerSeconds > 0 {
                     let fraction = strongSelf.timerSeconds.truncatingRemainder(dividingBy: 1)
                     strongSelf.tenths = CGFloat(fraction)
@@ -185,11 +185,15 @@ extension IronFistController {
                     strongSelf.cancelTimers()
                     if strongSelf.circleState == .fist {
                         strongSelf.circleState = .rest
-                        strongSelf.soStrongSynthesizer.speak(strongSelf.soStrongSpeechUtterance)
+
+                        let text = strongSelf.speakExercises ? "Wow. You are so strong. Rest." : "Rest."
+                        let speechUtterance = AVSpeechUtterance(string: text)
+                        speechUtterance.voice = strongSelf.speechVoice
+                        strongSelf.soStrongSynthesizer.speak(speechUtterance)
                         strongSelf.soStrongSynthesizer.delegate = self
                     } else {
                         strongSelf.circleState = .waiting
-                        strongSelf.speakNextItem()
+                        strongSelf.configureNextItem()
                     }
                 }
             }
