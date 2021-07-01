@@ -11,6 +11,18 @@ struct SettingsView: View {
     @EnvironmentObject var controller: IronFistController
     @Environment(\.presentationMode) var presentationMode
 
+    var appName: String {
+        let name = NSLocalizedString("Iron Fist", comment: "App name")
+        return name
+    }
+
+    var aboutLabel: String {
+        let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "1.0"
+        let build = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "1"
+        let label = "\(NSLocalizedString("version", comment: "")) \(version) (\(build))"
+        return label
+    }
+
     var body: some View {
         VStack {
             HStack {
@@ -31,8 +43,14 @@ struct SettingsView: View {
                 }
                 Section {
                     Toggle("Speak exercises", isOn: $controller.speakExercises)
-//                    Toggle("Speak rests", isOn: $controller.speakExercises)
                 }
+            }
+
+            HStack {
+                Text(appName)
+                    .fontWeight(.bold)
+                Text(aboutLabel)
+                    .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
             }
         }
     }
