@@ -36,7 +36,7 @@ public final class IronFistController: NSObject, ObservableObject {
     @Published private (set) var selectedIronFist: IronFist?
     @Published private (set) var countdownString: String = "0"
     @Published private (set) var tenths: CGFloat = 1
-    @Published private (set) var state: CircleState = .waiting  {
+    @Published private (set) var circleState: CircleState = .waiting  {
         didSet {
             self.configureTimer()
         }
@@ -82,6 +82,14 @@ public final class IronFistController: NSObject, ObservableObject {
     }
 
     // MARK: - Public methods
+    public func toggle() {
+        if self.timerRunning {
+            self.stop()
+        } else {
+            self.start()
+        }
+    }
+
     public func start() {
         self.configureTimer()
 
@@ -105,7 +113,7 @@ public final class IronFistController: NSObject, ObservableObject {
         self.soStrongSynthesizer.delegate = nil
         self.finishSynthesizer.delegate = nil
 
-        self.state = .waiting
+        self.circleState = .waiting
         self.playingIndex = 0
         self.selectedIronFist = nil
     }
@@ -130,7 +138,7 @@ extension IronFistController {
     }
 
     private func configureTimer(showTenths: Bool = false) {
-        self.timerSeconds = self.state.timerValue
+        self.timerSeconds = self.circleState.timerValue
         self.tenths = 1
         self.displayFormatter = showTenths ? Formatters.decimalFormatter : Formatters.plainFormatter
         self.countdownString = self.displayFormatter.string(from: NSNumber(value: self.timerSeconds)) ?? "error"
@@ -160,7 +168,7 @@ extension IronFistController {
 
     private func startTimer() {
         let startTime = Date()
-        self.stopTime = startTime.addingTimeInterval(self.state.timerValue)
+        self.stopTime = startTime.addingTimeInterval(self.circleState.timerValue)
 
         self.cancellable = self.timerPublisher
             .map { date in
@@ -175,12 +183,12 @@ extension IronFistController {
                     strongSelf.countdownString = strongSelf.displayFormatter.string(from: NSNumber(value: strongSelf.timerSeconds)) ?? "error"
                 } else {
                     strongSelf.cancelTimers()
-                    if strongSelf.state == .fist {
-                        strongSelf.state = .rest
+                    if strongSelf.circleState == .fist {
+                        strongSelf.circleState = .rest
                         strongSelf.soStrongSynthesizer.speak(strongSelf.soStrongSpeechUtterance)
                         strongSelf.soStrongSynthesizer.delegate = self
                     } else {
-                        strongSelf.state = .waiting
+                        strongSelf.circleState = .waiting
                         strongSelf.speakNextItem()
                     }
                 }
@@ -200,13 +208,13 @@ extension IronFistController: AVSpeechSynthesizerDelegate {
     public func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish: AVSpeechUtterance) {
         // synthesizer.delegate = nil // when the speech is finished, nil the delegate to prevent any lingering problems
         if synthesizer == self.soStrongSynthesizer {
-            self.state = .rest
+            self.circleState = .rest
             self.startTimer()
         } else if synthesizer == self.finishSynthesizer {
             debugPrint("Finished - ¿avisar el delegato?")
             self.stop()
         } else {
-            self.state = .fist
+            self.circleState = .fist
             self.startTimer()
         }
     }
