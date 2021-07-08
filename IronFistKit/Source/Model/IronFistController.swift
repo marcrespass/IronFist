@@ -30,25 +30,25 @@ public final class IronFistController: NSObject, ObservableObject {
     }
 
     // MARK: - Published Properties
-    @Published var fistTime: Int
-    @Published var restTime: Int
-    @Published var speakExercises: Bool
-    @Published private (set) var selectedIronFist: IronFist?
-    @Published private (set) var countdownString: String = "0"
-    @Published private (set) var tenths: CGFloat = 1
-    @Published private (set) var circleState: CircleState = .waiting {
+    @Published public var fistTime: Int
+    @Published public var restTime: Int
+    @Published public var speakExercises: Bool
+    @Published private (set) public var selectedIronFist: IronFist?
+    @Published private (set) public var countdownString: String = "0"
+    @Published private (set) public var tenths: CGFloat = 1
+    @Published private (set) public var circleState: CircleState = .waiting {
         didSet {
             self.configureTimer()
         }
     }
-    @Published private (set) var timerRunning = false {
+    @Published private (set) public var timerRunning = false {
         didSet {
             UIApplication.shared.isIdleTimerDisabled = timerRunning
         }
     }
 
     // MARK: - Gettable
-    private (set) var ironFists: [IronFist]
+    private (set) public var ironFists: [IronFist]
 
     // MARK: - Timer Properties
     private var playingIndex = 0

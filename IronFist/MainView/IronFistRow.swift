@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import IronFistKit
 
 struct IronFistRow: View {
     let ironFist: IronFist

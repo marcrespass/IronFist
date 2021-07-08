@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import IronFistKit
 
 struct SettingsView: View {
     @EnvironmentObject var controller: IronFistController

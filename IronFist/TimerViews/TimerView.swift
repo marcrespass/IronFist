@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import IronFistKit
 
 struct TimerView: View {
     @EnvironmentObject var controller: IronFistController

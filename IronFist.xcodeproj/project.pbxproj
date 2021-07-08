@@ -8,23 +8,67 @@
 
 /* Begin PBXBuildFile section */
 		D3199D99266A9AC400DA4A7A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3199D98266A9AC400DA4A7A /* Colors.xcassets */; };
-		D3596FFF266969A500AC2CCB /* IronFistController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3596FFD266969A500AC2CCB /* IronFistController.swift */; };
 		D3597000266969A500AC2CCB /* TimerProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3596FFE266969A500AC2CCB /* TimerProgressCircle.swift */; };
-		D3597002266969BC00AC2CCB /* CircleState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3597001266969BB00AC2CCB /* CircleState.swift */; };
-		D3597004266969C700AC2CCB /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3597003266969C700AC2CCB /* Formatters.swift */; };
 		D359700726696AC700AC2CCB /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D359700626696AC700AC2CCB /* TimerView.swift */; };
 		D35F4954265E9DE50066FBE4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D35F4956265E9DE50066FBE4 /* Localizable.strings */; };
 		D3B6492E265BF1DB00FC88E4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6492D265BF1DB00FC88E4 /* SettingsView.swift */; };
+		D3B7F7F426978F990010B252 /* IronFistKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3B7F7EB26978F990010B252 /* IronFistKit.framework */; };
+		D3B7F7FB26978F990010B252 /* IronFistKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B7F7FA26978F990010B252 /* IronFistKitTests.swift */; };
+		D3B7F7FD26978F990010B252 /* IronFistKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D3B7F7ED26978F990010B252 /* IronFistKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3B7F80026978F990010B252 /* IronFistKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3B7F7EB26978F990010B252 /* IronFistKit.framework */; };
+		D3B7F80126978F990010B252 /* IronFistKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D3B7F7EB26978F990010B252 /* IronFistKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D3B7F80B26978FC70010B252 /* IronFist.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D0BD6326587F1500CDF718 /* IronFist.swift */; };
+		D3B7F80C26978FC70010B252 /* IronFistController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3596FFD266969A500AC2CCB /* IronFistController.swift */; };
+		D3B7F80D26978FC70010B252 /* IronFist.json in Resources */ = {isa = PBXBuildFile; fileRef = D3D0BD6126587F1500CDF718 /* IronFist.json */; };
+		D3B7F80E26978FDF0010B252 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3597003266969C700AC2CCB /* Formatters.swift */; };
+		D3B7F80F26978FF10010B252 /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D0BD6526587F1500CDF718 /* Bundle+Extensions.swift */; };
+		D3B7F8112697901E0010B252 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B7F8102697901E0010B252 /* Constants.swift */; };
+		D3B7F8122697902F0010B252 /* CircleState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3597001266969BB00AC2CCB /* CircleState.swift */; };
 		D3C7B81C2661905A003831A7 /* GroupedListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C7B81B2661905A003831A7 /* GroupedListHeader.swift */; };
 		D3C7B81E26619190003831A7 /* IronFistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C7B81D26619190003831A7 /* IronFistRow.swift */; };
 		D3D0BD5526587EE400CDF718 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3D0BD5426587EE400CDF718 /* Assets.xcassets */; };
 		D3D0BD5826587EE400CDF718 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3D0BD5726587EE400CDF718 /* Preview Assets.xcassets */; };
 		D3D0BD6626587F1500CDF718 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D0BD5F26587F1500CDF718 /* ContentView.swift */; };
-		D3D0BD6826587F1500CDF718 /* IronFist.json in Resources */ = {isa = PBXBuildFile; fileRef = D3D0BD6126587F1500CDF718 /* IronFist.json */; };
 		D3D0BD6926587F1500CDF718 /* IronFistApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D0BD6226587F1500CDF718 /* IronFistApp.swift */; };
-		D3D0BD6A26587F1500CDF718 /* IronFist.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D0BD6326587F1500CDF718 /* IronFist.swift */; };
-		D3D0BD6C26587F1500CDF718 /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D0BD6526587F1500CDF718 /* Bundle+Extensions.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D3B7F7F526978F990010B252 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3D0BD4526587EE300CDF718 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D3B7F7EA26978F990010B252;
+			remoteInfo = IronFistKit;
+		};
+		D3B7F7F726978F990010B252 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3D0BD4526587EE300CDF718 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D3D0BD4C26587EE300CDF718;
+			remoteInfo = IronFist;
+		};
+		D3B7F7FE26978F990010B252 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3D0BD4526587EE300CDF718 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D3B7F7EA26978F990010B252;
+			remoteInfo = IronFistKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D3B7F80526978F990010B252 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D3B7F80126978F990010B252 /* IronFistKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D3048AD5268E51B200504711 /* build-script */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "build-script"; sourceTree = "<group>"; };
@@ -45,6 +89,13 @@
 		D35F4955265E9DE50066FBE4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D35F4957265E9DE70066FBE4 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D3B6492D265BF1DB00FC88E4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		D3B7F7EB26978F990010B252 /* IronFistKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IronFistKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3B7F7ED26978F990010B252 /* IronFistKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IronFistKit.h; sourceTree = "<group>"; };
+		D3B7F7EE26978F990010B252 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3B7F7F326978F990010B252 /* IronFistKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IronFistKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3B7F7FA26978F990010B252 /* IronFistKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IronFistKitTests.swift; sourceTree = "<group>"; };
+		D3B7F7FC26978F990010B252 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3B7F8102697901E0010B252 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D3C7B81B2661905A003831A7 /* GroupedListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedListHeader.swift; sourceTree = "<group>"; };
 		D3C7B81D26619190003831A7 /* IronFistRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IronFistRow.swift; sourceTree = "<group>"; };
 		D3D0BD4D26587EE300CDF718 /* IronFist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IronFist.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,10 +110,26 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D3B7F7E826978F990010B252 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3B7F7F026978F990010B252 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3B7F7F426978F990010B252 /* IronFistKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D3D0BD4A26587EE300CDF718 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3B7F80026978F990010B252 /* IronFistKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,7 +150,6 @@
 			children = (
 				D359700626696AC700AC2CCB /* TimerView.swift */,
 				D3596FFE266969A500AC2CCB /* TimerProgressCircle.swift */,
-				D3597001266969BB00AC2CCB /* CircleState.swift */,
 			);
 			path = TimerViews;
 			sourceTree = "<group>";
@@ -106,6 +172,8 @@
 				D3D0BD6126587F1500CDF718 /* IronFist.json */,
 				D3D0BD6326587F1500CDF718 /* IronFist.swift */,
 				D3596FFD266969A500AC2CCB /* IronFistController.swift */,
+				D3597001266969BB00AC2CCB /* CircleState.swift */,
+				D3597003266969C700AC2CCB /* Formatters.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -132,9 +200,37 @@
 			isa = PBXGroup;
 			children = (
 				D3D0BD6526587F1500CDF718 /* Bundle+Extensions.swift */,
-				D3597003266969C700AC2CCB /* Formatters.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D3B7F7EC26978F990010B252 /* IronFistKit */ = {
+			isa = PBXGroup;
+			children = (
+				D3B7F7ED26978F990010B252 /* IronFistKit.h */,
+				D3B7F80926978FB00010B252 /* Source */,
+				D3B7F7EE26978F990010B252 /* Info.plist */,
+			);
+			path = IronFistKit;
+			sourceTree = "<group>";
+		};
+		D3B7F7F926978F990010B252 /* IronFistKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				D3B7F7FA26978F990010B252 /* IronFistKitTests.swift */,
+				D3B7F7FC26978F990010B252 /* Info.plist */,
+			);
+			path = IronFistKitTests;
+			sourceTree = "<group>";
+		};
+		D3B7F80926978FB00010B252 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				D3931E3F2671016700B54938 /* Extensions */,
+				D3931E3C2671011A00B54938 /* Model */,
+				D3B7F8102697901E0010B252 /* Constants.swift */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 		D3D0BD4426587EE300CDF718 = {
@@ -144,6 +240,8 @@
 				D3048AD4268E51B200504711 /* Build-Phases */,
 				D35EEBE2265B0C0F008CE2E2 /* XCConfig */,
 				D3D0BD4F26587EE300CDF718 /* IronFist */,
+				D3B7F7EC26978F990010B252 /* IronFistKit */,
+				D3B7F7F926978F990010B252 /* IronFistKitTests */,
 				D3D0BD4E26587EE300CDF718 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -152,6 +250,8 @@
 			isa = PBXGroup;
 			children = (
 				D3D0BD4D26587EE300CDF718 /* IronFist.app */,
+				D3B7F7EB26978F990010B252 /* IronFistKit.framework */,
+				D3B7F7F326978F990010B252 /* IronFistKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -163,9 +263,7 @@
 				D3D0BD6226587F1500CDF718 /* IronFistApp.swift */,
 				D3931E3D2671014F00B54938 /* MainView */,
 				D3931E3E2671015D00B54938 /* Settings */,
-				D3931E3C2671011A00B54938 /* Model */,
 				D359700526696AA000AC2CCB /* TimerViews */,
-				D3931E3F2671016700B54938 /* Extensions */,
 				D3D0BD5426587EE400CDF718 /* Assets.xcassets */,
 				D3199D98266A9AC400DA4A7A /* Colors.xcassets */,
 				D35F4956265E9DE50066FBE4 /* Localizable.strings */,
@@ -185,7 +283,55 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		D3B7F7E626978F990010B252 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3B7F7FD26978F990010B252 /* IronFistKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		D3B7F7EA26978F990010B252 /* IronFistKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D3B7F80226978F990010B252 /* Build configuration list for PBXNativeTarget "IronFistKit" */;
+			buildPhases = (
+				D3B7F7E626978F990010B252 /* Headers */,
+				D3B7F7E726978F990010B252 /* Sources */,
+				D3B7F7E826978F990010B252 /* Frameworks */,
+				D3B7F7E926978F990010B252 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IronFistKit;
+			productName = IronFistKit;
+			productReference = D3B7F7EB26978F990010B252 /* IronFistKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D3B7F7F226978F990010B252 /* IronFistKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D3B7F80626978F990010B252 /* Build configuration list for PBXNativeTarget "IronFistKitTests" */;
+			buildPhases = (
+				D3B7F7EF26978F990010B252 /* Sources */,
+				D3B7F7F026978F990010B252 /* Frameworks */,
+				D3B7F7F126978F990010B252 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D3B7F7F626978F990010B252 /* PBXTargetDependency */,
+				D3B7F7F826978F990010B252 /* PBXTargetDependency */,
+			);
+			name = IronFistKitTests;
+			productName = IronFistKitTests;
+			productReference = D3B7F7F326978F990010B252 /* IronFistKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		D3D0BD4C26587EE300CDF718 /* IronFist */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D3D0BD5C26587EE400CDF718 /* Build configuration list for PBXNativeTarget "IronFist" */;
@@ -195,10 +341,12 @@
 				D3D0BD4926587EE300CDF718 /* Sources */,
 				D3D0BD4A26587EE300CDF718 /* Frameworks */,
 				D3D0BD4B26587EE300CDF718 /* Resources */,
+				D3B7F80526978F990010B252 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D3B7F7FF26978F990010B252 /* PBXTargetDependency */,
 			);
 			name = IronFist;
 			productName = IronFist;
@@ -214,6 +362,13 @@
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1300;
 				TargetAttributes = {
+					D3B7F7EA26978F990010B252 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					D3B7F7F226978F990010B252 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = D3D0BD4C26587EE300CDF718;
+					};
 					D3D0BD4C26587EE300CDF718 = {
 						CreatedOnToolsVersion = 12.5;
 						LastSwiftMigration = 1250;
@@ -235,11 +390,28 @@
 			projectRoot = "";
 			targets = (
 				D3D0BD4C26587EE300CDF718 /* IronFist */,
+				D3B7F7EA26978F990010B252 /* IronFistKit */,
+				D3B7F7F226978F990010B252 /* IronFistKitTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D3B7F7E926978F990010B252 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3B7F80D26978FC70010B252 /* IronFist.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3B7F7F126978F990010B252 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D3D0BD4B26587EE300CDF718 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -247,7 +419,6 @@
 				D3199D99266A9AC400DA4A7A /* Colors.xcassets in Resources */,
 				D35F4954265E9DE50066FBE4 /* Localizable.strings in Resources */,
 				D3D0BD5826587EE400CDF718 /* Preview Assets.xcassets in Resources */,
-				D3D0BD6826587F1500CDF718 /* IronFist.json in Resources */,
 				D3D0BD5526587EE400CDF718 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,26 +465,60 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D3B7F7E726978F990010B252 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3B7F8112697901E0010B252 /* Constants.swift in Sources */,
+				D3B7F8122697902F0010B252 /* CircleState.swift in Sources */,
+				D3B7F80E26978FDF0010B252 /* Formatters.swift in Sources */,
+				D3B7F80B26978FC70010B252 /* IronFist.swift in Sources */,
+				D3B7F80C26978FC70010B252 /* IronFistController.swift in Sources */,
+				D3B7F80F26978FF10010B252 /* Bundle+Extensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3B7F7EF26978F990010B252 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3B7F7FB26978F990010B252 /* IronFistKitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D3D0BD4926587EE300CDF718 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D3D0BD6926587F1500CDF718 /* IronFistApp.swift in Sources */,
-				D3D0BD6C26587F1500CDF718 /* Bundle+Extensions.swift in Sources */,
-				D3596FFF266969A500AC2CCB /* IronFistController.swift in Sources */,
 				D3C7B81E26619190003831A7 /* IronFistRow.swift in Sources */,
 				D3D0BD6626587F1500CDF718 /* ContentView.swift in Sources */,
 				D359700726696AC700AC2CCB /* TimerView.swift in Sources */,
 				D3B6492E265BF1DB00FC88E4 /* SettingsView.swift in Sources */,
-				D3597004266969C700AC2CCB /* Formatters.swift in Sources */,
-				D3D0BD6A26587F1500CDF718 /* IronFist.swift in Sources */,
-				D3597002266969BC00AC2CCB /* CircleState.swift in Sources */,
 				D3597000266969A500AC2CCB /* TimerProgressCircle.swift in Sources */,
 				D3C7B81C2661905A003831A7 /* GroupedListHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D3B7F7F626978F990010B252 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D3B7F7EA26978F990010B252 /* IronFistKit */;
+			targetProxy = D3B7F7F526978F990010B252 /* PBXContainerItemProxy */;
+		};
+		D3B7F7F826978F990010B252 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D3D0BD4C26587EE300CDF718 /* IronFist */;
+			targetProxy = D3B7F7F726978F990010B252 /* PBXContainerItemProxy */;
+		};
+		D3B7F7FF26978F990010B252 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D3B7F7EA26978F990010B252 /* IronFistKit */;
+			targetProxy = D3B7F7FE26978F990010B252 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D35F4956265E9DE50066FBE4 /* Localizable.strings */ = {
@@ -328,6 +533,306 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		D3B7F80326978F990010B252 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = IronFistKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iliosinc.IronFistKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D3B7F80426978F990010B252 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = IronFistKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iliosinc.IronFistKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D3B7F80726978F990010B252 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 2WW9KC8P4G;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = IronFistKitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iliosinc.IronFistKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IronFist.app/IronFist";
+			};
+			name = Debug;
+		};
+		D3B7F80826978F990010B252 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 2WW9KC8P4G;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = IronFistKitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iliosinc.IronFistKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IronFist.app/IronFist";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		D3D0BD5A26587EE400CDF718 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D35EEBE5265B0C0F008CE2E2 /* 2Common.xcconfig */;
@@ -346,6 +851,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D35EEBE3265B0C0F008CE2E2 /* App-Debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -355,6 +865,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D35EEBE4265B0C0F008CE2E2 /* App-Release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -363,6 +878,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D3B7F80226978F990010B252 /* Build configuration list for PBXNativeTarget "IronFistKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3B7F80326978F990010B252 /* Debug */,
+				D3B7F80426978F990010B252 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D3B7F80626978F990010B252 /* Build configuration list for PBXNativeTarget "IronFistKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3B7F80726978F990010B252 /* Debug */,
+				D3B7F80826978F990010B252 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D3D0BD4826587EE300CDF718 /* Build configuration list for PBXProject "IronFist" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

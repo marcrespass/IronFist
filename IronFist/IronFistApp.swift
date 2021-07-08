@@ -6,12 +6,7 @@
 //
 
 import SwiftUI
-
-public enum Constants {
-    static let kFistTime = "FistTime"
-    static let kRestTime = "RestTime"
-    static let kSpeakExercises = "SpeakExercises"
-}
+import IronFistKit
 
 @main
 struct IronFistApp: App {

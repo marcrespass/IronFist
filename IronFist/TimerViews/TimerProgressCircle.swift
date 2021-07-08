@@ -16,11 +16,12 @@
  */
 
 import SwiftUI
+import IronFistKit
 
 struct TimerProgressCircle: View {
     private let baseSize: CGFloat = 220
     private let lineWidth: CGFloat = 20
-    private let shadowRadius: CGFloat = 20
+    private let shadowRadius: CGFloat = 6
     private let imageFontSize: CGFloat = 50
     private let textFontSize: CGFloat = 80
     private let completionStart: CGFloat = 0
@@ -74,9 +75,9 @@ struct CircleGraph_Previews: PreviewProvider {
         VStack {
             TimerProgressCircle()
                 .previewDevice("iPhone SE (2nd generation)")
-            //                .preferredColorScheme(.dark)
                 .environmentObject(controller)
             Spacer()
         }
+        .preferredColorScheme(.dark)
     }
 }
