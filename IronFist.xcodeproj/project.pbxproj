@@ -85,7 +85,7 @@
 		D35EEBE4265B0C0F008CE2E2 /* App-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "App-Release.xcconfig"; sourceTree = "<group>"; };
 		D35EEBE5265B0C0F008CE2E2 /* 2Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = 2Common.xcconfig; sourceTree = "<group>"; };
 		D35EEBE6265B0C0F008CE2E2 /* App-Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "App-Shared.xcconfig"; sourceTree = "<group>"; };
-		D35EEBE7265B0C0F008CE2E2 /* 1XcodeWarnings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = 1XcodeWarnings.xcconfig; sourceTree = "<group>"; };
+		D35EEBE7265B0C0F008CE2E2 /* 1XcodeWarnings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = 1XcodeWarnings.xcconfig; sourceTree = "<group>"; wrapsLines = 0; };
 		D35F4955265E9DE50066FBE4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D35F4957265E9DE70066FBE4 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D3B6492D265BF1DB00FC88E4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
