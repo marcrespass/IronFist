@@ -31,6 +31,7 @@
 		D3048AD6268E51B200504711 /* swiftlint-command */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "swiftlint-command"; sourceTree = "<group>"; };
 		D3048AD9268E526000504711 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		D3199D98266A9AC400DA4A7A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		D33687D7268FC58800E7CAE5 /* IronFist.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IronFist.entitlements; sourceTree = "<group>"; };
 		D3596FFD266969A500AC2CCB /* IronFistController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IronFistController.swift; sourceTree = "<group>"; };
 		D3596FFE266969A500AC2CCB /* TimerProgressCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerProgressCircle.swift; sourceTree = "<group>"; };
 		D3597001266969BB00AC2CCB /* CircleState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleState.swift; sourceTree = "<group>"; };
@@ -158,6 +159,7 @@
 		D3D0BD4F26587EE300CDF718 /* IronFist */ = {
 			isa = PBXGroup;
 			children = (
+				D33687D7268FC58800E7CAE5 /* IronFist.entitlements */,
 				D3D0BD6226587F1500CDF718 /* IronFistApp.swift */,
 				D3931E3D2671014F00B54938 /* MainView */,
 				D3931E3E2671015D00B54938 /* Settings */,
@@ -328,12 +330,14 @@
 /* Begin XCBuildConfiguration section */
 		D3D0BD5A26587EE400CDF718 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D35EEBE5265B0C0F008CE2E2 /* 2Common.xcconfig */;
 			buildSettings = {
 			};
 			name = Debug;
 		};
 		D3D0BD5B26587EE400CDF718 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D35EEBE5265B0C0F008CE2E2 /* 2Common.xcconfig */;
 			buildSettings = {
 			};
 			name = Release;
@@ -342,6 +346,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D35EEBE3265B0C0F008CE2E2 /* App-Debug.xcconfig */;
 			buildSettings = {
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -349,6 +355,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D35EEBE4265B0C0F008CE2E2 /* App-Release.xcconfig */;
 			buildSettings = {
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
