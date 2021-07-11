@@ -8,6 +8,19 @@
 import SwiftUI
 import IronFistKit
 
+struct RoundedButtonStyle: ButtonStyle {
+
+    var color: Color
+
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .foregroundColor(.white)
+            .padding(10)
+            .background(self.color.cornerRadius(12))
+            .scaleEffect(configuration.isPressed ? 0.95 : 1)
+    }
+}
+
 struct TimerView: View {
     @EnvironmentObject var controller: IronFistController
 
@@ -16,14 +29,9 @@ struct TimerView: View {
             Button {
                 self.controller.toggle()
             } label: {
-                Text(self.controller.timerRunning ? "Stop" : "Begin")
-//                    .fontWeight(.bold)
-                    .font(.title)
-                    .padding(EdgeInsets(top: 8, leading: 12, bottom: 8, trailing: 12))
-                    .background(self.controller.timerRunning ? Color.red : Color.green)
-                    .foregroundColor(.white)
-                    .clipShape(Capsule())
+                self.controller.buttonLabel()
             }
+            .buttonStyle(RoundedButtonStyle(color: self.controller.timerRunning ? .red : .green))
 
             TimerProgressCircle()
             VStack(alignment: .leading) { // Iron fist title and instruction display
@@ -33,7 +41,7 @@ struct TimerView: View {
                         Text(ironFist.title)
                     }
                 }
-                .foregroundColor(self.controller.circleState.baseAccentColor)
+                .foregroundColor(self.controller.circleState.titleColor)
                 .font(.title.weight(.semibold))
                 Text(controller.selectedIronFist?.instruction ?? "Finished…")
                     .font(.body)
@@ -43,7 +51,7 @@ struct TimerView: View {
             .overlay(
                 RoundedRectangle(cornerRadius: 30)
                     .stroke(lineWidth: 4)
-                    .foregroundColor(controller.circleState.baseAccentColor)
+                    .foregroundColor(controller.circleState.timerCircleColor)
             )
             Spacer()
         }
@@ -65,7 +73,7 @@ struct TimerView_Previews: PreviewProvider {
             TimerView()
                 .environmentObject(controller)
 //            TimerView()
-//                .preferredColorScheme(.dark)
+                .preferredColorScheme(.dark)
 //                .environmentObject(controller)
         }
     }

@@ -23,14 +23,23 @@ public enum CircleState: Equatable {
         }
     }
 
-    public var baseAccentColor: Color {
+    public var timerCircleColor: Color {
         switch self {
             case .fist:
-                return Color("accentColorFist")
+                return .green
             case .rest:
-                return Color("accentColorRest")
+                return .red
             case .waiting:
-                return Color("accentColorWait")
+                return .yellow
+        }
+    }
+
+    public var titleColor: Color {
+        switch self {
+            case .fist:
+                return .green
+            case .rest, .waiting:
+                return .yellow
         }
     }
 

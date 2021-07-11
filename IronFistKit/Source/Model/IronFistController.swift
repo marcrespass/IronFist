@@ -10,6 +10,7 @@ import Combine
 import CoreGraphics
 import AVFoundation
 import UIKit
+import SwiftUI
 
 /// Data is read-only and loaded from a JSON in the app bundle
 /// This object is the AVSpeechSynthesizerDelegate
@@ -65,6 +66,12 @@ public final class IronFistController: NSObject, ObservableObject {
     private let soStrongSynthesizer = AVSpeechSynthesizer()
     private let finishSynthesizer = AVSpeechSynthesizer()
     private let finishSpeechUtterance = AVSpeechUtterance(string: "Well done!")
+
+    public func buttonLabel() -> Text {
+        Text(self.timerRunning ? "Stop" : "Begin")
+            .fontWeight(.bold)
+            .font(.title)
+    }
 
     override public init() {
         self.timerPublisher = Timer.publish(every: 0.1, on: RunLoop.main, in: .common)

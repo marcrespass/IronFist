@@ -52,14 +52,14 @@ struct TimerProgressCircle: View {
                 Text(verbatim: "\(self.controller.countdownString)")
                     .font(Font.system(size: textFontSize, weight: .heavy, design: .rounded).monospacedDigit())
             }
-            .foregroundColor(self.controller.circleState.baseAccentColor)
+            .foregroundColor(self.controller.circleState.timerCircleColor)
         }
     }
 
     fileprivate func progressCircle() -> some View {
         Circle()
             .trim(from: completionStart, to: self.controller.tenths)
-            .stroke(self.controller.circleState.baseAccentColor,
+            .stroke(self.controller.circleState.timerCircleColor,
                     style: StrokeStyle(lineWidth: lineWidth, lineCap: CGLineCap.round))
             .frame(width: baseSize + lineWidth, height: baseSize + lineWidth)
             .padding()
