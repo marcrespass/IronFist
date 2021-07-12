@@ -13,9 +13,7 @@ struct IronFistApp: App {
     @StateObject var controller: IronFistController
 
     init() {
-        UserDefaults.standard.register(defaults: [Constants.kRestTime: 5,
-                                                  Constants.kFistTime: 15,
-                                                  Constants.kSpeakExercises: true])
+        UserDefaults.standard.register(defaults: Constants.defaultsDictionary)
         let controller = IronFistController()
         _controller = StateObject(wrappedValue: controller)
     }
