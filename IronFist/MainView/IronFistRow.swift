@@ -9,6 +9,7 @@ import SwiftUI
 import IronFistKit
 
 struct IronFistRow: View {
+    var showAll: Bool = false
     let ironFist: IronFist
 
     var body: some View {
@@ -17,8 +18,10 @@ struct IronFistRow: View {
                 Text("\(ironFist.id).")
                 Text(ironFist.title)
             }
+            .font(showAll ? .title : .body)
             Text(ironFist.instruction)
-                .lineLimit(1)
+                .fontWeight(showAll ? .bold : .regular)
+                .lineLimit(showAll ? nil : 1)
         }
     }
 }
@@ -26,7 +29,7 @@ struct IronFistRow: View {
 struct IronFistRow_Previews: PreviewProvider {
     static var controller = IronFistController()
     static var previews: some View {
-        IronFistRow(ironFist: IronFistController.ironFistSample)
+        IronFistRow(showAll: false, ironFist: IronFistController.ironFistSample)
             .previewLayout(.sizeThatFits)
             .environmentObject(controller)
     }

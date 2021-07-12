@@ -12,6 +12,7 @@ struct ContentView: View {
     @EnvironmentObject var controller: IronFistController
     @State private var showingSettings = false
     @State private var isShowingDetailView = false
+    @State private var selection: IronFist?
 
     var body: some View {
         NavigationView {
@@ -20,7 +21,10 @@ struct ContentView: View {
                 GroupedListHeader()
                 List {
                     ForEach(controller.ironFists) { ironFist in
-                        IronFistRow(ironFist: ironFist)
+                        IronFistRow(showAll: (selection != nil && selection == ironFist), ironFist: ironFist)
+                            .onTapGesture {
+                                selection = selection == ironFist ? nil : ironFist
+                            }
                     }
                 }
                 .sheet(isPresented: $showingSettings, content: { SettingsView() })
