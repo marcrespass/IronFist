@@ -34,8 +34,8 @@ struct TimerView: View {
             .buttonStyle(RoundedButtonStyle(color: self.controller.timerRunning ? .red : .green))
 
             TimerProgressCircle()
-            VStack(alignment: .leading) { // Iron fist title and instruction display
-                HStack {
+            VStack(alignment: .leading) {
+                HStack { // Iron fist title and instruction display
                     if let ironFist = controller.selectedIronFist {
                         Text("\(ironFist.id).")
                         Text(ironFist.title)
