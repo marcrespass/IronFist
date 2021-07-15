@@ -25,7 +25,7 @@ public final class IronFistController: NSObject, ObservableObject {
     }
 
     public static var ironFistSample: IronFist {
-        guard let sample = loadIronFistsFromBundle().first else { fatalError("There  must be one but there isn't") }
+        guard let sample = loadIronFistsFromBundle().first else { fatalError("There must be one but there isn't") }
         return sample
     }
 
@@ -49,31 +49,21 @@ public final class IronFistController: NSObject, ObservableObject {
 
     // MARK: - Gettable
     private (set) public var ironFists: [IronFist]
-
     // MARK: - Timer Properties
-    private var playingIndex = 0
     private var timerSeconds: TimeInterval = 0
     private var stopTime = Date()
     private var cancellable: Cancellable?
-    private var cancellableTimerPublisher: Cancellable?
-    private var timerPublisher: Timer.TimerPublisher
-    private var displayFormatter = Formatters.plainFormatter
-
     // MARK: - Speech Properties
     private var speechVoice: AVSpeechSynthesisVoice?
     private let ironFistSynthesizer = AVSpeechSynthesizer()
     private let soStrongSynthesizer = AVSpeechSynthesizer()
     private let finishSynthesizer = AVSpeechSynthesizer()
     private let finishSpeechUtterance = AVSpeechUtterance(string: "Well done!")
-
-    public func buttonLabel() -> Text {
-        Text(self.timerRunning ? "Stop" : "Begin")
-            .fontWeight(.bold)
-            .font(.title)
-    }
+    // MARK: - Other Properties
+    private var playingIndex = 0
+    private var displayFormatter = Formatters.plainFormatter
 
     override public init() {
-        self.timerPublisher = Timer.publish(every: 0.1, on: RunLoop.main, in: .common)
         self.ironFists = IronFistController.loadIronFistsFromBundle()
         self.fistTime = UserDefaults.standard.integer(forKey: Constants.kFistTime)
         self.restTime = UserDefaults.standard.integer(forKey: Constants.kRestTime)
@@ -87,6 +77,12 @@ public final class IronFistController: NSObject, ObservableObject {
     }
 
     // MARK: - Public methods
+    public func buttonLabel() -> Text {
+        Text(self.timerRunning ? "Stop" : "Begin")
+            .fontWeight(.bold)
+            .font(.title)
+    }
+
     public func ready() {
         self.playingIndex = 0
         self.selectedIronFist = self.ironFists[self.playingIndex]
@@ -144,10 +140,10 @@ extension IronFistController {
         self.finishSpeechUtterance.voice = self.speechVoice
     }
 
-    private func configureTimer(showTenths: Bool = false) {
+    private func configureTimer() {
         self.timerSeconds = self.circleState.timerValue
         self.tenths = 1
-        self.displayFormatter = showTenths ? Formatters.decimalFormatter : Formatters.plainFormatter
+        self.displayFormatter = Formatters.plainFormatter
         self.countdownString = self.displayFormatter.string(from: NSNumber(value: self.timerSeconds)) ?? "error"
     }
 
@@ -182,7 +178,8 @@ extension IronFistController {
         let startTime = Date()
         self.stopTime = startTime.addingTimeInterval(self.circleState.timerValue)
 
-        self.cancellable = self.timerPublisher
+        self.cancellable = Timer.publish(every: 0.1, on: .main, in: .common)
+            .autoconnect()
             .map { date in
                 return date.distance(to: self.stopTime)
             }
@@ -210,12 +207,10 @@ extension IronFistController {
                     }
                 }
             }
-        self.cancellableTimerPublisher = self.timerPublisher.connect()
     }
 
     private func cancelTimers() {
-        self.cancellableTimerPublisher?.cancel()
-        self.cancellableTimerPublisher = nil
+        self.cancellable?.cancel()
         self.cancellable = nil
     }
 }
