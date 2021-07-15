@@ -1,6 +1,5 @@
 //
 //  Formatters.swift
-//  CombineTimer
 //
 //  Created by Marc Respass on 6/1/21.
 //

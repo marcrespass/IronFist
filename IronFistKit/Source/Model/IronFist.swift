@@ -1,6 +1,8 @@
-// Created by Marc Respass on 12/28/17.
-// Copyright © 2017 ILIOS Inc. All rights reserved.
-// Swift version: 4.0 – macOS: 10.12
+//
+//  IronFist.swift
+//
+//  Created by Marc Respass on 5/31/21.
+//
 
 import Foundation
 

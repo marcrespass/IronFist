@@ -1,6 +1,5 @@
 //
 //  IronFistRow.swift
-//  IronFist
 //
 //  Created by Marc Respass on 5/28/21.
 //

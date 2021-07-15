@@ -1,6 +1,5 @@
 //
 //  ContentView.swift
-//  Shared
 //
 //  Created by Marc Respass on 5/21/21.
 //
@@ -70,9 +69,9 @@ struct ContentView_Previews: PreviewProvider {
         Group {
             ContentView()
                 .environmentObject(controller)
-//            ContentView()
-//                .preferredColorScheme(.dark)
-//                .environmentObject(controller)
+            ContentView()
+                .preferredColorScheme(.dark)
+                .environmentObject(controller)
         }
     }
 }

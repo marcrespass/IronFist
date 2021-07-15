@@ -1,6 +1,5 @@
 //
 //  TimerView.swift
-//  IronFist
 //
 //  Created by Marc Respass on 6/3/21.
 //
@@ -9,7 +8,6 @@ import SwiftUI
 import IronFistKit
 
 struct RoundedButtonStyle: ButtonStyle {
-
     var color: Color
 
     func makeBody(configuration: Configuration) -> some View {
@@ -72,9 +70,9 @@ struct TimerView_Previews: PreviewProvider {
         Group {
             TimerView()
                 .environmentObject(controller)
-//            TimerView()
+            TimerView()
                 .preferredColorScheme(.dark)
-//                .environmentObject(controller)
+                .environmentObject(controller)
         }
     }
 }

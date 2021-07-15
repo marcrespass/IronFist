@@ -1,6 +1,5 @@
 //
 //  Controller.swift
-//  CombineTimer
 //
 //  Created by Marc Respass on 5/31/21.
 //

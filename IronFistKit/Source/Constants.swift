@@ -1,6 +1,5 @@
 //
 //  Constants.swift
-//  IronFistKit
 //
 //  Created by Marc Respass on 7/8/21.
 //

@@ -1,6 +1,5 @@
 //
 //  IronFistApp.swift
-//  Shared
 //
 //  Created by Marc Respass on 5/21/21.
 //

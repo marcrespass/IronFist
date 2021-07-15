@@ -1,6 +1,5 @@
 //
 //  SettingsView.swift
-//  IronFist
 //
 //  Created by Marc Respass on 5/24/21.
 //

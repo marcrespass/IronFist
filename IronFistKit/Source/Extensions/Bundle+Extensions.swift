@@ -3,7 +3,7 @@
 //  UltimatePortfolio
 //
 //  Created by Marc Respass on 11/20/20.
-//
+//  Credit to Paul Hudson of Hacking with Swift https://www.hackingwithswift.com
 
 import Foundation
 
