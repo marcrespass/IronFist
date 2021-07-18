@@ -17,10 +17,16 @@ struct IronFistRow: View {
                 Text("\(ironFist.id).")
                 Text(ironFist.title)
             }
-            .font(showAll ? .title : .body)
+            .font(showAll ? .title : .body.bold())
+
             Text(ironFist.instruction)
-                .fontWeight(showAll ? .bold : .regular)
+                .fontWeight(showAll ? .medium : .regular)
                 .lineLimit(showAll ? nil : 1)
+            if showAll {
+                Text(ironFist.motivation)
+                    .fontWeight(.light)
+                    .lineLimit(showAll ? nil : 1)
+            }
         }
     }
 }
