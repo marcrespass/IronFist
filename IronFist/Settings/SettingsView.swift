@@ -62,6 +62,7 @@ struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView()
             .previewLayout(.sizeThatFits)
+            .environment(\.locale, .init(identifier: "es"))
             .environmentObject(controller)
     }
 }

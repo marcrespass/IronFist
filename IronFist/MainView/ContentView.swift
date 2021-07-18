@@ -69,9 +69,10 @@ struct ContentView_Previews: PreviewProvider {
         Group {
             ContentView()
                 .environmentObject(controller)
+                .environment(\.locale, .init(identifier: "es"))
             ContentView()
-                .preferredColorScheme(.dark)
                 .environmentObject(controller)
+                .preferredColorScheme(.dark)
         }
     }
 }
