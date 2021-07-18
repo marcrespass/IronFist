@@ -173,7 +173,7 @@ extension IronFistController {
     private func handleCurrentItem() {
         guard let ironFist = self.selectedIronFist else { return }
 
-        let text = self.speakTitle ? ironFist.titleInstructionText : ironFist.titleText
+        let text = ironFist.spokenText(title: self.speakTitle, instruction: self.speakDescription, motivation: self.speakMotivation)
         let speechUtterance = AVSpeechUtterance(string: text)
         speechUtterance.voice = self.speechVoice
         self.ironFistSynthesizer.speak(speechUtterance)

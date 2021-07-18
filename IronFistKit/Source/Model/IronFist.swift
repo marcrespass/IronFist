@@ -10,12 +10,14 @@ public struct IronFist: Codable, Hashable, Identifiable {
     public var id: Int
     public let title: String
     public let instruction: String
+    public let motivation: String
 
-    public var titleInstructionText: String {
-        "\(self.id). \(self.title). \(self.instruction). Begin."
-    }
-
-    public var titleText: String {
-        "\(self.id). \(self.title). Begin."
+    public func spokenText(title: Bool, instruction: Bool, motivation: Bool) -> String {
+        var text = "\(self.id)"
+        if title { text += "\(self.title)." }
+        if instruction { text += "\(self.instruction)." }
+        if motivation { text += "\(self.motivation)." }
+        text += "Begin."
+        return text
     }
 }

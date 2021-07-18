@@ -43,8 +43,8 @@ struct SettingsView: View {
                 }
                 Section(header: Text("Speak")) {
                     Toggle("Speak titles", isOn: $controller.speakTitle)
-                    Toggle("Speak descriptions", isOn: $controller.speakTitle)
-                    Toggle("Speak motivations", isOn: $controller.speakTitle)
+                    Toggle("Speak descriptions", isOn: $controller.speakDescription)
+                    Toggle("Speak motivations", isOn: $controller.speakMotivation)
                 }
             }
 
