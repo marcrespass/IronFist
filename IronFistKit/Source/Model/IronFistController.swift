@@ -29,6 +29,12 @@ public final class IronFistController: NSObject, ObservableObject {
         return sample
     }
 
+    public static var readyController: IronFistController {
+        let controller = IronFistController()
+        controller.ready()
+        return controller
+    }
+
     // MARK: - Published Properties
     @Published public var fistTime: Int
     @Published public var restTime: Int
@@ -64,6 +70,12 @@ public final class IronFistController: NSObject, ObservableObject {
     // MARK: - Other Properties
     private var playingIndex = 0
     private var displayFormatter = Formatters.plainFormatter
+    private var restText: String {
+        if self.speakDescription || self.speakMotivation {
+            return "Wow. You are so strong. Rest."
+        }
+        return "Rest."
+    }
 
     override public init() {
         self.ironFists = IronFistController.loadIronFistsFromBundle()
@@ -201,8 +213,7 @@ extension IronFistController {
                     if strongSelf.circleState == .fist {
                         strongSelf.circleState = .rest
 
-                        let text = strongSelf.speakTitle ? "Wow. You are so strong. Rest." : "Rest."
-                        let speechUtterance = AVSpeechUtterance(string: text)
+                        let speechUtterance = AVSpeechUtterance(string: strongSelf.restText)
                         speechUtterance.voice = strongSelf.speechVoice
                         strongSelf.soStrongSynthesizer.speak(speechUtterance)
                         strongSelf.soStrongSynthesizer.delegate = self
