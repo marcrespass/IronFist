@@ -32,7 +32,9 @@ public final class IronFistController: NSObject, ObservableObject {
     // MARK: - Published Properties
     @Published public var fistTime: Int
     @Published public var restTime: Int
-    @Published public var speakExercises: Bool
+    @Published public var speakTitle: Bool
+    @Published public var speakDescription: Bool
+    @Published public var speakMotivation: Bool
     @Published private (set) public var selectedIronFist: IronFist?
     @Published private (set) public var countdownString: String = "0"
     @Published private (set) public var tenths: CGFloat = 1
@@ -67,7 +69,9 @@ public final class IronFistController: NSObject, ObservableObject {
         self.ironFists = IronFistController.loadIronFistsFromBundle()
         self.fistTime = UserDefaults.standard.integer(forKey: Constants.kFistTime)
         self.restTime = UserDefaults.standard.integer(forKey: Constants.kRestTime)
-        self.speakExercises = UserDefaults.standard.bool(forKey: Constants.kSpeakExercises)
+        self.speakTitle = UserDefaults.standard.bool(forKey: Constants.kSpeakTitle)
+        self.speakDescription = UserDefaults.standard.bool(forKey: Constants.kSpeakDescription)
+        self.speakMotivation = UserDefaults.standard.bool(forKey: Constants.kSpeakMotivation)
 
         super.init()
         self.selectedIronFist = self.ironFists[self.playingIndex]
@@ -125,7 +129,9 @@ public final class IronFistController: NSObject, ObservableObject {
     public func saveSettings() {
         UserDefaults.standard.set(self.fistTime, forKey: Constants.kFistTime)
         UserDefaults.standard.set(self.restTime, forKey: Constants.kRestTime)
-        UserDefaults.standard.set(self.speakExercises, forKey: Constants.kSpeakExercises)
+        UserDefaults.standard.set(self.speakTitle, forKey: Constants.kSpeakTitle)
+        UserDefaults.standard.set(self.speakDescription, forKey: Constants.kSpeakDescription)
+        UserDefaults.standard.set(self.speakMotivation, forKey: Constants.kSpeakMotivation)
     }
 }
 
@@ -167,7 +173,7 @@ extension IronFistController {
     private func handleCurrentItem() {
         guard let ironFist = self.selectedIronFist else { return }
 
-        let text = self.speakExercises ? ironFist.titleInstructionText : ironFist.titleText
+        let text = self.speakTitle ? ironFist.titleInstructionText : ironFist.titleText
         let speechUtterance = AVSpeechUtterance(string: text)
         speechUtterance.voice = self.speechVoice
         self.ironFistSynthesizer.speak(speechUtterance)
@@ -195,7 +201,7 @@ extension IronFistController {
                     if strongSelf.circleState == .fist {
                         strongSelf.circleState = .rest
 
-                        let text = strongSelf.speakExercises ? "Wow. You are so strong. Rest." : "Rest."
+                        let text = strongSelf.speakTitle ? "Wow. You are so strong. Rest." : "Rest."
                         let speechUtterance = AVSpeechUtterance(string: text)
                         speechUtterance.voice = strongSelf.speechVoice
                         strongSelf.soStrongSynthesizer.speak(speechUtterance)
