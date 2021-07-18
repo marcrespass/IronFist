@@ -42,7 +42,11 @@ struct TimerView: View {
                 .foregroundColor(self.controller.circleState.titleColor)
                 .font(.title.weight(.semibold))
                 Text(controller.selectedIronFist?.instruction ?? "Finished…")
-                    .font(.body)
+                    .font(.body.weight(.medium))
+                if let motivation = controller.selectedIronFist?.motivation {
+                    Text(motivation)
+                        .font(.body.italic())
+                }
             }
             .padding()
             .clipShape(RoundedRectangle(cornerRadius: 30))
@@ -64,15 +68,11 @@ struct TimerView: View {
 }
 
 struct TimerView_Previews: PreviewProvider {
-    static var controller = IronFistController()
-
     static var previews: some View {
         Group {
             TimerView()
-                .environmentObject(controller)
-            TimerView()
                 .preferredColorScheme(.dark)
-                .environmentObject(controller)
+                .environmentObject(IronFistController.readyController)
         }
     }
 }
