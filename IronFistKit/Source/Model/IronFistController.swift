@@ -105,9 +105,9 @@ public final class IronFistController: NSObject, ObservableObject {
     }
 
     public func toggle() {
+        self.ready()
         if self.timerRunning {
             self.stop()
-            self.ready()
         } else {
             self.start()
         }
@@ -198,11 +198,13 @@ extension IronFistController {
 
         self.cancellable = Timer.publish(every: 0.1, on: .main, in: .common)
             .autoconnect()
-            .map { date in
-                return date.distance(to: self.stopTime)
+            .map { [weak self] date -> TimeInterval in
+                guard let strongSelf = self else { return 0 }
+                return date.distance(to: strongSelf.stopTime)
             }
             .sink { [weak self] timerTimeInterval in
                 guard let strongSelf = self else { return }
+                
                 strongSelf.timerSeconds = timerTimeInterval
                 if strongSelf.timerSeconds > 0 {
                     let fraction = strongSelf.timerSeconds.truncatingRemainder(dividingBy: 1)
