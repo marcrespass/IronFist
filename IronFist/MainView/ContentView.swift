@@ -28,12 +28,13 @@ struct ContentView: View {
                 }
                 .sheet(isPresented: $showingSettings, content: { SettingsView() })
                 .listStyle(DefaultListStyle())
-                .navigationTitle(controller.timerRunning ? "Cancel" : "Iron Fist")
+                .navigationTitle("Iron Fist")
                 .toolbar {
                     startStopToolbarItem
                     settingsToolbarItem
                 }
             }
+            TimerView()
         }
     }
 }
@@ -44,9 +45,11 @@ extension ContentView {
     // https://swiftwithmajid.com/2020/07/15/mastering-toolbars-in-swiftui/
     var startStopToolbarItem: some ToolbarContent {
         ToolbarItem(placement: .navigationBarLeading) {
-            Button(self.controller.timerRunning ? "Stop" : "Start") {
+            Button("Start") {
+                self.controller.ready()
                 self.isShowingDetailView = true
             }
+            .disabled(self.controller.timerRunning)
         }
     }
 
@@ -57,7 +60,6 @@ extension ContentView {
             } label: {
                 Label("Settings", systemImage: "gear")
             }
-            .disabled(self.controller.timerRunning)
         }
     }
 }
