@@ -210,16 +210,21 @@ extension IronFistController {
                     let fraction = strongSelf.timerSeconds.truncatingRemainder(dividingBy: 1)
                     strongSelf.tenths = CGFloat(fraction)
                     strongSelf.countdownString = strongSelf.displayFormatter.string(from: NSNumber(value: strongSelf.timerSeconds)) ?? "error"
-                } else {
+                } else { // done with timer
                     strongSelf.cancelTimers()
-                    if strongSelf.circleState == .fist {
-                        strongSelf.circleState = .rest
-
-                        let speechUtterance = AVSpeechUtterance(string: strongSelf.restText)
-                        speechUtterance.voice = strongSelf.speechVoice
-                        strongSelf.soStrongSynthesizer.speak(speechUtterance)
-                        strongSelf.soStrongSynthesizer.delegate = self
+                    if strongSelf.circleState == .fist { // FIST change to REST
                         strongSelf.advanceItem()
+                        if strongSelf.playingIndex >= strongSelf.ironFists.count {
+                            strongSelf.tenths = CGFloat(0)
+                            strongSelf.configureNextItem()
+                        } else {
+                            strongSelf.circleState = .rest
+
+                            let speechUtterance = AVSpeechUtterance(string: strongSelf.restText)
+                            speechUtterance.voice = strongSelf.speechVoice
+                            strongSelf.soStrongSynthesizer.speak(speechUtterance)
+                            strongSelf.soStrongSynthesizer.delegate = self
+                        }
                     } else {
                         strongSelf.circleState = .waiting
                         strongSelf.configureNextItem()
