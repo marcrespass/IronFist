@@ -8,6 +8,7 @@ import Foundation
 import Combine
 import CoreGraphics
 import AVFoundation
+import UserNotifications
 import UIKit
 import SwiftUI
 
@@ -30,7 +31,6 @@ public final class IronFistController: NSObject, ObservableObject {
     @Published public var speakTitle: Bool
     @Published public var speakDescription: Bool
     @Published public var speakMotivation: Bool
-    @Published public var selectedTime: Date = Date()
     @Published private (set) public var selectedIronFist: IronFist?
     @Published private (set) public var countdownString: String = "0"
     @Published private (set) public var tenths: CGFloat = 1
@@ -45,7 +45,8 @@ public final class IronFistController: NSObject, ObservableObject {
         }
     }
 
-    // MARK: - Selected Days
+    // MARK: - Notification properties
+    @Published public var selectedTime: Date = Date()
     @Published public var day1: Bool
     @Published public var day2: Bool
     @Published public var day3: Bool
@@ -53,6 +54,7 @@ public final class IronFistController: NSObject, ObservableObject {
     @Published public var day5: Bool
     @Published public var day6: Bool
     @Published public var day7: Bool
+    @Published public var allowsNotifications: Bool
 
     // MARK: - Gettable
     private (set) public var ironFists: [IronFist]
@@ -92,11 +94,14 @@ public final class IronFistController: NSObject, ObservableObject {
         self.day6 = UserDefaults.standard.bool(forKey: Constants.kSelectedDay6)
         self.day7 = UserDefaults.standard.bool(forKey: Constants.kSelectedDay7)
 
+        self.allowsNotifications = false
+
         super.init()
         self.selectedIronFist = self.ironFists[self.playingIndex]
 
         self.configureTimer()
         self.configureSpeech()
+        self.checkNotificationStatus()
     }
 
     // MARK: - Public methods
@@ -159,6 +164,36 @@ public final class IronFistController: NSObject, ObservableObject {
         UserDefaults.standard.set(self.day5, forKey: Constants.kSelectedDay5)
         UserDefaults.standard.set(self.day6, forKey: Constants.kSelectedDay6)
         UserDefaults.standard.set(self.day7, forKey: Constants.kSelectedDay7)
+    }
+
+    // https://developer.apple.com/documentation/usernotifications/scheduling_a_notification_locally_from_your_app
+    public func checkNotificationStatus() {
+        UNUserNotificationCenter.current().getNotificationSettings { settings in
+            DispatchQueue.main.async {
+                if settings.authorizationStatus == .authorized {
+                    self.allowsNotifications = true
+                } else {
+                    self.allowsNotifications = false
+                }
+            }
+        }
+    }
+
+    public func allowNotifications() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+            DispatchQueue.main.async {
+                if success {
+                    self.allowsNotifications = true
+                } else if let error = error {
+                    print(error.localizedDescription)
+                    self.allowsNotifications = false
+                }
+            }
+        }
+    }
+
+    private func disableNotifications() {
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     }
 }
 

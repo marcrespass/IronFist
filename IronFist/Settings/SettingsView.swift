@@ -14,11 +14,11 @@ struct CheckboxToggleStyle: ToggleStyle {
             configuration.label
             Spacer()
             Image(systemName: configuration.isOn ? "checkmark.square" : "square")
-                    .resizable()
-                    .frame(width: 22, height: 22)
-                    .onTapGesture {
-                        configuration.isOn.toggle()
-                    }
+                .resizable()
+                .frame(width: 22, height: 22)
+                .onTapGesture {
+                    configuration.isOn.toggle()
+                }
         }
     }
 }
@@ -64,25 +64,30 @@ struct SettingsView: View {
                     Toggle("Speak descriptions", isOn: $controller.speakDescription)
                     Toggle("Speak motivations", isOn: $controller.speakMotivation)
                 }
-                Section(header: Text("Notifications")) {
-                    DatePicker("Hour", selection: $controller.selectedTime, displayedComponents: [.hourAndMinute])
-                    Toggle("Sunday", isOn: $controller.day1)
-                        .toggleStyle(CheckboxToggleStyle())
-                    Toggle("Monday", isOn: $controller.day2)
-                        .toggleStyle(CheckboxToggleStyle())
-                    Toggle("Tuesday", isOn: $controller.day3)
-                        .toggleStyle(CheckboxToggleStyle())
-                    Toggle("Wednesday", isOn: $controller.day4)
-                        .toggleStyle(CheckboxToggleStyle())
-                    Toggle("Thursday", isOn: $controller.day5)
-                        .toggleStyle(CheckboxToggleStyle())
-                    Toggle("Friday", isOn: $controller.day6)
-                        .toggleStyle(CheckboxToggleStyle())
-                    Toggle("Saturday", isOn: $controller.day7)
-                        .toggleStyle(CheckboxToggleStyle())
+                Section(header: Text("Configure notifications")) {
+                    if self.controller.allowsNotifications {
+                        DatePicker("Hour", selection: $controller.selectedTime, displayedComponents: [.hourAndMinute])
+                        Toggle("Sunday", isOn: $controller.day1)
+                            .toggleStyle(CheckboxToggleStyle())
+                        Toggle("Monday", isOn: $controller.day2)
+                            .toggleStyle(CheckboxToggleStyle())
+                        Toggle("Tuesday", isOn: $controller.day3)
+                            .toggleStyle(CheckboxToggleStyle())
+                        Toggle("Wednesday", isOn: $controller.day4)
+                            .toggleStyle(CheckboxToggleStyle())
+                        Toggle("Thursday", isOn: $controller.day5)
+                            .toggleStyle(CheckboxToggleStyle())
+                        Toggle("Friday", isOn: $controller.day6)
+                            .toggleStyle(CheckboxToggleStyle())
+                        Toggle("Saturday", isOn: $controller.day7)
+                            .toggleStyle(CheckboxToggleStyle())
+                    } else {
+                        Button("Allow notifications") {
+                            self.controller.allowNotifications()
+                        }
+                    }
                 }
             }
-
             HStack {
                 Text(appName)
                     .fontWeight(.bold)
