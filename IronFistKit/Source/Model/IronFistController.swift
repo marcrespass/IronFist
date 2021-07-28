@@ -164,6 +164,8 @@ public final class IronFistController: NSObject, ObservableObject {
         UserDefaults.standard.set(self.day5, forKey: Constants.kSelectedDay5)
         UserDefaults.standard.set(self.day6, forKey: Constants.kSelectedDay6)
         UserDefaults.standard.set(self.day7, forKey: Constants.kSelectedDay7)
+
+        self.createNotifications()
     }
 
     // https://developer.apple.com/documentation/usernotifications/scheduling_a_notification_locally_from_your_app
@@ -193,7 +195,40 @@ public final class IronFistController: NSObject, ObservableObject {
     }
 
     private func disableNotifications() {
+        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+    }
+
+    // https://developer.apple.com/documentation/usernotifications/scheduling_a_notification_locally_from_your_app
+    // https://www.hackingwithswift.com/books/ios-swiftui/scheduling-local-notifications
+    // This one shows how to handle if notifications are disabled in Settings
+    // https://blog.techchee.com/handling-local-notification-in-swiftui/
+    private func createNotifications() {
+        self.disableNotifications()
+        let days = [day1, day2, day3, day4, day5, day6, day7]
+
+        for (index, item) in days.enumerated() where item == true {
+            let content = UNMutableNotificationContent()
+            content.title = "Iron Fist"
+            content.body = self.ironFists[Int.random(in: 0..<10)].motivation
+
+            var dateComponents = Calendar.current.dateComponents([.hour, .minute], from: self.selectedTime)
+            dateComponents.weekday = index + 1 // Sunday = 1
+
+            // Create the trigger as a repeating event.
+            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+            // Create the request
+            let uuidString = UUID().uuidString
+            let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
+
+            // Schedule the request with the system.
+            let notificationCenter = UNUserNotificationCenter.current()
+            notificationCenter.add(request) { (error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                }
+            }
+        }
     }
 }
 
