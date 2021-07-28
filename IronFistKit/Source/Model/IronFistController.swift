@@ -24,17 +24,6 @@ public final class IronFistController: NSObject, ObservableObject {
         return array
     }
 
-    public static var ironFistSample: IronFist {
-        guard let sample = loadIronFistsFromBundle().first else { fatalError("There must be one but there isn't") }
-        return sample
-    }
-
-    public static var readyController: IronFistController {
-        let controller = IronFistController()
-        controller.ready()
-        return controller
-    }
-
     // MARK: - Published Properties
     @Published public var fistTime: Int
     @Published public var restTime: Int

@@ -11,6 +11,7 @@
 		D3597000266969A500AC2CCB /* TimerProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3596FFE266969A500AC2CCB /* TimerProgressCircle.swift */; };
 		D359700726696AC700AC2CCB /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D359700626696AC700AC2CCB /* TimerView.swift */; };
 		D35F4954265E9DE50066FBE4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D35F4956265E9DE50066FBE4 /* Localizable.strings */; };
+		D383128926B1B58C00D72821 /* IronFistController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D383128826B1B58C00D72821 /* IronFistController+Extensions.swift */; };
 		D3B6492E265BF1DB00FC88E4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6492D265BF1DB00FC88E4 /* SettingsView.swift */; };
 		D3B7F7F426978F990010B252 /* IronFistKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3B7F7EB26978F990010B252 /* IronFistKit.framework */; };
 		D3B7F7FB26978F990010B252 /* IronFistKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B7F7FA26978F990010B252 /* IronFistKitTests.swift */; };
@@ -96,6 +97,7 @@
 		D375271E26979DE40098CE16 /* Tests-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-Debug.xcconfig"; sourceTree = "<group>"; };
 		D375271F26979DE40098CE16 /* Tests-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-Release.xcconfig"; sourceTree = "<group>"; };
 		D375272026979DE40098CE16 /* Tests-Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-Shared.xcconfig"; sourceTree = "<group>"; };
+		D383128826B1B58C00D72821 /* IronFistController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IronFistController+Extensions.swift"; sourceTree = "<group>"; };
 		D3B6492D265BF1DB00FC88E4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D3B7F7EB26978F990010B252 /* IronFistKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IronFistKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3B7F7ED26978F990010B252 /* IronFistKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IronFistKit.h; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				D3D0BD5726587EE400CDF718 /* Preview Assets.xcassets */,
+				D383128826B1B58C00D72821 /* IronFistController+Extensions.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3D0BD6926587F1500CDF718 /* IronFistApp.swift in Sources */,
+				D383128926B1B58C00D72821 /* IronFistController+Extensions.swift in Sources */,
 				D3C7B81E26619190003831A7 /* IronFistRow.swift in Sources */,
 				D3D0BD6626587F1500CDF718 /* ContentView.swift in Sources */,
 				D359700726696AC700AC2CCB /* TimerView.swift in Sources */,
