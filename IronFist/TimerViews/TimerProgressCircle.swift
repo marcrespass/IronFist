@@ -3,7 +3,7 @@
 /* For easy of copy/pastability, all code is in one bug chunk.
  Be a dear and refactor this out any way you see fit 🤘 */
 
-/* Idealy, you would NOT be using pre-defined constants or first view at all, only the code below the refactor line.
+/* Ideally, you would NOT be using pre-defined constants or first view at all, only the code below the refactor line.
  I am leaving the initial view here just for easier usage example or possible extraction. Hope that works 👌 */
 
 /*

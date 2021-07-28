@@ -177,7 +177,7 @@ public final class IronFistController: NSObject, ObservableObject {
 extension IronFistController {
     private func configureSpeech() {
         let englishVoices = AVSpeechSynthesisVoice.speechVoices().filter { voice in
-            return voice.language == "en-US" && voice.gender == .female
+            voice.language == "en-US" && voice.gender == .female
         }
         self.speechVoice = englishVoices.first
 
