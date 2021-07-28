@@ -41,6 +41,7 @@ public final class IronFistController: NSObject, ObservableObject {
     @Published public var speakTitle: Bool
     @Published public var speakDescription: Bool
     @Published public var speakMotivation: Bool
+    @Published public var selectedTime: Date = Date()
     @Published private (set) public var selectedIronFist: IronFist?
     @Published private (set) public var countdownString: String = "0"
     @Published private (set) public var tenths: CGFloat = 1
@@ -54,6 +55,15 @@ public final class IronFistController: NSObject, ObservableObject {
             UIApplication.shared.isIdleTimerDisabled = timerRunning
         }
     }
+
+    // MARK: - Selected Days
+    @Published public var day1: Bool
+    @Published public var day2: Bool
+    @Published public var day3: Bool
+    @Published public var day4: Bool
+    @Published public var day5: Bool
+    @Published public var day6: Bool
+    @Published public var day7: Bool
 
     // MARK: - Gettable
     private (set) public var ironFists: [IronFist]
@@ -84,6 +94,14 @@ public final class IronFistController: NSObject, ObservableObject {
         self.speakTitle = UserDefaults.standard.bool(forKey: Constants.kSpeakTitle)
         self.speakDescription = UserDefaults.standard.bool(forKey: Constants.kSpeakDescription)
         self.speakMotivation = UserDefaults.standard.bool(forKey: Constants.kSpeakMotivation)
+
+        self.day1 = UserDefaults.standard.bool(forKey: Constants.kSelectedDay1)
+        self.day2 = UserDefaults.standard.bool(forKey: Constants.kSelectedDay2)
+        self.day3 = UserDefaults.standard.bool(forKey: Constants.kSelectedDay3)
+        self.day4 = UserDefaults.standard.bool(forKey: Constants.kSelectedDay4)
+        self.day5 = UserDefaults.standard.bool(forKey: Constants.kSelectedDay5)
+        self.day6 = UserDefaults.standard.bool(forKey: Constants.kSelectedDay6)
+        self.day7 = UserDefaults.standard.bool(forKey: Constants.kSelectedDay7)
 
         super.init()
         self.selectedIronFist = self.ironFists[self.playingIndex]
@@ -144,6 +162,14 @@ public final class IronFistController: NSObject, ObservableObject {
         UserDefaults.standard.set(self.speakTitle, forKey: Constants.kSpeakTitle)
         UserDefaults.standard.set(self.speakDescription, forKey: Constants.kSpeakDescription)
         UserDefaults.standard.set(self.speakMotivation, forKey: Constants.kSpeakMotivation)
+
+        UserDefaults.standard.set(self.day1, forKey: Constants.kSelectedDay1)
+        UserDefaults.standard.set(self.day2, forKey: Constants.kSelectedDay2)
+        UserDefaults.standard.set(self.day3, forKey: Constants.kSelectedDay3)
+        UserDefaults.standard.set(self.day4, forKey: Constants.kSelectedDay4)
+        UserDefaults.standard.set(self.day5, forKey: Constants.kSelectedDay5)
+        UserDefaults.standard.set(self.day6, forKey: Constants.kSelectedDay6)
+        UserDefaults.standard.set(self.day7, forKey: Constants.kSelectedDay7)
     }
 }
 

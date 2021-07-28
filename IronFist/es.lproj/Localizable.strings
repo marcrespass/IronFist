@@ -7,7 +7,6 @@
 */
 
 "Iron Fist" = "Puño de hierro";
-"Cancel" = "Cancelar";
 "Start" = "Empezar";
 "Begin" = "Iniciar";
 "Stop" = "Detener";
@@ -23,3 +22,16 @@
 "Speak titles" = "Decir los títulos";
 "Speak descriptions" = "Decir las descripciones";
 "Speak motivations" =  "Decir las  motivaciones";
+
+"Time" = "Tiempo";
+"Hour" = "Hora";
+"Speak" = "Hablar";
+"Notifications" = "Notificaciones";
+
+"Sunday" = "Domingo";
+"Monday" = "Lunes";
+"Tuesday" = "Martes";
+"Wednesday" = "Miércoles";
+"Thursday" = "Jueves";
+"Friday" = "Viernes";
+"Saturday" = "Sábado";

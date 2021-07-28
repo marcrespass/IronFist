@@ -7,7 +7,6 @@
 */
 
 "Iron Fist" = "Iron Fist";
-"Cancel" = "Cancel";
 "Start" = "Start";
 "Begin" = "Begin";
 "Stop" = "Stop";
@@ -23,3 +22,16 @@
 "Speak titles" = "Speak titles";
 "Speak descriptions" = "Speak descriptions";
 "Speak motivations" = "Speak motivations";
+
+"Time" = "Time";
+"Hour" = "Hour";
+"Speak" = "Speak";
+"Notifications" = "Notifications";
+
+"Sunday" = "Sunday";
+"Monday" = "Monday";
+"Tuesday" = "Tuesday";
+"Wednesday" = "Wednesday";
+"Thursday" = "Thursday";
+"Friday" = "Friday";
+"Saturday" = "Saturday";

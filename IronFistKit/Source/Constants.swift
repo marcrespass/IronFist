@@ -12,6 +12,15 @@ public enum Constants {
     public static let kSpeakTitle = "SpeakTitle"
     public static let kSpeakDescription = "SpeakDescription"
     public static let kSpeakMotivation = "SpeakMotivation"
+
+    public static let kSelectedDay1 = "SelectedDay1"
+    public static let kSelectedDay2 = "SelectedDay2"
+    public static let kSelectedDay3 = "SelectedDay3"
+    public static let kSelectedDay4 = "SelectedDay4"
+    public static let kSelectedDay5 = "SelectedDay5"
+    public static let kSelectedDay6 = "SelectedDay6"
+    public static let kSelectedDay7 = "SelectedDay7"
+
     public static var defaultsDictionary: [String: Any] {
         #if DEBUG
         [Constants.kRestTime: 3,

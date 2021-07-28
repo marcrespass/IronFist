@@ -7,6 +7,22 @@
 import SwiftUI
 import IronFistKit
 
+// https://swiftwithmajid.com/2020/03/04/customizing-toggle-in-swiftui/
+struct CheckboxToggleStyle: ToggleStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        HStack {
+            configuration.label
+            Spacer()
+            Image(systemName: configuration.isOn ? "checkmark.square" : "square")
+                    .resizable()
+                    .frame(width: 22, height: 22)
+                    .onTapGesture {
+                        configuration.isOn.toggle()
+                    }
+        }
+    }
+}
+
 struct SettingsView: View {
     @EnvironmentObject var controller: IronFistController
     @Environment(\.presentationMode) var presentationMode
@@ -29,15 +45,17 @@ struct SettingsView: View {
                 Text("Settings")
                     .font(.largeTitle.bold())
                 Spacer()
-                Button("Done") {
+                Button {
                     self.controller.saveSettings()
                     presentationMode.wrappedValue.dismiss()
+                } label: {
+                    Text("Done").font(.title3)
                 }
             }
             .padding([.top, .leading, .trailing])
 
             Form {
-                Section {
+                Section(header: Text("Time")) {
                     Stepper("Rice time: \(controller.fistTime)", value: $controller.fistTime)
                     Stepper("Rest time: \(controller.restTime)", value: $controller.restTime)
                 }
@@ -45,6 +63,23 @@ struct SettingsView: View {
                     Toggle("Speak titles", isOn: $controller.speakTitle)
                     Toggle("Speak descriptions", isOn: $controller.speakDescription)
                     Toggle("Speak motivations", isOn: $controller.speakMotivation)
+                }
+                Section(header: Text("Notifications")) {
+                    DatePicker("Hour", selection: $controller.selectedTime, displayedComponents: [.hourAndMinute])
+                    Toggle("Sunday", isOn: $controller.day1)
+                        .toggleStyle(CheckboxToggleStyle())
+                    Toggle("Monday", isOn: $controller.day2)
+                        .toggleStyle(CheckboxToggleStyle())
+                    Toggle("Tuesday", isOn: $controller.day3)
+                        .toggleStyle(CheckboxToggleStyle())
+                    Toggle("Wednesday", isOn: $controller.day4)
+                        .toggleStyle(CheckboxToggleStyle())
+                    Toggle("Thursday", isOn: $controller.day5)
+                        .toggleStyle(CheckboxToggleStyle())
+                    Toggle("Friday", isOn: $controller.day6)
+                        .toggleStyle(CheckboxToggleStyle())
+                    Toggle("Saturday", isOn: $controller.day7)
+                        .toggleStyle(CheckboxToggleStyle())
                 }
             }
 
