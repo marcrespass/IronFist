@@ -31,6 +31,7 @@ struct IronFistRow: View {
     }
 }
 
+#if DEBUG
 struct IronFistRow_Previews: PreviewProvider {
     static var controller = IronFistController()
     static var previews: some View {
@@ -39,3 +40,4 @@ struct IronFistRow_Previews: PreviewProvider {
             .environmentObject(controller)
     }
 }
+#endif

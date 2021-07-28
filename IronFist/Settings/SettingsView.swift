@@ -58,6 +58,7 @@ struct SettingsView: View {
     }
 }
 
+#if DEBUG
 struct SettingsView_Previews: PreviewProvider {
     static var controller = IronFistController()
 
@@ -68,3 +69,4 @@ struct SettingsView_Previews: PreviewProvider {
             .environmentObject(controller)
     }
 }
+#endif

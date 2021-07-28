@@ -68,6 +68,7 @@ struct TimerProgressCircle: View {
     }
 }
 
+#if DEBUG
 struct CircleGraph_Previews: PreviewProvider {
     static var controller = IronFistController()
 
@@ -81,3 +82,4 @@ struct CircleGraph_Previews: PreviewProvider {
         .preferredColorScheme(.dark)
     }
 }
+#endif

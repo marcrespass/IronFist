@@ -67,6 +67,7 @@ struct TimerView: View {
     }
 }
 
+#if DEBUG
 struct TimerView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
@@ -76,3 +77,4 @@ struct TimerView_Previews: PreviewProvider {
         }
     }
 }
+#endif

@@ -24,6 +24,7 @@ struct GroupedListHeader: View {
     }
 }
 
+#if DEBUG
 struct GroupedListHeader_Previews: PreviewProvider {
     static var controller = IronFistController()
 
@@ -32,3 +33,4 @@ struct GroupedListHeader_Previews: PreviewProvider {
             .environmentObject(controller)
     }
 }
+#endif

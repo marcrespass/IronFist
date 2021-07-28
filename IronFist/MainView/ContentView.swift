@@ -64,6 +64,7 @@ extension ContentView {
     }
 }
 
+#if DEBUG
 struct ContentView_Previews: PreviewProvider {
     static var controller = IronFistController()
 
@@ -78,3 +79,4 @@ struct ContentView_Previews: PreviewProvider {
         }
     }
 }
+#endif
