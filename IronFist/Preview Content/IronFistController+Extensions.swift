@@ -18,7 +18,7 @@ extension IronFistController {
 
     public static var readyController: IronFistController {
         let controller = IronFistController()
-        controller.ready()
+        controller.readyTimer()
         return controller
     }
 

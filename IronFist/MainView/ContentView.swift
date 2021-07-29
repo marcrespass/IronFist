@@ -46,7 +46,7 @@ extension ContentView {
     var startStopToolbarItem: some ToolbarContent {
         ToolbarItem(placement: .navigationBarLeading) {
             Button("Start") {
-                self.controller.ready()
+                self.controller.readyTimer()
                 self.isShowingDetailView = true
             }
             .disabled(self.controller.timerRunning)

@@ -118,34 +118,34 @@ public final class IronFistController: NSObject, ObservableObject {
         return label
     }()
 
-    public func buttonLabel() -> Text {
+    public func stopBeginButtonLabel() -> Text {
         Text(self.timerRunning ? "Stop" : "Begin")
             .fontWeight(.bold)
             .font(.title)
     }
 
-    public func ready() {
+    public func readyTimer() {
         self.playingIndex = 0
         self.selectedIronFist = self.ironFists[self.playingIndex]
     }
 
-    public func toggle() {
-        self.ready()
+    public func toggleTimer() {
+        self.readyTimer()
         if self.timerRunning {
-            self.stop()
+            self.stopTimer()
         } else {
             self.start()
         }
     }
 
     public func start() {
-        self.ready()
+        self.readyTimer()
         self.configureTimer()
         self.timerRunning = true
         self.handleCurrentItem()
     }
 
-    public func stop() {
+    public func stopTimer() {
         self.timerRunning = false
         self.timerSeconds = 0
         self.cancelTimers()
@@ -344,7 +344,7 @@ extension IronFistController: AVSpeechSynthesizerDelegate {
             self.circleState = .rest
             self.startTimer()
         } else if synthesizer == self.finishSynthesizer {
-            self.stop()
+            self.stopTimer()
         } else {
             self.circleState = .fist
             self.startTimer()

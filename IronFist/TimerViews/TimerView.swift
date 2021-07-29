@@ -23,18 +23,18 @@ struct TimerView: View {
         }
         .padding([.leading, .trailing])
         .onAppear(perform: {
-            self.controller.ready()
+            self.controller.readyTimer()
         })
         .onDisappear(perform: {
-            self.controller.stop()
+            self.controller.stopTimer()
         })
     }
 
     fileprivate func timerButton() -> some View {
         Button {
-            self.controller.toggle()
+            self.controller.toggleTimer()
         } label: {
-            self.controller.buttonLabel()
+            self.controller.stopBeginButtonLabel()
         }
         .buttonStyle(RoundedButtonStyle(color: self.controller.timerRunning ? .red : .green))
     }
