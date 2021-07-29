@@ -10,6 +10,7 @@
 		D3199D99266A9AC400DA4A7A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3199D98266A9AC400DA4A7A /* Colors.xcassets */; };
 		D356E7D326B2F3A300589AEE /* CheckboxToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D356E7D226B2F3A300589AEE /* CheckboxToggleStyle.swift */; };
 		D356E7D526B2F76A00589AEE /* RoundedButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D356E7D426B2F76A00589AEE /* RoundedButtonStyle.swift */; };
+		D356E7D726B303FB00589AEE /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D356E7D626B303FB00589AEE /* SettingsController.swift */; };
 		D3597000266969A500AC2CCB /* TimerProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3596FFE266969A500AC2CCB /* TimerProgressCircle.swift */; };
 		D359700726696AC700AC2CCB /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D359700626696AC700AC2CCB /* TimerView.swift */; };
 		D35F4954265E9DE50066FBE4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D35F4956265E9DE50066FBE4 /* Localizable.strings */; };
@@ -83,6 +84,7 @@
 		D33687D7268FC58800E7CAE5 /* IronFist.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IronFist.entitlements; sourceTree = "<group>"; };
 		D356E7D226B2F3A300589AEE /* CheckboxToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxToggleStyle.swift; sourceTree = "<group>"; };
 		D356E7D426B2F76A00589AEE /* RoundedButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButtonStyle.swift; sourceTree = "<group>"; };
+		D356E7D626B303FB00589AEE /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		D3596FFD266969A500AC2CCB /* IronFistController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IronFistController.swift; sourceTree = "<group>"; };
 		D3596FFE266969A500AC2CCB /* TimerProgressCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerProgressCircle.swift; sourceTree = "<group>"; };
 		D3597001266969BB00AC2CCB /* CircleState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleState.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				D3D0BD6126587F1500CDF718 /* IronFist.json */,
 				D3D0BD6326587F1500CDF718 /* IronFist.swift */,
 				D3596FFD266969A500AC2CCB /* IronFistController.swift */,
+				D356E7D626B303FB00589AEE /* SettingsController.swift */,
 				D3597001266969BB00AC2CCB /* CircleState.swift */,
 				D3597003266969C700AC2CCB /* Formatters.swift */,
 			);
@@ -497,6 +500,7 @@
 				D3B7F8112697901E0010B252 /* Constants.swift in Sources */,
 				D3B7F8122697902F0010B252 /* CircleState.swift in Sources */,
 				D3B7F80E26978FDF0010B252 /* Formatters.swift in Sources */,
+				D356E7D726B303FB00589AEE /* SettingsController.swift in Sources */,
 				D3B7F80B26978FC70010B252 /* IronFist.swift in Sources */,
 				D3B7F80C26978FC70010B252 /* IronFistController.swift in Sources */,
 				D3B7F80F26978FF10010B252 /* Bundle+Extensions.swift in Sources */,

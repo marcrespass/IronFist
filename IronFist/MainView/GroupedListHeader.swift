@@ -9,13 +9,13 @@ import IronFistKit
 
 // https://thehappyprogrammer.com/custom-list-in-swiftui/
 struct GroupedListHeader: View {
-    @EnvironmentObject var controller: IronFistController
+    @EnvironmentObject var settingsController: SettingsController
 
     var body: some View {
         HStack {
-            Text("Rice time: \(controller.fistTime)")
+            Text("Rice time: \(settingsController.fistTime)")
             Spacer()
-            Text("Rest time: \(controller.restTime)")
+            Text("Rest time: \(settingsController.restTime)")
         }
         .font(.headline)
         .foregroundColor(.white)
@@ -26,7 +26,7 @@ struct GroupedListHeader: View {
 
 #if DEBUG
 struct GroupedListHeader_Previews: PreviewProvider {
-    static var controller = IronFistController()
+    static var controller = SettingsController()
 
     static var previews: some View {
         GroupedListHeader()

@@ -8,7 +8,7 @@ import SwiftUI
 import IronFistKit
 
 struct SettingsView: View {
-    @EnvironmentObject var controller: IronFistController
+    @EnvironmentObject var settingsController: SettingsController
     @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
@@ -25,9 +25,9 @@ struct SettingsView: View {
 
     fileprivate func bottomBar() -> some View {
         HStack {
-            Text(controller.appName)
+            Text(settingsController.appName)
                 .fontWeight(.bold)
-            Text(controller.aboutLabel)
+            Text(settingsController.aboutLabel)
                 .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
         }
     }
@@ -38,7 +38,7 @@ struct SettingsView: View {
                 .font(.largeTitle.bold())
             Spacer()
             Button {
-                self.controller.saveSettings()
+                self.settingsController.saveSettings()
                 presentationMode.wrappedValue.dismiss()
             } label: {
                 Text("Done").font(.title3)
@@ -49,40 +49,40 @@ struct SettingsView: View {
 
     fileprivate func timeSection() -> some View {
         Section(header: Text("Time")) {
-            Stepper("Rice time: \(controller.fistTime)", value: $controller.fistTime)
-            Stepper("Rest time: \(controller.restTime)", value: $controller.restTime)
+            Stepper("Rice time: \(settingsController.fistTime)", value: $settingsController.fistTime)
+            Stepper("Rest time: \(settingsController.restTime)", value: $settingsController.restTime)
         }
     }
 
     fileprivate func speakSection() -> some View {
         Section(header: Text("Speak")) {
-            Toggle("Speak titles", isOn: $controller.speakTitle)
-            Toggle("Speak descriptions", isOn: $controller.speakDescription)
-            Toggle("Speak motivations", isOn: $controller.speakMotivation)
+            Toggle("Speak titles", isOn: $settingsController.speaksTitle)
+            Toggle("Speak descriptions", isOn: $settingsController.speaksDescription)
+            Toggle("Speak motivations", isOn: $settingsController.speaksMotivation)
         }
     }
 
     fileprivate func notificationSection() -> some View {
         return Section(header: Text("Configure notifications")) {
-            if self.controller.allowsNotifications {
-                DatePicker("Hour", selection: $controller.selectedTime, displayedComponents: [.hourAndMinute])
-                Toggle("Sunday", isOn: $controller.day1)
+            if self.settingsController.allowsNotifications {
+                DatePicker("Hour", selection: $settingsController.selectedTime, displayedComponents: [.hourAndMinute])
+                Toggle("Sunday", isOn: $settingsController.day1)
                     .toggleStyle(CheckboxToggleStyle())
-                Toggle("Monday", isOn: $controller.day2)
+                Toggle("Monday", isOn: $settingsController.day2)
                     .toggleStyle(CheckboxToggleStyle())
-                Toggle("Tuesday", isOn: $controller.day3)
+                Toggle("Tuesday", isOn: $settingsController.day3)
                     .toggleStyle(CheckboxToggleStyle())
-                Toggle("Wednesday", isOn: $controller.day4)
+                Toggle("Wednesday", isOn: $settingsController.day4)
                     .toggleStyle(CheckboxToggleStyle())
-                Toggle("Thursday", isOn: $controller.day5)
+                Toggle("Thursday", isOn: $settingsController.day5)
                     .toggleStyle(CheckboxToggleStyle())
-                Toggle("Friday", isOn: $controller.day6)
+                Toggle("Friday", isOn: $settingsController.day6)
                     .toggleStyle(CheckboxToggleStyle())
-                Toggle("Saturday", isOn: $controller.day7)
+                Toggle("Saturday", isOn: $settingsController.day7)
                     .toggleStyle(CheckboxToggleStyle())
             } else {
                 Button("Allow notifications") {
-                    self.controller.allowNotifications()
+                    self.settingsController.allowNotifications()
                 }
             }
         }
@@ -91,7 +91,7 @@ struct SettingsView: View {
 
 #if DEBUG
 struct SettingsView_Previews: PreviewProvider {
-    static var controller = IronFistController()
+    static var controller = SettingsController()
 
     static var previews: some View {
         SettingsView()
