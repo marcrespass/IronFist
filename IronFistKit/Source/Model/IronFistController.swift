@@ -105,6 +105,19 @@ public final class IronFistController: NSObject, ObservableObject {
     }
 
     // MARK: - Public methods
+    // MARK: - Settings
+    public lazy var appName: String = {
+        let name = NSLocalizedString("Iron Fist", comment: "App name")
+        return name
+    }()
+
+    public lazy var aboutLabel: String = {
+        let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "1.0"
+        let build = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "1"
+        let label = "\(NSLocalizedString("version", comment: "")) \(version) (\(build))"
+        return label
+    }()
+
     public func buttonLabel() -> Text {
         Text(self.timerRunning ? "Stop" : "Begin")
             .fontWeight(.bold)
