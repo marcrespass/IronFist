@@ -13,6 +13,7 @@ import SwiftUI
 /// This object is the AVSpeechSynthesizerDelegate
 /// It manages a timer, manages speech, and manages the current selection
 public final class IronFistController: NSObject, ObservableObject {
+    // MARK: - Published properties
     @Published private (set) public var selectedIronFist: IronFist?
     @Published private (set) public var countdownString: String = "0"
     @Published private (set) public var tenths: CGFloat = 1
@@ -34,7 +35,7 @@ public final class IronFistController: NSObject, ObservableObject {
     private var stopTime = Date()
     private var cancellable: Cancellable?
     // MARK: - Speech Properties
-    private var speechVoice: AVSpeechSynthesisVoice?
+    private let speechVoice: AVSpeechSynthesisVoice?
     private let ironFistSynthesizer = AVSpeechSynthesizer()
     private let soStrongSynthesizer = AVSpeechSynthesizer()
     private let finishSynthesizer = AVSpeechSynthesizer()
@@ -48,22 +49,27 @@ public final class IronFistController: NSObject, ObservableObject {
         }
         return "Rest."
     }
+
     override public init() {
         func loadIronFistsFromBundle() -> [IronFist] {
             let array: [IronFist] = Bundle(for: Self.self).decode(from: "IronFist.json")
             if ProcessInfo.processInfo.arguments.contains("-testingMode") {
-                return Array(array.prefix(3))
+                return Array(array.prefix(2))
             }
             return array
         }
 
         self.ironFists = loadIronFistsFromBundle()
+        // Find the first female US English voice
+        let englishVoices = AVSpeechSynthesisVoice.speechVoices().filter { voice in
+            voice.language == "en-US" && voice.gender == .female
+        }
+        self.speechVoice = englishVoices.first
+        self.finishSpeechUtterance.voice = self.speechVoice
 
         super.init()
 
-//        self.selectedIronFist = self.ironFists[self.playingIndex]
         self.configureTimer()
-        self.configureSpeech()
     }
 
     // MARK: - Public methods
@@ -103,19 +109,9 @@ public final class IronFistController: NSObject, ObservableObject {
         self.soStrongSynthesizer.delegate = nil
         self.finishSynthesizer.delegate = nil
 
-        self.circleState = .waiting
+        self.circleState = .stopped
         self.playingIndex = 0
         self.selectedIronFist = nil
-    }
-}
-// MARK: - Private speech methods
-extension IronFistController {
-    private func configureSpeech() {
-        let englishVoices = AVSpeechSynthesisVoice.speechVoices().filter { voice in
-            voice.language == "en-US" && voice.gender == .female
-        }
-        self.speechVoice = englishVoices.first
-        self.finishSpeechUtterance.voice = self.speechVoice
     }
 }
 
