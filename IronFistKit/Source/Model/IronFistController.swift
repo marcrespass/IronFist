@@ -25,12 +25,6 @@ public final class IronFistController: NSObject, ObservableObject {
         return array
     }
 
-    // MARK: - Published Properties
-    @Published public var fistTime: Int
-    @Published public var restTime: Int
-    @Published public var speakTitle: Bool
-    @Published public var speakDescription: Bool
-    @Published public var speakMotivation: Bool
     @Published private (set) public var selectedIronFist: IronFist?
     @Published private (set) public var countdownString: String = "0"
     @Published private (set) public var tenths: CGFloat = 1
@@ -44,17 +38,6 @@ public final class IronFistController: NSObject, ObservableObject {
             UIApplication.shared.isIdleTimerDisabled = timerRunning
         }
     }
-
-    // MARK: - Notification properties
-    @Published public var selectedTime: Date = Date()
-    @Published public var day1: Bool
-    @Published public var day2: Bool
-    @Published public var day3: Bool
-    @Published public var day4: Bool
-    @Published public var day5: Bool
-    @Published public var day6: Bool
-    @Published public var day7: Bool
-    @Published public var allowsNotifications: Bool
 
     // MARK: - Gettable
     private (set) public var ironFists: [IronFist]
@@ -72,52 +55,22 @@ public final class IronFistController: NSObject, ObservableObject {
     private var playingIndex = 0
     private var displayFormatter = Formatters.plainFormatter
     private var restText: String {
-        if self.speakDescription || self.speakMotivation {
+        if UserDefaults.standard.bool(forKey: Constants.kSpeakDescription) || UserDefaults.standard.bool(forKey: Constants.kSpeakMotivation) {
             return "Wow. You are so strong. Rest."
         }
         return "Rest."
     }
-
     override public init() {
         self.ironFists = IronFistController.loadIronFistsFromBundle()
-        self.fistTime = UserDefaults.standard.integer(forKey: Constants.kFistTime)
-        self.restTime = UserDefaults.standard.integer(forKey: Constants.kRestTime)
-        self.speakTitle = UserDefaults.standard.bool(forKey: Constants.kSpeakTitle)
-        self.speakDescription = UserDefaults.standard.bool(forKey: Constants.kSpeakDescription)
-        self.speakMotivation = UserDefaults.standard.bool(forKey: Constants.kSpeakMotivation)
-
-        self.day1 = UserDefaults.standard.bool(forKey: Constants.kSelectedDay1)
-        self.day2 = UserDefaults.standard.bool(forKey: Constants.kSelectedDay2)
-        self.day3 = UserDefaults.standard.bool(forKey: Constants.kSelectedDay3)
-        self.day4 = UserDefaults.standard.bool(forKey: Constants.kSelectedDay4)
-        self.day5 = UserDefaults.standard.bool(forKey: Constants.kSelectedDay5)
-        self.day6 = UserDefaults.standard.bool(forKey: Constants.kSelectedDay6)
-        self.day7 = UserDefaults.standard.bool(forKey: Constants.kSelectedDay7)
-
-        self.allowsNotifications = false
 
         super.init()
         self.selectedIronFist = self.ironFists[self.playingIndex]
 
         self.configureTimer()
         self.configureSpeech()
-        self.checkNotificationStatus()
     }
 
     // MARK: - Public methods
-    // MARK: - Settings
-    public lazy var appName: String = {
-        let name = NSLocalizedString("Iron Fist", comment: "App name")
-        return name
-    }()
-
-    public lazy var aboutLabel: String = {
-        let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "1.0"
-        let build = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "1"
-        let label = "\(NSLocalizedString("version", comment: "")) \(version) (\(build))"
-        return label
-    }()
-
     public func stopBeginButtonLabel() -> Text {
         Text(self.timerRunning ? "Stop" : "Begin")
             .fontWeight(.bold)
@@ -158,100 +111,20 @@ public final class IronFistController: NSObject, ObservableObject {
         self.playingIndex = 0
         self.selectedIronFist = nil
     }
-
-    public func saveSettings() {
-        UserDefaults.standard.set(self.fistTime, forKey: Constants.kFistTime)
-        UserDefaults.standard.set(self.restTime, forKey: Constants.kRestTime)
-        UserDefaults.standard.set(self.speakTitle, forKey: Constants.kSpeakTitle)
-        UserDefaults.standard.set(self.speakDescription, forKey: Constants.kSpeakDescription)
-        UserDefaults.standard.set(self.speakMotivation, forKey: Constants.kSpeakMotivation)
-
-        UserDefaults.standard.set(self.day1, forKey: Constants.kSelectedDay1)
-        UserDefaults.standard.set(self.day2, forKey: Constants.kSelectedDay2)
-        UserDefaults.standard.set(self.day3, forKey: Constants.kSelectedDay3)
-        UserDefaults.standard.set(self.day4, forKey: Constants.kSelectedDay4)
-        UserDefaults.standard.set(self.day5, forKey: Constants.kSelectedDay5)
-        UserDefaults.standard.set(self.day6, forKey: Constants.kSelectedDay6)
-        UserDefaults.standard.set(self.day7, forKey: Constants.kSelectedDay7)
-
-        self.createNotifications()
-    }
-
-    // https://developer.apple.com/documentation/usernotifications/scheduling_a_notification_locally_from_your_app
-    public func checkNotificationStatus() {
-        UNUserNotificationCenter.current().getNotificationSettings { settings in
-            DispatchQueue.main.async {
-                if settings.authorizationStatus == .authorized {
-                    self.allowsNotifications = true
-                } else {
-                    self.allowsNotifications = false
-                }
-            }
-        }
-    }
-
-    public func allowNotifications() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
-            DispatchQueue.main.async {
-                if success {
-                    self.allowsNotifications = true
-                } else if let error = error {
-                    print(error.localizedDescription)
-                    self.allowsNotifications = false
-                }
-            }
-        }
-    }
-
-    private func disableNotifications() {
-        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
-        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-    }
-
-    // https://developer.apple.com/documentation/usernotifications/scheduling_a_notification_locally_from_your_app
-    // https://www.hackingwithswift.com/books/ios-swiftui/scheduling-local-notifications
-    // This one shows how to handle if notifications are disabled in Settings
-    // https://blog.techchee.com/handling-local-notification-in-swiftui/
-    private func createNotifications() {
-        self.disableNotifications()
-        let days = [day1, day2, day3, day4, day5, day6, day7]
-
-        for (index, item) in days.enumerated() where item == true {
-            let content = UNMutableNotificationContent()
-            content.title = "Iron Fist"
-            content.body = self.ironFists[Int.random(in: 0..<10)].motivation
-
-            var dateComponents = Calendar.current.dateComponents([.hour, .minute], from: self.selectedTime)
-            dateComponents.weekday = index + 1 // Sunday = 1
-
-            // Create the trigger as a repeating event.
-            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-            // Create the request
-            let uuidString = UUID().uuidString
-            let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
-
-            // Schedule the request with the system.
-            let notificationCenter = UNUserNotificationCenter.current()
-            notificationCenter.add(request) { (error) in
-                if let error = error {
-                    print(error.localizedDescription)
-                }
-            }
-        }
-    }
 }
-
-// MARK: - Private methods
+// MARK: - Private speech methods
 extension IronFistController {
     private func configureSpeech() {
         let englishVoices = AVSpeechSynthesisVoice.speechVoices().filter { voice in
             voice.language == "en-US" && voice.gender == .female
         }
         self.speechVoice = englishVoices.first
-
         self.finishSpeechUtterance.voice = self.speechVoice
     }
+}
 
+// MARK: - Private timer methods
+extension IronFistController {
     private func configureTimer() {
         self.timerSeconds = self.circleState.timerValue
         self.tenths = 1
@@ -279,7 +152,11 @@ extension IronFistController {
     private func handleCurrentItem() {
         guard let ironFist = self.selectedIronFist else { return }
 
-        let text = ironFist.spokenText(title: self.speakTitle, instruction: self.speakDescription, motivation: self.speakMotivation)
+        let speaksMotivation = UserDefaults.standard.bool(forKey: Constants.kSpeakMotivation)
+        let speaksDescription = UserDefaults.standard.bool(forKey: Constants.kSpeakDescription)
+        let speaksTitle = UserDefaults.standard.bool(forKey: Constants.kSpeakTitle)
+
+        let text = ironFist.spokenText(title: speaksTitle, instruction: speaksDescription, motivation: speaksMotivation)
         let speechUtterance = AVSpeechUtterance(string: text)
         speechUtterance.voice = self.speechVoice
         self.ironFistSynthesizer.speak(speechUtterance)
@@ -344,6 +221,142 @@ extension IronFistController: AVSpeechSynthesizerDelegate {
         } else {
             self.circleState = .fist
             self.createAndPublishTimer()
+        }
+    }
+}
+
+// MARK: - Settings Methods
+public final class SettingsController: NSObject, ObservableObject {
+    // MARK: - Published Properties
+    @Published public var fistTime: Int
+    @Published public var restTime: Int
+    @Published public var speaksTitle: Bool
+    @Published public var speaksDescription: Bool
+    @Published public var speaksMotivation: Bool
+    // MARK: - Notification properties
+    @Published public var selectedTime: Date = Date()
+    @Published public var day1: Bool
+    @Published public var day2: Bool
+    @Published public var day3: Bool
+    @Published public var day4: Bool
+    @Published public var day5: Bool
+    @Published public var day6: Bool
+    @Published public var day7: Bool
+    @Published public var allowsNotifications: Bool
+
+    // MARK: - Settings Lazy Properties
+    public lazy var appName: String = {
+        let name = NSLocalizedString("Iron Fist", comment: "App name")
+        return name
+    }()
+
+    public lazy var aboutLabel: String = {
+        let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "1.0"
+        let build = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "1"
+        let label = "\(NSLocalizedString("version", comment: "")) \(version) (\(build))"
+        return label
+    }()
+
+    override public init() {
+        self.fistTime = UserDefaults.standard.integer(forKey: Constants.kFistTime)
+        self.restTime = UserDefaults.standard.integer(forKey: Constants.kRestTime)
+        self.speaksTitle = UserDefaults.standard.bool(forKey: Constants.kSpeakTitle)
+        self.speaksDescription = UserDefaults.standard.bool(forKey: Constants.kSpeakDescription)
+        self.speaksMotivation = UserDefaults.standard.bool(forKey: Constants.kSpeakMotivation)
+
+        self.day1 = UserDefaults.standard.bool(forKey: Constants.kSelectedDay1)
+        self.day2 = UserDefaults.standard.bool(forKey: Constants.kSelectedDay2)
+        self.day3 = UserDefaults.standard.bool(forKey: Constants.kSelectedDay3)
+        self.day4 = UserDefaults.standard.bool(forKey: Constants.kSelectedDay4)
+        self.day5 = UserDefaults.standard.bool(forKey: Constants.kSelectedDay5)
+        self.day6 = UserDefaults.standard.bool(forKey: Constants.kSelectedDay6)
+        self.day7 = UserDefaults.standard.bool(forKey: Constants.kSelectedDay7)
+
+        self.allowsNotifications = false
+
+        super.init()
+
+        self.checkNotificationStatus()
+    }
+
+    public func saveSettings() {
+        UserDefaults.standard.set(self.fistTime, forKey: Constants.kFistTime)
+        UserDefaults.standard.set(self.restTime, forKey: Constants.kRestTime)
+        UserDefaults.standard.set(self.speaksTitle, forKey: Constants.kSpeakTitle)
+        UserDefaults.standard.set(self.speaksDescription, forKey: Constants.kSpeakDescription)
+        UserDefaults.standard.set(self.speaksMotivation, forKey: Constants.kSpeakMotivation)
+
+        UserDefaults.standard.set(self.day1, forKey: Constants.kSelectedDay1)
+        UserDefaults.standard.set(self.day2, forKey: Constants.kSelectedDay2)
+        UserDefaults.standard.set(self.day3, forKey: Constants.kSelectedDay3)
+        UserDefaults.standard.set(self.day4, forKey: Constants.kSelectedDay4)
+        UserDefaults.standard.set(self.day5, forKey: Constants.kSelectedDay5)
+        UserDefaults.standard.set(self.day6, forKey: Constants.kSelectedDay6)
+        UserDefaults.standard.set(self.day7, forKey: Constants.kSelectedDay7)
+
+        self.createNotifications()
+    }
+
+    // https://developer.apple.com/documentation/usernotifications/scheduling_a_notification_locally_from_your_app
+    public func checkNotificationStatus() {
+        UNUserNotificationCenter.current().getNotificationSettings { settings in
+            DispatchQueue.main.async {
+                if settings.authorizationStatus == .authorized {
+                    self.allowsNotifications = true
+                } else {
+                    self.allowsNotifications = false
+                }
+            }
+        }
+    }
+
+    public func allowNotifications() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+            DispatchQueue.main.async {
+                if success {
+                    self.allowsNotifications = true
+                } else if let error = error {
+                    print(error.localizedDescription)
+                    self.allowsNotifications = false
+                }
+            }
+        }
+    }
+
+    private func disableNotifications() {
+        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+    }
+
+    // https://developer.apple.com/documentation/usernotifications/scheduling_a_notification_locally_from_your_app
+    // https://www.hackingwithswift.com/books/ios-swiftui/scheduling-local-notifications
+    // This one shows how to handle if notifications are disabled in Settings
+    // https://blog.techchee.com/handling-local-notification-in-swiftui/
+    private func createNotifications() {
+        self.disableNotifications()
+        let days = [day1, day2, day3, day4, day5, day6, day7]
+
+        for (index, item) in days.enumerated() where item == true {
+            let content = UNMutableNotificationContent()
+            content.title = "Iron Fist"
+            content.body = ""// self.ironFists[Int.random(in: 0..<10)].motivation
+
+            var dateComponents = Calendar.current.dateComponents([.hour, .minute], from: self.selectedTime)
+            dateComponents.weekday = index + 1 // Sunday = 1
+
+            // Create the trigger as a repeating event.
+            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+            // Create the request
+            let uuidString = UUID().uuidString
+            let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
+
+            // Schedule the request with the system.
+            let notificationCenter = UNUserNotificationCenter.current()
+            notificationCenter.add(request) { (error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                }
+            }
         }
     }
 }
