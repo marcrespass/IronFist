@@ -36,9 +36,12 @@ struct TimerProgressCircle: View {
                 progressCircle()
             }
         }
-        .padding()
+            .padding()
     }
+}
 
+// MARK: - Private View methods
+extension TimerProgressCircle {
     fileprivate func circleCenterView() -> some View {
         ZStack {
             Circle()
@@ -52,7 +55,7 @@ struct TimerProgressCircle: View {
                 Text(verbatim: "\(self.controller.countdownString)")
                     .font(Font.system(size: textFontSize, weight: .heavy, design: .rounded).monospacedDigit())
             }
-            .foregroundColor(self.controller.circleState.timerCircleColor)
+                .foregroundColor(self.controller.circleState.timerCircleColor)
         }
     }
 
@@ -60,7 +63,7 @@ struct TimerProgressCircle: View {
         Circle()
             .trim(from: completionStart, to: self.controller.tenths)
             .stroke(self.controller.circleState.timerCircleColor,
-                    style: StrokeStyle(lineWidth: lineWidth, lineCap: CGLineCap.round))
+                style: StrokeStyle(lineWidth: lineWidth, lineCap: CGLineCap.round))
             .frame(width: baseSize + lineWidth, height: baseSize + lineWidth)
             .padding()
             .rotationEffect(.degrees(-90))
@@ -69,17 +72,17 @@ struct TimerProgressCircle: View {
 }
 
 #if DEBUG
-struct CircleGraph_Previews: PreviewProvider {
-    static var controller = IronFistController()
+    struct CircleGraph_Previews: PreviewProvider {
+        static var controller = IronFistController()
 
-    static var previews: some View {
-        VStack {
-            TimerProgressCircle()
-                .previewDevice("iPhone SE (2nd generation)")
-                .environmentObject(controller)
-            Spacer()
+        static var previews: some View {
+            VStack {
+                TimerProgressCircle()
+                    .previewDevice("iPhone SE (2nd generation)")
+                    .environmentObject(controller)
+                Spacer()
+            }
+                .preferredColorScheme(.dark)
         }
-        .preferredColorScheme(.dark)
     }
-}
 #endif

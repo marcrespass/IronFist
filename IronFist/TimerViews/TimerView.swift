@@ -21,15 +21,18 @@ struct TimerView: View {
             }
             Spacer()
         }
-        .padding([.leading, .trailing])
-        .onAppear(perform: {
-            self.controller.readyTimer()
-        })
-        .onDisappear(perform: {
-            self.controller.stopTimer()
-        })
+                .padding([.leading, .trailing])
+                .onAppear(perform: {
+                    self.controller.readyTimer()
+                })
+                .onDisappear(perform: {
+                    self.controller.stopTimer()
+                })
     }
+}
 
+// MARK: - Private View methods
+extension TimerView {
     fileprivate func timerButton() -> some View {
         Button {
             self.controller.toggleTimer()

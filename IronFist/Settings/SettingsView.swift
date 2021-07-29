@@ -22,7 +22,10 @@ struct SettingsView: View {
             bottomBar()
         }
     }
+}
 
+// MARK: - Private View methods
+extension SettingsView {
     fileprivate func bottomBar() -> some View {
         HStack {
             Text(settingsController.appName)
@@ -44,7 +47,7 @@ struct SettingsView: View {
                 Text("Done").font(.title3)
             }
         }
-        .padding([.top, .leading, .trailing])
+            .padding([.top, .leading, .trailing])
     }
 
     fileprivate func timeSection() -> some View {
@@ -90,14 +93,14 @@ struct SettingsView: View {
 }
 
 #if DEBUG
-struct SettingsView_Previews: PreviewProvider {
-    static var controller = SettingsController()
+    struct SettingsView_Previews: PreviewProvider {
+        static var controller = SettingsController()
 
-    static var previews: some View {
-        SettingsView()
-            .previewLayout(.sizeThatFits)
-            .environment(\.locale, .init(identifier: "es"))
-            .environmentObject(controller)
+        static var previews: some View {
+            SettingsView()
+                .previewLayout(.sizeThatFits)
+                .environment(\.locale, .init(identifier: "es"))
+                .environmentObject(controller)
+        }
     }
-}
 #endif
