@@ -134,15 +134,11 @@ public final class IronFistController: NSObject, ObservableObject {
         if self.timerRunning {
             self.stopTimer()
         } else {
-            self.start()
+            self.readyTimer()
+            self.configureTimer()
+            self.timerRunning = true
+            self.handleCurrentItem()
         }
-    }
-
-    public func start() {
-        self.readyTimer()
-        self.configureTimer()
-        self.timerRunning = true
-        self.handleCurrentItem()
     }
 
     public func stopTimer() {
@@ -290,7 +286,7 @@ extension IronFistController {
         self.ironFistSynthesizer.delegate = self
     }
 
-    private func startTimer() {
+    private func createAndPublishTimer() {
         let startTime = Date()
         self.stopTime = startTime.addingTimeInterval(self.circleState.timerValue)
 
@@ -342,12 +338,12 @@ extension IronFistController: AVSpeechSynthesizerDelegate {
     public func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish: AVSpeechUtterance) {
         if synthesizer == self.soStrongSynthesizer {
             self.circleState = .rest
-            self.startTimer()
+            self.createAndPublishTimer()
         } else if synthesizer == self.finishSynthesizer {
             self.stopTimer()
         } else {
             self.circleState = .fist
-            self.startTimer()
+            self.createAndPublishTimer()
         }
     }
 }
