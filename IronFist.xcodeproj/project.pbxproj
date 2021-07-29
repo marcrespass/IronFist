@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D3199D99266A9AC400DA4A7A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3199D98266A9AC400DA4A7A /* Colors.xcassets */; };
+		D356E7D326B2F3A300589AEE /* CheckboxToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D356E7D226B2F3A300589AEE /* CheckboxToggleStyle.swift */; };
+		D356E7D526B2F76A00589AEE /* RoundedButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D356E7D426B2F76A00589AEE /* RoundedButtonStyle.swift */; };
 		D3597000266969A500AC2CCB /* TimerProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3596FFE266969A500AC2CCB /* TimerProgressCircle.swift */; };
 		D359700726696AC700AC2CCB /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D359700626696AC700AC2CCB /* TimerView.swift */; };
 		D35F4954265E9DE50066FBE4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D35F4956265E9DE50066FBE4 /* Localizable.strings */; };
@@ -79,6 +81,8 @@
 		D332032826A0E78600DAC708 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D332032926A0EC3100DAC708 /* License.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
 		D33687D7268FC58800E7CAE5 /* IronFist.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IronFist.entitlements; sourceTree = "<group>"; };
+		D356E7D226B2F3A300589AEE /* CheckboxToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxToggleStyle.swift; sourceTree = "<group>"; };
+		D356E7D426B2F76A00589AEE /* RoundedButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButtonStyle.swift; sourceTree = "<group>"; };
 		D3596FFD266969A500AC2CCB /* IronFistController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IronFistController.swift; sourceTree = "<group>"; };
 		D3596FFE266969A500AC2CCB /* TimerProgressCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerProgressCircle.swift; sourceTree = "<group>"; };
 		D3597001266969BB00AC2CCB /* CircleState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleState.swift; sourceTree = "<group>"; };
@@ -159,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				D359700626696AC700AC2CCB /* TimerView.swift */,
+				D356E7D426B2F76A00589AEE /* RoundedButtonStyle.swift */,
 				D3596FFE266969A500AC2CCB /* TimerProgressCircle.swift */,
 			);
 			path = TimerViews;
@@ -208,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				D3B6492D265BF1DB00FC88E4 /* SettingsView.swift */,
+				D356E7D226B2F3A300589AEE /* CheckboxToggleStyle.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -516,6 +522,8 @@
 				D359700726696AC700AC2CCB /* TimerView.swift in Sources */,
 				D3B6492E265BF1DB00FC88E4 /* SettingsView.swift in Sources */,
 				D3597000266969A500AC2CCB /* TimerProgressCircle.swift in Sources */,
+				D356E7D526B2F76A00589AEE /* RoundedButtonStyle.swift in Sources */,
+				D356E7D326B2F3A300589AEE /* CheckboxToggleStyle.swift in Sources */,
 				D3C7B81C2661905A003831A7 /* GroupedListHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
