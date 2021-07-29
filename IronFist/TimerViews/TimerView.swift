@@ -12,37 +12,13 @@ struct TimerView: View {
 
     var body: some View {
         VStack {
-            Button {
-                self.controller.toggle()
-            } label: {
-                self.controller.buttonLabel()
-            }
-            .buttonStyle(RoundedButtonStyle(color: self.controller.timerRunning ? .red : .green))
-
+            self.timerButton()
             TimerProgressCircle()
-            VStack(alignment: .leading) {
-                HStack { // Iron fist title and instruction display
-                    if let ironFist = controller.selectedIronFist {
-                        Text("\(ironFist.id).")
-                        Text(ironFist.title)
-                    }
-                }
-                .foregroundColor(self.controller.circleState.titleColor)
-                .font(.title.weight(.semibold))
-                Text(controller.selectedIronFist?.instruction ?? "Finished…")
-                    .font(.body.weight(.medium))
-                if let motivation = controller.selectedIronFist?.motivation {
-                    Text(motivation)
-                        .font(.body.italic())
-                }
+            if let ironFist = controller.selectedIronFist {
+                self.ironFistText(ironFist)
+            } else {
+                self.finishedText()
             }
-            .padding()
-            .clipShape(RoundedRectangle(cornerRadius: 30))
-            .overlay(
-                RoundedRectangle(cornerRadius: 30)
-                    .stroke(lineWidth: 4)
-                    .foregroundColor(controller.circleState.timerCircleColor)
-            )
             Spacer()
         }
         .padding([.leading, .trailing])
@@ -53,6 +29,49 @@ struct TimerView: View {
             self.controller.stop()
         })
     }
+
+    fileprivate func timerButton() -> some View {
+        Button {
+            self.controller.toggle()
+        } label: {
+            self.controller.buttonLabel()
+        }
+        .buttonStyle(RoundedButtonStyle(color: self.controller.timerRunning ? .red : .green))
+    }
+
+    fileprivate func ironFistText(_ ironFist: IronFist) -> some View {
+        VStack(alignment: .leading) {
+            HStack {
+                Text("\(ironFist.id).")
+                Text(ironFist.title)
+            }
+            .foregroundColor(self.controller.circleState.titleColor)
+            .font(.title.weight(.semibold))
+            Text(ironFist.instruction)
+                .font(.body.weight(.medium))
+            Text(ironFist.motivation)
+                .font(.body.italic())
+        }
+        .padding()
+        .overlay(
+            RoundedRectangle(cornerRadius: 30)
+                .stroke(lineWidth: 4)
+                .foregroundColor(controller.circleState.timerCircleColor)
+        )
+    }
+
+    fileprivate func finishedText() -> some View {
+        Text("Finished.")
+            .foregroundColor(self.controller.circleState.titleColor)
+            .font(.title.weight(.semibold))
+            .padding()
+            .overlay(
+                RoundedRectangle(cornerRadius: 30)
+                    .stroke(lineWidth: 4)
+                    .foregroundColor(controller.circleState.timerCircleColor)
+            )
+
+    }
 }
 
 #if DEBUG
@@ -61,7 +80,7 @@ struct TimerView_Previews: PreviewProvider {
         Group {
             TimerView()
                 .preferredColorScheme(.dark)
-                .environmentObject(IronFistController.readyController)
+                .environmentObject(IronFistController())
         }
     }
 }
