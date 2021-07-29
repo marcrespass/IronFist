@@ -1,19 +1,17 @@
 // MARK: IMPORTANT🚨
 // https://swiftuiviews.dev/post/34/circle-graph
-/* For easy of copy/pastability, all code is in one bug chunk.
- Be a dear and refactor this out any way you see fit 🤘 */
+// For easy of copy/pastability, all code is in one bug chunk.
+// Be a dear and refactor this out any way you see fit 🤘
 
-/* Ideally, you would NOT be using pre-defined constants or first view at all, only the code below the refactor line.
- I am leaving the initial view here just for easier usage example or possible extraction. Hope that works 👌 */
+// Ideally, you would NOT be using pre-defined constants or first view at all, only the code below the refactor line.
+// I am leaving the initial view here just for easier usage example or possible extraction. Hope that works 👌
 
-/*
- Awesome Sauce!
- Thank you for getting one of my views, hope you are happy with it 👌
- Consider helping this train rollin 🚂 on my Patreon -> https://www.patreon.com/swiftui
-
- If you have any suggestions for improvements,
- feel free to reach me at undead.pix3l@gmail.com
- */
+// Awesome Sauce!
+// Thank you for getting one of my views, hope you are happy with it 👌
+// Consider helping this train rollin 🚂 on my Patreon -> https://www.patreon.com/swiftui
+//
+// If you have any suggestions for improvements,
+// feel free to reach me at undead.pix3l@gmail.com
 
 import SwiftUI
 import IronFistKit
