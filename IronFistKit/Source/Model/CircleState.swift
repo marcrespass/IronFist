@@ -10,12 +10,13 @@ public enum CircleState: Equatable {
     case fist
     case rest
     case waiting
+    case stopped
 
     public var shadowColor: Color {
         switch self {
             case .fist:
                 return Color("shadowColorFist")
-            case .rest:
+            case .rest, .stopped:
                 return Color("shadowColorRest")
             case .waiting:
                 return Color("shadowColorWait")
@@ -26,7 +27,7 @@ public enum CircleState: Equatable {
         switch self {
             case .fist:
                 return .green
-            case .rest:
+            case .rest, .stopped:
                 return .red
             case .waiting:
                 return .yellow
@@ -39,6 +40,8 @@ public enum CircleState: Equatable {
                 return .green
             case .rest, .waiting:
                 return .yellow
+            case .stopped:
+                return .red
         }
     }
 
@@ -48,14 +51,14 @@ public enum CircleState: Equatable {
                 return "👊"
             case .rest:
                 return "🖐"
-            case .waiting:
+            case .waiting, .stopped:
                 return "✊"
         }
     }
 
     public var timerValue: TimeInterval {
         switch self {
-            case .fist, .waiting:
+            case .fist, .waiting, .stopped:
                 return TimeInterval(UserDefaults.standard.integer(forKey: Constants.kFistTime))
             case .rest:
                 return TimeInterval(UserDefaults.standard.integer(forKey: Constants.kRestTime))
