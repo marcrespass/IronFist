@@ -10,8 +10,9 @@ import Combine
 import SwiftUI
 
 /// Data is read-only and loaded from a JSON in the app bundle
-/// This object is the AVSpeechSynthesizerDelegate
-/// It manages a timer, manages speech, and manages the current selection
+/// IronFistController holds the list of IronFist objects and manages the current IronFist
+/// it also manages the timer and speech
+/// IronFistController is the AVSpeechSynthesizerDelegate
 public final class IronFistController: NSObject, ObservableObject {
     // MARK: - Published properties
     @Published private (set) public var selectedIronFist: IronFist?
@@ -42,7 +43,6 @@ public final class IronFistController: NSObject, ObservableObject {
     private let finishSpeechUtterance = AVSpeechUtterance(string: "Well done!")
     // MARK: - Other Properties
     private var playingIndex = 0
-    private var displayFormatter = Formatters.plainFormatter
     private var restText: String {
         if UserDefaults.standard.bool(forKey: Constants.kSpeakDescription) || UserDefaults.standard.bool(forKey: Constants.kSpeakMotivation) {
             return "Wow. You are so strong. Rest."
@@ -120,8 +120,7 @@ extension IronFistController {
     private func configureTimer() {
         self.timerSeconds = self.circleState.timerValue
         self.tenths = 1
-        self.displayFormatter = Formatters.plainFormatter
-        self.countdownString = self.displayFormatter.string(from: NSNumber(value: self.timerSeconds)) ?? "error"
+        self.countdownString = Formatters.plainFormatter.string(from: NSNumber(value: self.timerSeconds)) ?? "error"
     }
 
     private func advanceItem() {
@@ -172,7 +171,7 @@ extension IronFistController {
                 if strongSelf.timerSeconds > 0 {
                     let fraction = strongSelf.timerSeconds.truncatingRemainder(dividingBy: 1)
                     strongSelf.tenths = CGFloat(fraction)
-                    strongSelf.countdownString = strongSelf.displayFormatter.string(from: NSNumber(value: strongSelf.timerSeconds)) ?? "error"
+                    strongSelf.countdownString = Formatters.plainFormatter.string(from: NSNumber(value: strongSelf.timerSeconds)) ?? "error"
                 } else { // done with timer
                     strongSelf.cancelTimers()
                     if strongSelf.circleState == .fist { // FIST change to REST
