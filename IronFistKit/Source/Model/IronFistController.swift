@@ -51,15 +51,7 @@ public final class IronFistController: NSObject, ObservableObject {
     }
 
     override public init() {
-        func loadIronFistsFromBundle() -> [IronFist] {
-            let array: [IronFist] = Bundle(for: Self.self).decode(from: "IronFist.json")
-            if ProcessInfo.processInfo.arguments.contains("-testingMode") {
-                return Array(array.prefix(2))
-            }
-            return array
-        }
-
-        self.ironFists = loadIronFistsFromBundle()
+        self.ironFists = IronFist.loadData()
         // Find the first female US English voice
         let englishVoices = AVSpeechSynthesisVoice.speechVoices().filter { voice in
             voice.language == "en-US" && voice.gender == .female

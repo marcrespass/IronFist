@@ -21,3 +21,16 @@ public struct IronFist: Codable, Hashable, Identifiable {
         return text
     }
 }
+
+public extension IronFist {
+    static func loadData() -> [IronFist] {
+        guard let frameworkBundle = Bundle(identifier: "com.iliosinc.IronFistKit") else {
+            fatalError("Framework with identifier com.iliosinc.IronFistKit was not found!")
+        }
+        let array: [IronFist] = frameworkBundle.decode(from: "IronFist.json")
+        if ProcessInfo.processInfo.arguments.contains("-testingMode") {
+            return Array(array.prefix(2))
+        }
+        return array
+    }
+}

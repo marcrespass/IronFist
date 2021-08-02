@@ -7,6 +7,8 @@
 import SwiftUI
 import IronFistKit
 
+// Build SwiftUI apps for tvOS
+// https://www.wwdcnotes.com/notes/wwdc20/10042/
 @main
 struct IronFistApp: App {
     @StateObject var controller: IronFistController

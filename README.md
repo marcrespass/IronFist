@@ -10,4 +10,3 @@ The thread links to this page (only accessible via web.archive.org) from a rock 
 [way-iron-fist](https://web.archive.org/web/20160510145633/http://www.dpmclimbing.com/articles/view/way-iron-fist)
 
 The source code is license under the MIT license. I would really love to know if anything helped you in any way from grip strengthening to code. I would especially love to hear from you if you have any improvements, suggestions, or questions about the code.
-

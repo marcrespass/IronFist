@@ -118,11 +118,16 @@ public final class SettingsController: NSObject, ObservableObject {
     private func createNotifications() {
         self.disableNotifications()
         let days = [day1, day2, day3, day4, day5, day6, day7]
+        let data = IronFist.loadData()
 
         for (index, item) in days.enumerated() where item == true {
             let content = UNMutableNotificationContent()
-            content.title = "Iron Fist"
-            content.body = ""// self.ironFists[Int.random(in: 0..<10)].motivation
+            content.title = "Practice Iron Fist"
+            var max = data.count - 2
+            if ProcessInfo.processInfo.arguments.contains("-testingMode") {
+                max = data.count
+            }
+            content.body = data[Int.random(in: 0..<max)].motivation
 
             var dateComponents = Calendar.current.dateComponents([.hour, .minute], from: self.selectedTime)
             dateComponents.weekday = index + 1 // Sunday = 1
