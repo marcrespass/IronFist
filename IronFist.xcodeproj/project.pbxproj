@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D3199D99266A9AC400DA4A7A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3199D98266A9AC400DA4A7A /* Colors.xcassets */; };
-		D356E7D326B2F3A300589AEE /* CheckboxToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D356E7D226B2F3A300589AEE /* CheckboxToggleStyle.swift */; };
 		D356E7D526B2F76A00589AEE /* RoundedButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D356E7D426B2F76A00589AEE /* RoundedButtonStyle.swift */; };
 		D356E7D726B303FB00589AEE /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D356E7D626B303FB00589AEE /* SettingsController.swift */; };
 		D3597000266969A500AC2CCB /* TimerProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3596FFE266969A500AC2CCB /* TimerProgressCircle.swift */; };
@@ -83,7 +82,6 @@
 		D332032826A0E78600DAC708 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D332032926A0EC3100DAC708 /* License.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
 		D33687D7268FC58800E7CAE5 /* IronFist.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IronFist.entitlements; sourceTree = "<group>"; };
-		D356E7D226B2F3A300589AEE /* CheckboxToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxToggleStyle.swift; sourceTree = "<group>"; };
 		D356E7D426B2F76A00589AEE /* RoundedButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButtonStyle.swift; sourceTree = "<group>"; };
 		D356E7D626B303FB00589AEE /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		D3596FFD266969A500AC2CCB /* IronFistController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IronFistController.swift; sourceTree = "<group>"; };
@@ -219,7 +217,6 @@
 			isa = PBXGroup;
 			children = (
 				D3B6492D265BF1DB00FC88E4 /* SettingsView.swift */,
-				D356E7D226B2F3A300589AEE /* CheckboxToggleStyle.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -531,7 +528,6 @@
 				D3B6492E265BF1DB00FC88E4 /* SettingsView.swift in Sources */,
 				D3597000266969A500AC2CCB /* TimerProgressCircle.swift in Sources */,
 				D356E7D526B2F76A00589AEE /* RoundedButtonStyle.swift in Sources */,
-				D356E7D326B2F3A300589AEE /* CheckboxToggleStyle.swift in Sources */,
 				D3C7B81C2661905A003831A7 /* GroupedListHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
