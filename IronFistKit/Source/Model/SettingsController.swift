@@ -18,13 +18,7 @@ public final class SettingsController: NSObject, ObservableObject {
     @Published public var speaksMotivation: Bool
     // MARK: - Notification properties
     @Published public var selectedTime: Date = Date()
-    @Published public var day1: Bool
-    @Published public var day2: Bool
-    @Published public var day3: Bool
-    @Published public var day4: Bool
-    @Published public var day5: Bool
-    @Published public var day6: Bool
-    @Published public var day7: Bool
+    @Published public var daySelection: Set<DaySetting> = []
     @Published public var allowsNotifications: Bool
 
     // MARK: - Settings Lazy Properties
@@ -47,14 +41,10 @@ public final class SettingsController: NSObject, ObservableObject {
         self.speaksDescription = UserDefaults.standard.bool(forKey: Constants.kSpeakDescription)
         self.speaksMotivation = UserDefaults.standard.bool(forKey: Constants.kSpeakMotivation)
 
-        self.day1 = UserDefaults.standard.bool(forKey: Constants.kSelectedDay1)
-        self.day2 = UserDefaults.standard.bool(forKey: Constants.kSelectedDay2)
-        self.day3 = UserDefaults.standard.bool(forKey: Constants.kSelectedDay3)
-        self.day4 = UserDefaults.standard.bool(forKey: Constants.kSelectedDay4)
-        self.day5 = UserDefaults.standard.bool(forKey: Constants.kSelectedDay5)
-        self.day6 = UserDefaults.standard.bool(forKey: Constants.kSelectedDay6)
-        self.day7 = UserDefaults.standard.bool(forKey: Constants.kSelectedDay7)
-
+        if let array = UserDefaults.standard.array(forKey: Constants.kDaySelection) as? [Int] {
+            let filtered = DaySetting.days.filter { array.contains($0.id) }
+            self.daySelection = Set(filtered)
+        }
         self.allowsNotifications = false
 
         super.init()
@@ -69,17 +59,17 @@ public final class SettingsController: NSObject, ObservableObject {
         UserDefaults.standard.set(self.speaksDescription, forKey: Constants.kSpeakDescription)
         UserDefaults.standard.set(self.speaksMotivation, forKey: Constants.kSpeakMotivation)
 
-        UserDefaults.standard.set(self.day1, forKey: Constants.kSelectedDay1)
-        UserDefaults.standard.set(self.day2, forKey: Constants.kSelectedDay2)
-        UserDefaults.standard.set(self.day3, forKey: Constants.kSelectedDay3)
-        UserDefaults.standard.set(self.day4, forKey: Constants.kSelectedDay4)
-        UserDefaults.standard.set(self.day5, forKey: Constants.kSelectedDay5)
-        UserDefaults.standard.set(self.day6, forKey: Constants.kSelectedDay6)
-        UserDefaults.standard.set(self.day7, forKey: Constants.kSelectedDay7)
+        self.saveDayNotificationSettings()
+    }
 
+    public func saveDayNotificationSettings() {
+        let mapped = self.daySelection.map { $0.id }
+        UserDefaults.standard.set(mapped, forKey: Constants.kDaySelection)
         self.createNotifications()
     }
 
+    // Rich Notifications
+    // https://www.avanderlee.com/swift/rich-notifications/
     // https://developer.apple.com/documentation/usernotifications/scheduling_a_notification_locally_from_your_app
     public func checkNotificationStatus() {
         UNUserNotificationCenter.current().getNotificationSettings { settings in
@@ -117,10 +107,9 @@ public final class SettingsController: NSObject, ObservableObject {
     // https://blog.techchee.com/handling-local-notification-in-swiftui/
     private func createNotifications() {
         self.disableNotifications()
-        let days = [day1, day2, day3, day4, day5, day6, day7]
         let data = IronFist.loadData()
 
-        for (index, item) in days.enumerated() where item == true {
+        for item in self.daySelection {
             let content = UNMutableNotificationContent()
             content.title = "Practice Iron Fist"
             var max = data.count - 2
@@ -130,7 +119,7 @@ public final class SettingsController: NSObject, ObservableObject {
             content.body = data[Int.random(in: 0..<max)].motivation
 
             var dateComponents = Calendar.current.dateComponents([.hour, .minute], from: self.selectedTime)
-            dateComponents.weekday = index + 1 // Sunday = 1
+            dateComponents.weekday = item.id // index + 1 // Sunday = 1
 
             // Create the trigger as a repeating event.
             let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)

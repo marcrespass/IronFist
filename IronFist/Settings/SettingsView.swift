@@ -47,7 +47,7 @@ extension SettingsView {
                 Text("Done").font(.title3)
             }
         }
-            .padding([.top, .leading, .trailing])
+        .padding([.top, .leading, .trailing])
     }
 
     fileprivate func timeSection() -> some View {
@@ -67,22 +67,25 @@ extension SettingsView {
 
     fileprivate func notificationSection() -> some View {
         return Section(header: Text("Configure notifications")) {
+            DatePicker("Hour", selection: $settingsController.selectedTime, displayedComponents: [.hourAndMinute])
             if self.settingsController.allowsNotifications {
-                DatePicker("Hour", selection: $settingsController.selectedTime, displayedComponents: [.hourAndMinute])
-                Toggle("Sunday", isOn: $settingsController.day1)
-                    .toggleStyle(CheckboxToggleStyle())
-                Toggle("Monday", isOn: $settingsController.day2)
-                    .toggleStyle(CheckboxToggleStyle())
-                Toggle("Tuesday", isOn: $settingsController.day3)
-                    .toggleStyle(CheckboxToggleStyle())
-                Toggle("Wednesday", isOn: $settingsController.day4)
-                    .toggleStyle(CheckboxToggleStyle())
-                Toggle("Thursday", isOn: $settingsController.day5)
-                    .toggleStyle(CheckboxToggleStyle())
-                Toggle("Friday", isOn: $settingsController.day6)
-                    .toggleStyle(CheckboxToggleStyle())
-                Toggle("Saturday", isOn: $settingsController.day7)
-                    .toggleStyle(CheckboxToggleStyle())
+                List(DaySetting.days, id: \.self) { day in
+                    HStack {
+                        Text(LocalizedStringKey(day.name))
+                        Spacer()
+                        Image(systemName: self.settingsController.daySelection.contains(day) ? "checkmark.square" : "square")
+                            .resizable()
+                            .frame(width: 22, height: 22)
+                    }
+                    .onTapGesture {
+                        if self.settingsController.daySelection.contains(day) {
+                            self.settingsController.daySelection.remove(day)
+                        } else {
+                            self.settingsController.daySelection.insert(day)
+                        }
+                        self.settingsController.saveDayNotificationSettings()
+                    }
+                }
             } else {
                 Button("Allow notifications") {
                     self.settingsController.allowNotifications()
@@ -93,14 +96,14 @@ extension SettingsView {
 }
 
 #if DEBUG
-    struct SettingsView_Previews: PreviewProvider {
-        static var controller = SettingsController()
+struct SettingsView_Previews: PreviewProvider {
+    static var controller = SettingsController()
 
-        static var previews: some View {
-            SettingsView()
-                .previewLayout(.sizeThatFits)
-                .environment(\.locale, .init(identifier: "es"))
-                .environmentObject(controller)
-        }
+    static var previews: some View {
+        SettingsView()
+            .previewLayout(.sizeThatFits)
+            .environment(\.locale, .init(identifier: "es"))
+            .environmentObject(controller)
     }
+}
 #endif
