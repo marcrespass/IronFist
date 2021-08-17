@@ -13,9 +13,9 @@ struct GroupedListHeader: View {
 
     var body: some View {
         HStack {
-            Text("Rice time: \(settingsController.fistTime)")
+            Text("Rice time: \(settingsController.fistTime) | Rest time: \(settingsController.restTime)")
             Spacer()
-            Text("Rest time: \(settingsController.restTime)")
+            Text("Repeat: \(settingsController.repetition)x")
         }
         .font(.headline)
         .foregroundColor(.white)

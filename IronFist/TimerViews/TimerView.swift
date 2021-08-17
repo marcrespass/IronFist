@@ -12,7 +12,15 @@ struct TimerView: View {
 
     var body: some View {
         VStack {
-            self.timerButton()
+            HStack {
+                self.timerButton()
+                Spacer()
+                Text("Repeat: \(controller.repeatCount)/\(controller.maxRepetitions)")
+                    .fontWeight(.bold)
+                    .font(.title)
+            }
+            .padding([.leading, .trailing])
+
             TimerProgressCircle()
             if let ironFist = controller.selectedIronFist {
                 self.ironFistText(ironFist)
@@ -21,13 +29,13 @@ struct TimerView: View {
             }
             Spacer()
         }
-                .padding([.leading, .trailing])
-                .onAppear(perform: {
-                    self.controller.readyTimer()
-                })
-                .onDisappear(perform: {
-                    self.controller.stopTimer()
-                })
+        .padding([.leading, .trailing])
+        .onAppear(perform: {
+            self.controller.readyTimer()
+        })
+        .onDisappear(perform: {
+            self.controller.stopTimer()
+        })
     }
 }
 
