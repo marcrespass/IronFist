@@ -14,10 +14,19 @@ import SwiftUI
 /// it also manages the timer and speech
 /// IronFistController is the AVSpeechSynthesizerDelegate
 public final class IronFistController: NSObject, ObservableObject {
+    /*
+     Add support for repetitions
+     keep track of how many rounds vs reptition setting
+     if repeat > 1 then
+        do final rest and start over instead of ending
+
+     */
     // MARK: - Published properties
     @Published private (set) public var selectedIronFist: IronFist?
     @Published private (set) public var countdownString: String = "0"
     @Published private (set) public var tenths: CGFloat = 1
+    @Published private (set) public var maxRepetitions = 1
+    @Published private (set) public var repeatCount = 1
     @Published private (set) public var circleState: CircleState = .waiting {
         didSet {
             self.configureTimer()
@@ -44,7 +53,8 @@ public final class IronFistController: NSObject, ObservableObject {
     // MARK: - Other Properties
     private var playingIndex = 0
     private var restText: String {
-        if UserDefaults.standard.bool(forKey: Constants.kSpeakDescription) || UserDefaults.standard.bool(forKey: Constants.kSpeakMotivation) {
+        if UserDefaults.standard.bool(forKey: UserDefaults.Keys.kSpeakDescription) ||
+            UserDefaults.standard.bool(forKey: UserDefaults.Keys.kSpeakMotivation) {
             return "Wow. You are so strong. Rest."
         }
         return "Rest."
@@ -58,7 +68,6 @@ public final class IronFistController: NSObject, ObservableObject {
         }
         self.speechVoice = englishVoices.first
         self.finishSpeechUtterance.voice = self.speechVoice
-
         super.init()
 
         self.configureTimer()
@@ -74,6 +83,7 @@ public final class IronFistController: NSObject, ObservableObject {
     public func readyTimer() {
         self.playingIndex = 0
         self.selectedIronFist = self.ironFists[self.playingIndex]
+        self.maxRepetitions = UserDefaults.standard.integer(forKey: UserDefaults.Keys.kRepetition)
     }
 
     public func toggleTimer() {
@@ -81,7 +91,7 @@ public final class IronFistController: NSObject, ObservableObject {
         if self.timerRunning {
             self.stopTimer()
         } else {
-            self.readyTimer()
+//            self.readyTimer()
             self.configureTimer()
             self.timerRunning = true
             self.handleCurrentItem()
@@ -103,6 +113,7 @@ public final class IronFistController: NSObject, ObservableObject {
 
         self.circleState = .stopped
         self.playingIndex = 0
+        self.repeatCount = 1
         self.selectedIronFist = nil
     }
 }
@@ -120,6 +131,8 @@ extension IronFistController {
 
         if self.playingIndex < self.ironFists.count {
             self.selectedIronFist = self.ironFists[self.playingIndex]
+        } else if self.repeatCount < self.maxRepetitions {
+            self.readyTimer()
         }
     }
 
@@ -128,6 +141,9 @@ extension IronFistController {
             self.finishSynthesizer.speak(finishSpeechUtterance)
             self.finishSynthesizer.delegate = self
         } else {
+            if self.repeatCount < self.maxRepetitions &&  self.playingIndex == 0 {
+                self.repeatCount += 1
+            }
             self.handleCurrentItem()
         }
     }
@@ -135,9 +151,9 @@ extension IronFistController {
     private func handleCurrentItem() {
         guard let ironFist = self.selectedIronFist else { return }
 
-        let speaksMotivation = UserDefaults.standard.bool(forKey: Constants.kSpeakMotivation)
-        let speaksDescription = UserDefaults.standard.bool(forKey: Constants.kSpeakDescription)
-        let speaksTitle = UserDefaults.standard.bool(forKey: Constants.kSpeakTitle)
+        let speaksMotivation = UserDefaults.standard.bool(forKey: UserDefaults.Keys.kSpeakMotivation)
+        let speaksDescription = UserDefaults.standard.bool(forKey: UserDefaults.Keys.kSpeakDescription)
+        let speaksTitle = UserDefaults.standard.bool(forKey: UserDefaults.Keys.kSpeakTitle)
 
         let text = ironFist.spokenText(title: speaksTitle, instruction: speaksDescription, motivation: speaksMotivation)
         let speechUtterance = AVSpeechUtterance(string: text)
@@ -166,7 +182,8 @@ extension IronFistController {
                     strongSelf.countdownString = Formatters.plainFormatter.string(from: NSNumber(value: strongSelf.timerSeconds)) ?? "error"
                 } else { // done with timer
                     strongSelf.cancelTimers()
-                    if strongSelf.circleState == .fist { // FIST change to REST
+
+                    if strongSelf.circleState == .fist { // doing FIST. finish or change to REST
                         strongSelf.advanceItem()
                         if strongSelf.playingIndex >= strongSelf.ironFists.count {
                             strongSelf.tenths = CGFloat(0)

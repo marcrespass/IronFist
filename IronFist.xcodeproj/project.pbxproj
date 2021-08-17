@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D30B873526CC40B0007F385A /* IronFist.json in Resources */ = {isa = PBXBuildFile; fileRef = D30B873726CC40B0007F385A /* IronFist.json */; };
+		D30B873A26CC5235007F385A /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30B873926CC5235007F385A /* UserDefaults+Extensions.swift */; };
 		D3199D99266A9AC400DA4A7A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3199D98266A9AC400DA4A7A /* Colors.xcassets */; };
 		D356E7D526B2F76A00589AEE /* RoundedButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D356E7D426B2F76A00589AEE /* RoundedButtonStyle.swift */; };
 		D356E7D726B303FB00589AEE /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D356E7D626B303FB00589AEE /* SettingsController.swift */; };
@@ -26,7 +27,6 @@
 		D3B7F80C26978FC70010B252 /* IronFistController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3596FFD266969A500AC2CCB /* IronFistController.swift */; };
 		D3B7F80E26978FDF0010B252 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3597003266969C700AC2CCB /* Formatters.swift */; };
 		D3B7F80F26978FF10010B252 /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D0BD6526587F1500CDF718 /* Bundle+Extensions.swift */; };
-		D3B7F8112697901E0010B252 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B7F8102697901E0010B252 /* Constants.swift */; };
 		D3B7F8122697902F0010B252 /* CircleState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3597001266969BB00AC2CCB /* CircleState.swift */; };
 		D3C7B81C2661905A003831A7 /* GroupedListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C7B81B2661905A003831A7 /* GroupedListHeader.swift */; };
 		D3C7B81E26619190003831A7 /* IronFistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C7B81D26619190003831A7 /* IronFistRow.swift */; };
@@ -79,6 +79,7 @@
 		D3048AD6268E51B200504711 /* swiftlint-command */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "swiftlint-command"; sourceTree = "<group>"; };
 		D3048AD9268E526000504711 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		D30B873626CC40B0007F385A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = Base.lproj/IronFist.json; sourceTree = "<group>"; };
+		D30B873926CC5235007F385A /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
 		D3199D98266A9AC400DA4A7A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		D332032826A0E78600DAC708 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D332032926A0EC3100DAC708 /* License.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
@@ -112,7 +113,6 @@
 		D3B7F7F326978F990010B252 /* IronFistKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IronFistKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3B7F7FA26978F990010B252 /* IronFistKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IronFistKitTests.swift; sourceTree = "<group>"; };
 		D3B7F7FC26978F990010B252 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D3B7F8102697901E0010B252 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D3C7B81B2661905A003831A7 /* GroupedListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedListHeader.swift; sourceTree = "<group>"; };
 		D3C7B81D26619190003831A7 /* IronFistRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IronFistRow.swift; sourceTree = "<group>"; };
 		D3D0BD4D26587EE300CDF718 /* IronFist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IronFist.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -225,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				D3D0BD6526587F1500CDF718 /* Bundle+Extensions.swift */,
+				D30B873926CC5235007F385A /* UserDefaults+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -253,7 +254,6 @@
 			children = (
 				D3931E3F2671016700B54938 /* Extensions */,
 				D3931E3C2671011A00B54938 /* Model */,
-				D3B7F8102697901E0010B252 /* Constants.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -497,7 +497,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3B7F8112697901E0010B252 /* Constants.swift in Sources */,
+				D30B873A26CC5235007F385A /* UserDefaults+Extensions.swift in Sources */,
 				D3B7F8122697902F0010B252 /* CircleState.swift in Sources */,
 				D3B7F80E26978FDF0010B252 /* Formatters.swift in Sources */,
 				D356E7D726B303FB00589AEE /* SettingsController.swift in Sources */,

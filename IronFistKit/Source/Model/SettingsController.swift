@@ -36,14 +36,14 @@ public final class SettingsController: NSObject, ObservableObject {
     }()
 
     override public init() {
-        self.fistTime = UserDefaults.standard.integer(forKey: Constants.kFistTime)
-        self.restTime = UserDefaults.standard.integer(forKey: Constants.kRestTime)
-        self.repetition = UserDefaults.standard.integer(forKey: Constants.kRepetition)
-        self.speaksTitle = UserDefaults.standard.bool(forKey: Constants.kSpeakTitle)
-        self.speaksDescription = UserDefaults.standard.bool(forKey: Constants.kSpeakDescription)
-        self.speaksMotivation = UserDefaults.standard.bool(forKey: Constants.kSpeakMotivation)
+        self.fistTime = UserDefaults.standard.integer(forKey: UserDefaults.Keys.kFistTime)
+        self.restTime = UserDefaults.standard.integer(forKey: UserDefaults.Keys.kRestTime)
+        self.repetition = UserDefaults.standard.integer(forKey: UserDefaults.Keys.kRepetition)
+        self.speaksTitle = UserDefaults.standard.bool(forKey: UserDefaults.Keys.kSpeakTitle)
+        self.speaksDescription = UserDefaults.standard.bool(forKey: UserDefaults.Keys.kSpeakDescription)
+        self.speaksMotivation = UserDefaults.standard.bool(forKey: UserDefaults.Keys.kSpeakMotivation)
 
-        if let array = UserDefaults.standard.array(forKey: Constants.kDaySelection) as? [Int] {
+        if let array = UserDefaults.standard.array(forKey: UserDefaults.Keys.kDaySelection) as? [Int] {
             let filtered = DaySetting.days.filter { array.contains($0.id) }
             self.daySelection = Set(filtered)
         }
@@ -55,19 +55,19 @@ public final class SettingsController: NSObject, ObservableObject {
     }
 
     public func saveSettings() {
-        UserDefaults.standard.set(self.fistTime, forKey: Constants.kFistTime)
-        UserDefaults.standard.set(self.restTime, forKey: Constants.kRestTime)
-        UserDefaults.standard.set(self.repetition, forKey: Constants.kRepetition)
-        UserDefaults.standard.set(self.speaksTitle, forKey: Constants.kSpeakTitle)
-        UserDefaults.standard.set(self.speaksDescription, forKey: Constants.kSpeakDescription)
-        UserDefaults.standard.set(self.speaksMotivation, forKey: Constants.kSpeakMotivation)
+        UserDefaults.standard.set(self.fistTime, forKey: UserDefaults.Keys.kFistTime)
+        UserDefaults.standard.set(self.restTime, forKey: UserDefaults.Keys.kRestTime)
+        UserDefaults.standard.set(self.repetition, forKey: UserDefaults.Keys.kRepetition)
+        UserDefaults.standard.set(self.speaksTitle, forKey: UserDefaults.Keys.kSpeakTitle)
+        UserDefaults.standard.set(self.speaksDescription, forKey: UserDefaults.Keys.kSpeakDescription)
+        UserDefaults.standard.set(self.speaksMotivation, forKey: UserDefaults.Keys.kSpeakMotivation)
 
         self.saveDayNotificationSettings()
     }
 
     public func saveDayNotificationSettings() {
         let mapped = self.daySelection.map { $0.id }
-        UserDefaults.standard.set(mapped, forKey: Constants.kDaySelection)
+        UserDefaults.standard.set(mapped, forKey: UserDefaults.Keys.kDaySelection)
         self.createNotifications()
     }
 

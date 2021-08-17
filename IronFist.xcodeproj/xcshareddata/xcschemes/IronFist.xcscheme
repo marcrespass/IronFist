@@ -63,7 +63,11 @@
       <CommandLineArguments>
          <CommandLineArgument
             argument = "-testingMode"
-            isEnabled = "NO">
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-resetDefaults 1"
+            isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
    </LaunchAction>

@@ -15,11 +15,9 @@ struct IronFistApp: App {
     @StateObject var settingsController: SettingsController
 
     init() {
-        UserDefaults.standard.register(defaults: Constants.defaultsDictionary)
-        let controller = IronFistController()
-        _controller = StateObject(wrappedValue: controller)
-        let settingsController = SettingsController()
-        _settingsController = StateObject(wrappedValue: settingsController)
+        UserDefaults.standard.configureDefaults()
+        _controller = StateObject(wrappedValue: IronFistController())
+        _settingsController = StateObject(wrappedValue: SettingsController())
     }
 
     var body: some Scene {
