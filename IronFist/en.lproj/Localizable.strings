@@ -1,9 +1,9 @@
-/* 
+/*
   Localizable.strings
   IronFist
 
   Created by Marc Respass on 5/26/21.
-  
+
 */
 
 "Iron Fist" = "Iron Fist";
@@ -12,8 +12,10 @@
 "Stop" = "Stop";
 "Rice" = "Rice";
 "Rest" = "Rest";
+"Repetitions" = "Repetitions";
 "Rice time: %lld" = "Time in rice: %lld";
 "Rest time: %lld" = "Rest:  %lld";
+"Repeat: %lld" = "Repeat: %lld";
 "Done" = "Done";
 "Settings" = "Settings";
 "Finished…" = "Finished…";

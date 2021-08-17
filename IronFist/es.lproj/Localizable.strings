@@ -12,8 +12,10 @@
 "Stop" = "Detener";
 "Rice" = "Arroz";
 "Rest" = "Descansar";
+"Repetitions" = "Repeticiones";
 "Rice time: %lld" = "Tiempo en arroz: %lld";
 "Rest time: %lld" = "Descanso: %lld";
+"Repeat: %lld" = "Repetir: %lld";
 "Done" = "OK";
 "Settings" = "Configuración";
 "Finished…" = "Terminado…";

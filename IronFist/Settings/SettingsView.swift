@@ -16,6 +16,7 @@ struct SettingsView: View {
             topBar()
             Form {
                 timeSection()
+                repetitionSection()
                 speakSection()
                 notificationSection()
             }
@@ -54,6 +55,12 @@ extension SettingsView {
         Section(header: Text("Time")) {
             Stepper("Rice time: \(settingsController.fistTime)", value: $settingsController.fistTime)
             Stepper("Rest time: \(settingsController.restTime)", value: $settingsController.restTime)
+        }
+    }
+
+    fileprivate func repetitionSection() -> some View {
+        Section(header: Text("Repetitions")) {
+            Stepper("Repeat: \(settingsController.repetition)", value: $settingsController.repetition)
         }
     }
 

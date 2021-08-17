@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D30B873526CC40B0007F385A /* IronFist.json in Resources */ = {isa = PBXBuildFile; fileRef = D30B873726CC40B0007F385A /* IronFist.json */; };
 		D3199D99266A9AC400DA4A7A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3199D98266A9AC400DA4A7A /* Colors.xcassets */; };
 		D356E7D526B2F76A00589AEE /* RoundedButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D356E7D426B2F76A00589AEE /* RoundedButtonStyle.swift */; };
 		D356E7D726B303FB00589AEE /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D356E7D626B303FB00589AEE /* SettingsController.swift */; };
@@ -23,7 +24,6 @@
 		D3B7F80126978F990010B252 /* IronFistKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D3B7F7EB26978F990010B252 /* IronFistKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D3B7F80B26978FC70010B252 /* IronFist.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D0BD6326587F1500CDF718 /* IronFist.swift */; };
 		D3B7F80C26978FC70010B252 /* IronFistController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3596FFD266969A500AC2CCB /* IronFistController.swift */; };
-		D3B7F80D26978FC70010B252 /* IronFist.json in Resources */ = {isa = PBXBuildFile; fileRef = D3D0BD6126587F1500CDF718 /* IronFist.json */; };
 		D3B7F80E26978FDF0010B252 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3597003266969C700AC2CCB /* Formatters.swift */; };
 		D3B7F80F26978FF10010B252 /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D0BD6526587F1500CDF718 /* Bundle+Extensions.swift */; };
 		D3B7F8112697901E0010B252 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B7F8102697901E0010B252 /* Constants.swift */; };
@@ -78,6 +78,7 @@
 		D3048AD5268E51B200504711 /* build-script */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "build-script"; sourceTree = "<group>"; };
 		D3048AD6268E51B200504711 /* swiftlint-command */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "swiftlint-command"; sourceTree = "<group>"; };
 		D3048AD9268E526000504711 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		D30B873626CC40B0007F385A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = Base.lproj/IronFist.json; sourceTree = "<group>"; };
 		D3199D98266A9AC400DA4A7A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		D332032826A0E78600DAC708 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D332032926A0EC3100DAC708 /* License.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
@@ -119,7 +120,6 @@
 		D3D0BD5726587EE400CDF718 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D3D0BD5926587EE400CDF718 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3D0BD5F26587F1500CDF718 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		D3D0BD6126587F1500CDF718 /* IronFist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = IronFist.json; sourceTree = "<group>"; wrapsLines = 0; };
 		D3D0BD6226587F1500CDF718 /* IronFistApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IronFistApp.swift; sourceTree = "<group>"; };
 		D3D0BD6326587F1500CDF718 /* IronFist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IronFist.swift; sourceTree = "<group>"; };
 		D3D0BD6526587F1500CDF718 /* Bundle+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
@@ -192,7 +192,7 @@
 		D3931E3C2671011A00B54938 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D3D0BD6126587F1500CDF718 /* IronFist.json */,
+				D30B873726CC40B0007F385A /* IronFist.json */,
 				D3D0BD6326587F1500CDF718 /* IronFist.swift */,
 				D3596FFD266969A500AC2CCB /* IronFistController.swift */,
 				D356E7D626B303FB00589AEE /* SettingsController.swift */,
@@ -429,7 +429,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3B7F80D26978FC70010B252 /* IronFist.json in Resources */,
+				D30B873526CC40B0007F385A /* IronFist.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -553,6 +553,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		D30B873726CC40B0007F385A /* IronFist.json */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D30B873626CC40B0007F385A /* Base */,
+			);
+			name = IronFist.json;
+			sourceTree = "<group>";
+		};
 		D35F4956265E9DE50066FBE4 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -13,6 +13,7 @@ public final class SettingsController: NSObject, ObservableObject {
     // MARK: - Published Properties
     @Published public var fistTime: Int
     @Published public var restTime: Int
+    @Published public var repetition: Int
     @Published public var speaksTitle: Bool
     @Published public var speaksDescription: Bool
     @Published public var speaksMotivation: Bool
@@ -37,6 +38,7 @@ public final class SettingsController: NSObject, ObservableObject {
     override public init() {
         self.fistTime = UserDefaults.standard.integer(forKey: Constants.kFistTime)
         self.restTime = UserDefaults.standard.integer(forKey: Constants.kRestTime)
+        self.repetition = UserDefaults.standard.integer(forKey: Constants.kRepetition)
         self.speaksTitle = UserDefaults.standard.bool(forKey: Constants.kSpeakTitle)
         self.speaksDescription = UserDefaults.standard.bool(forKey: Constants.kSpeakDescription)
         self.speaksMotivation = UserDefaults.standard.bool(forKey: Constants.kSpeakMotivation)
@@ -55,6 +57,7 @@ public final class SettingsController: NSObject, ObservableObject {
     public func saveSettings() {
         UserDefaults.standard.set(self.fistTime, forKey: Constants.kFistTime)
         UserDefaults.standard.set(self.restTime, forKey: Constants.kRestTime)
+        UserDefaults.standard.set(self.repetition, forKey: Constants.kRepetition)
         UserDefaults.standard.set(self.speaksTitle, forKey: Constants.kSpeakTitle)
         UserDefaults.standard.set(self.speaksDescription, forKey: Constants.kSpeakDescription)
         UserDefaults.standard.set(self.speaksMotivation, forKey: Constants.kSpeakMotivation)
