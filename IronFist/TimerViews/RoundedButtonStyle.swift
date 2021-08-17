@@ -13,7 +13,7 @@ struct RoundedButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .foregroundColor(.white)
-            .padding(10)
+            .padding(8)
             .background(self.color.cornerRadius(12))
             .scaleEffect(configuration.isPressed ? 0.95 : 1)
     }
