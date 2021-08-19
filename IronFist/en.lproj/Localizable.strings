@@ -13,9 +13,9 @@
 "Rice" = "Rice";
 "Rest" = "Rest";
 "Repetitions" = "Repetitions";
-"Rice time: %lld" = "Time in rice: %lld";
-"Rest time: %lld" = "Rest:  %lld";
-"Repeat: %lld" = "Repeat: %lld";
+"Rice time:" = "Rice:";
+"Rest time:" = "Rest: ";
+"Repeat:" = "Repeat:";
 "Done" = "Done";
 "Settings" = "Settings";
 "Finished…" = "Finished…";
@@ -25,7 +25,7 @@
 "Speak descriptions" = "Speak descriptions";
 "Speak motivations" = "Speak motivations";
 
-"Time" = "Time";
+"Time" = "Seconds";
 "Hour" = "Hour";
 "Speak" = "Speak";
 "Notifications" = "Notifications";
@@ -38,3 +38,4 @@
 "Friday" = "Friday";
 "Saturday" = "Saturday";
 "Allow notifications" = "Allow notifications";
+"Configure notifications" = "Configure notifications";

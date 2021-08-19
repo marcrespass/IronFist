@@ -13,9 +13,14 @@ struct GroupedListHeader: View {
 
     var body: some View {
         HStack {
-            Text("Rice time: \(settingsController.fistTime) | Rest time: \(settingsController.restTime)")
+            Text("Rice time:")
+            Text("\(settingsController.fistTime)")
+            Text("|")
+            Text("Rest time:")
+            Text("\(settingsController.restTime)")
             Spacer()
-            Text("Repeat: \(settingsController.repetition)x")
+            Text("Repeat:")
+            Text("\(settingsController.repetition)x")
         }
         .font(.headline)
         .foregroundColor(.white)
@@ -31,6 +36,7 @@ struct GroupedListHeader_Previews: PreviewProvider {
     static var previews: some View {
         GroupedListHeader()
             .environmentObject(controller)
+            .environment(\.locale, .init(identifier: "es"))
     }
 }
 #endif

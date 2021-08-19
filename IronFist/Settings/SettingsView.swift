@@ -29,11 +29,12 @@ struct SettingsView: View {
 extension SettingsView {
     fileprivate func bottomBar() -> some View {
         HStack {
-            Text(settingsController.appName)
+            Text(LocalizedStringKey(settingsController.appName))
                 .fontWeight(.bold)
+            Text(LocalizedStringKey("version"))
             Text(settingsController.aboutLabel)
-                .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
         }
+        .padding(EdgeInsets(top: 4, leading: 0, bottom: 10, trailing: 0))
     }
 
     fileprivate func topBar() -> some View {
@@ -53,14 +54,32 @@ extension SettingsView {
 
     fileprivate func timeSection() -> some View {
         Section(header: Text("Time")) {
-            Stepper("Rice time: \(settingsController.fistTime)", value: $settingsController.fistTime)
-            Stepper("Rest time: \(settingsController.restTime)", value: $settingsController.restTime)
+            Stepper(value: $settingsController.fistTime, in: 3...60) {
+                HStack {
+                    Text("Rice time:")
+                    Text("\(settingsController.fistTime)")
+                        .bold()
+                }
+            }
+            Stepper(value: $settingsController.restTime, in: 0...60) {
+                HStack {
+                    Text("Rest time:")
+                    Text("\(settingsController.restTime)")
+                        .bold()
+                }
+            }
         }
     }
 
     fileprivate func repetitionSection() -> some View {
         Section(header: Text("Repetitions")) {
-            Stepper("Repeat: \(settingsController.repetition)", value: $settingsController.repetition)
+            Stepper(value: $settingsController.repetition, in: 1...10) {
+                HStack {
+                    Text("Repeat:")
+                    Text("\(settingsController.repetition)")
+                        .bold()
+                }
+            }
         }
     }
 

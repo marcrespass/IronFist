@@ -13,19 +13,19 @@
 "Rice" = "Arroz";
 "Rest" = "Descansar";
 "Repetitions" = "Repeticiones";
-"Rice time: %lld" = "Tiempo en arroz: %lld";
-"Rest time: %lld" = "Descanso: %lld";
-"Repeat: %lld" = "Repetir: %lld";
+"Rice time:" = "Arroz:";
+"Rest time:" = "Descanso:";
+"Repeat:" = "Repetir:";
 "Done" = "OK";
 "Settings" = "Configuración";
 "Finished…" = "Terminado…";
 "version" = "versión";
 
-"Speak titles" = "Decir los títulos";
-"Speak descriptions" = "Decir las descripciones";
-"Speak motivations" =  "Decir las  motivaciones";
+"Speak titles" = "Hablar los títulos";
+"Speak descriptions" = "Hablar las descripciones";
+"Speak motivations" =  "Hablar las  motivaciones";
 
-"Time" = "Tiempo";
+"Time" = "Segundos";
 "Hour" = "Hora";
 "Speak" = "Hablar";
 "Notifications" = "Notificaciones";
@@ -38,3 +38,4 @@
 "Friday" = "Viernes";
 "Saturday" = "Sábado";
 "Allow notifications" = "Permitir notificaciones";
+"Configure notifications" = "Configurar notificaciones";

@@ -7,6 +7,7 @@
 
 import Foundation
 import UserNotifications
+import SwiftUI
 
 // MARK: - Settings Methods
 public final class SettingsController: NSObject, ObservableObject {
@@ -31,7 +32,7 @@ public final class SettingsController: NSObject, ObservableObject {
     public lazy var aboutLabel: String = {
         let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "1.0"
         let build = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "1"
-        let label = "\(NSLocalizedString("version", comment: "")) \(version) (\(build))"
+        let label = "\(version) (\(build))"
         return label
     }()
 
