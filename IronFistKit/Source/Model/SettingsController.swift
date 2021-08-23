@@ -19,7 +19,7 @@ public final class SettingsController: NSObject, ObservableObject {
     @Published public var speaksDescription: Bool
     @Published public var speaksMotivation: Bool
     // MARK: - Notification properties
-    @Published public var selectedTime: Date = Date()
+    @Published public var selectedTime: Date
     @Published public var daySelection: Set<DaySetting> = []
     @Published public var allowsNotifications: Bool
 
@@ -44,6 +44,14 @@ public final class SettingsController: NSObject, ObservableObject {
         self.speaksDescription = UserDefaults.standard.bool(forKey: UserDefaults.Keys.kSpeakDescription)
         self.speaksMotivation = UserDefaults.standard.bool(forKey: UserDefaults.Keys.kSpeakMotivation)
 
+        var dateComponents = Calendar.current.dateComponents([.day, .month, .year], from: Date())
+        dateComponents.hour = UserDefaults.standard.integer(forKey: UserDefaults.Keys.kHourSelection)
+        dateComponents.minute = UserDefaults.standard.integer(forKey: UserDefaults.Keys.kMinuteSelection)
+        dateComponents.calendar = Calendar.current
+        dateComponents.timeZone = TimeZone.current
+
+        let theTime = dateComponents.date
+        self.selectedTime = theTime ?? Date()
         if let array = UserDefaults.standard.array(forKey: UserDefaults.Keys.kDaySelection) as? [Int] {
             let filtered = DaySetting.days.filter { array.contains($0.id) }
             self.daySelection = Set(filtered)
@@ -69,6 +77,13 @@ public final class SettingsController: NSObject, ObservableObject {
     public func saveDayNotificationSettings() {
         let mapped = self.daySelection.map { $0.id }
         UserDefaults.standard.set(mapped, forKey: UserDefaults.Keys.kDaySelection)
+
+        let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: self.selectedTime)
+        let m = dateComponents.minute
+        let h = dateComponents.hour
+        UserDefaults.standard.set(m, forKey: UserDefaults.Keys.kMinuteSelection)
+        UserDefaults.standard.set(h, forKey: UserDefaults.Keys.kHourSelection)
+
         self.createNotifications()
     }
 

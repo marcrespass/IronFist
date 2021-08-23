@@ -15,6 +15,8 @@ public extension UserDefaults {
         public static let kSpeakTitle = "SpeakTitle"
         public static let kSpeakDescription = "SpeakDescription"
         public static let kSpeakMotivation = "SpeakMotivation"
+        public static let kHourSelection = "HourSelection"
+        public static let kMinuteSelection = "MinuteSelection"
         public static let kDaySelection = "DaySelection"
     }
 
