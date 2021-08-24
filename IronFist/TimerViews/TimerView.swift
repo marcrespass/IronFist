@@ -18,6 +18,13 @@ struct TimerView: View {
                 Text("Repeat: \(controller.repeatCount)/\(controller.maxRepetitions)")
                     .fontWeight(.bold)
                     .font(.title)
+                    .padding(8)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 16)
+                            .stroke(lineWidth: 4)
+                            .foregroundColor(controller.circleState.timerCircleColor)
+                    )
+
             }
             .padding([.leading, .trailing])
 

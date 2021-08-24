@@ -82,7 +82,7 @@ public final class IronFistController: NSObject, ObservableObject {
 
     public func readyTimer() {
         self.playingIndex = 0
-        self.selectedIronFist = self.ironFists[self.playingIndex]
+        self.selectedIronFist = self.ironFists.first
         self.maxRepetitions = UserDefaults.standard.integer(forKey: UserDefaults.Keys.kRepetition)
     }
 
@@ -91,7 +91,6 @@ public final class IronFistController: NSObject, ObservableObject {
         if self.timerRunning {
             self.stopTimer()
         } else {
-//            self.readyTimer()
             self.configureTimer()
             self.timerRunning = true
             self.handleCurrentItem()
