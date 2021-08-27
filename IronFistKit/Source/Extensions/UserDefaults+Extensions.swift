@@ -25,7 +25,7 @@ public extension UserDefaults {
             return [UserDefaults.Keys.kRestTime: 3,
                     UserDefaults.Keys.kFistTime: 5,
                     UserDefaults.Keys.kRepetition: 1,
-                    UserDefaults.Keys.kSpeakTitle: false,
+                    UserDefaults.Keys.kSpeakTitle: true,
                     UserDefaults.Keys.kSpeakDescription: false,
                     UserDefaults.Keys.kSpeakMotivation: false
             ]
