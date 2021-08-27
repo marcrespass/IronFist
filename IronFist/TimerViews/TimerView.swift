@@ -99,6 +99,7 @@ struct TimerView_Previews: PreviewProvider {
             TimerView()
                 .preferredColorScheme(.dark)
                 .environmentObject(IronFistController())
+                .environment(\.locale, .init(identifier: "es"))
         }
     }
 }
