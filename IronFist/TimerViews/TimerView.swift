@@ -20,7 +20,7 @@ struct TimerView: View {
                     .font(.title)
                     .padding(8)
                     .overlay(
-                        RoundedRectangle(cornerRadius: 16)
+                        RoundedRectangle(cornerRadius: 12)
                             .stroke(lineWidth: 4)
                             .foregroundColor(controller.circleState.timerCircleColor)
                     )
@@ -79,7 +79,7 @@ extension TimerView {
     }
 
     fileprivate func finishedText() -> some View {
-        Text("Finished.")
+        Text("Finished")
             .foregroundColor(self.controller.circleState.titleColor)
             .font(.title.weight(.semibold))
             .padding()
