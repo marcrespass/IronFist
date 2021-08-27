@@ -16,9 +16,10 @@
 "Rice time:" = "Rice:";
 "Rest time:" = "Rest: ";
 "Repeat:" = "Repeat:";
+"Repeat: %lld/%lld" = "Repeat: %lld/%lld";
 "Done" = "Done";
 "Settings" = "Settings";
-"Finished…" = "Finished…";
+"Finished" = "Finished";
 "version" = "version";
 
 "Speak titles" = "Speak titles";
