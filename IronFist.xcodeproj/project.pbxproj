@@ -98,6 +98,8 @@
 		D35EEBE7265B0C0F008CE2E2 /* 1XcodeWarnings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = 1XcodeWarnings.xcconfig; sourceTree = "<group>"; wrapsLines = 0; };
 		D35F4955265E9DE50066FBE4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D35F4957265E9DE70066FBE4 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D36E1BDF26E16BF0000F1D3A /* 2Project-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "2Project-Debug.xcconfig"; sourceTree = "<group>"; };
+		D36E1BE026E16BF0000F1D3A /* 2Project-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "2Project-Release.xcconfig"; sourceTree = "<group>"; };
 		D374A3C126C5C78E00283CEA /* DaySetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySetting.swift; sourceTree = "<group>"; };
 		D375271B26979DE40098CE16 /* Framework-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Framework-Debug.xcconfig"; sourceTree = "<group>"; };
 		D375271C26979DE40098CE16 /* Framework-Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Framework-Shared.xcconfig"; sourceTree = "<group>"; };
@@ -176,6 +178,8 @@
 			children = (
 				D35EEBE7265B0C0F008CE2E2 /* 1XcodeWarnings.xcconfig */,
 				D35EEBE5265B0C0F008CE2E2 /* 2Project.xcconfig */,
+				D36E1BDF26E16BF0000F1D3A /* 2Project-Debug.xcconfig */,
+				D36E1BE026E16BF0000F1D3A /* 2Project-Release.xcconfig */,
 				D35EEBE3265B0C0F008CE2E2 /* App-Debug.xcconfig */,
 				D35EEBE4265B0C0F008CE2E2 /* App-Release.xcconfig */,
 				D35EEBE6265B0C0F008CE2E2 /* App-Shared.xcconfig */,
