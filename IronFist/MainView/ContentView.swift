@@ -67,14 +67,22 @@ extension ContentView {
 #if DEBUG
 struct ContentView_Previews: PreviewProvider {
     static var controller = IronFistController()
+    static var settingsController = SettingsController()
 
     static var previews: some View {
         Group {
+            if #available(iOS 15.0, *) {
+                ContentView()
+                    .environmentObject(controller)
+                    .environmentObject(settingsController)
+                    .environment(\.locale, .init(identifier: "es"))
+                    .previewInterfaceOrientation(.landscapeLeft)
+            } else {
+                // Fallback on earlier versions
+            }
             ContentView()
                 .environmentObject(controller)
-                .environment(\.locale, .init(identifier: "es"))
-            ContentView()
-                .environmentObject(controller)
+                .environmentObject(settingsController)
                 .preferredColorScheme(.dark)
         }
     }

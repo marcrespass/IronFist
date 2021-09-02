@@ -36,6 +36,8 @@ struct GroupedListHeader_Previews: PreviewProvider {
 
     static var previews: some View {
         GroupedListHeader()
+            .previewLayout(.sizeThatFits)
+            .previewDevice("iPhone 12 mini")
             .environmentObject(controller)
             .environment(\.locale, .init(identifier: "es"))
     }

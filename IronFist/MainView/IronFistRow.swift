@@ -36,7 +36,7 @@ struct IronFistRow: View {
 struct IronFistRow_Previews: PreviewProvider {
     static var controller = IronFistController()
     static var previews: some View {
-        IronFistRow(showAll: false, ironFist: controller.ironFistSample)
+        IronFistRow(showAll: true, ironFist: controller.ironFistSample)
             .previewLayout(.sizeThatFits)
             .environmentObject(controller)
     }
