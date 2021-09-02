@@ -93,7 +93,7 @@
 		D359700626696AC700AC2CCB /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		D35EEBE3265B0C0F008CE2E2 /* App-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "App-Debug.xcconfig"; sourceTree = "<group>"; };
 		D35EEBE4265B0C0F008CE2E2 /* App-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "App-Release.xcconfig"; sourceTree = "<group>"; };
-		D35EEBE5265B0C0F008CE2E2 /* 2Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = 2Project.xcconfig; sourceTree = "<group>"; };
+		D35EEBE5265B0C0F008CE2E2 /* 2Project-Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "2Project-Shared.xcconfig"; sourceTree = "<group>"; };
 		D35EEBE6265B0C0F008CE2E2 /* App-Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "App-Shared.xcconfig"; sourceTree = "<group>"; };
 		D35EEBE7265B0C0F008CE2E2 /* 1XcodeWarnings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = 1XcodeWarnings.xcconfig; sourceTree = "<group>"; wrapsLines = 0; };
 		D35F4955265E9DE50066FBE4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -177,7 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				D35EEBE7265B0C0F008CE2E2 /* 1XcodeWarnings.xcconfig */,
-				D35EEBE5265B0C0F008CE2E2 /* 2Project.xcconfig */,
+				D35EEBE5265B0C0F008CE2E2 /* 2Project-Shared.xcconfig */,
 				D36E1BDF26E16BF0000F1D3A /* 2Project-Debug.xcconfig */,
 				D36E1BE026E16BF0000F1D3A /* 2Project-Release.xcconfig */,
 				D35EEBE3265B0C0F008CE2E2 /* App-Debug.xcconfig */,
@@ -607,14 +607,14 @@
 		};
 		D3D0BD5A26587EE400CDF718 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D35EEBE5265B0C0F008CE2E2 /* 2Project.xcconfig */;
+			baseConfigurationReference = D36E1BDF26E16BF0000F1D3A /* 2Project-Debug.xcconfig */;
 			buildSettings = {
 			};
 			name = Debug;
 		};
 		D3D0BD5B26587EE400CDF718 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D35EEBE5265B0C0F008CE2E2 /* 2Project.xcconfig */;
+			baseConfigurationReference = D36E1BE026E16BF0000F1D3A /* 2Project-Release.xcconfig */;
 			buildSettings = {
 			};
 			name = Release;
