@@ -24,6 +24,7 @@ struct IronFistRow: View {
                 .lineLimit(showAll ? nil : 1)
             if showAll {
                 Text(ironFist.motivation)
+                    .italic()
                     .fontWeight(.light)
                     .lineLimit(showAll ? nil : 1)
             }

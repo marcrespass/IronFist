@@ -29,7 +29,7 @@ struct SettingsView: View {
 extension SettingsView {
     fileprivate func bottomBar() -> some View {
         HStack {
-            Text(LocalizedStringKey(settingsController.appName))
+            Text(settingsController.appName)
                 .fontWeight(.bold)
             Text(LocalizedStringKey("version"))
             Text(settingsController.aboutLabel)

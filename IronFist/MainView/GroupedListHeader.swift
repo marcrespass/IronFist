@@ -10,6 +10,7 @@ import IronFistKit
 // https://thehappyprogrammer.com/custom-list-in-swiftui/
 struct GroupedListHeader: View {
     @EnvironmentObject var settingsController: SettingsController
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
 
     var body: some View {
         HStack {
@@ -22,7 +23,7 @@ struct GroupedListHeader: View {
             Text("Repeat:")
             Text("\(settingsController.repetition)x")
         }
-        .font(.headline)
+        .font(horizontalSizeClass == .compact ? .subheadline : .headline)
         .foregroundColor(.white)
         .padding([.leading, .trailing])
         .background(Color.gray)
