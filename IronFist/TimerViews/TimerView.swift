@@ -88,9 +88,6 @@ struct TimerView: View {
                         .padding(8)
                 }
                 .buttonStyle(RoundedButtonStyle(color: self.controller.timerRunning ? .red : .green))
-//                .padding(.bottom)
-//
-//                RepeatText(label: "Repeat: \(controller.repeatCount)/\(controller.maxRepetitions)")
             }
 
             TimerProgressCircle()
@@ -101,14 +98,6 @@ struct TimerView: View {
             }
             .font(.title3)
             .overlay(Divider().background(Color.black), alignment: .bottom) // https://stackoverflow.com/a/64921380
-//            .overlay(Rectangle().frame(width: nil, height: 1, alignment: .bottom)
-//                        .foregroundColor(Color.gray), alignment: .bottom)
-
-//            .overlay(
-//                RoundedRectangle(cornerRadius: 12)
-//                    .stroke(lineWidth: 4)
-//                    .foregroundColor(controller.circleState.timerCircleColor)
-//            )
 
             if let ironFist = controller.selectedIronFist {
                 self.ironFistText(ironFist)
