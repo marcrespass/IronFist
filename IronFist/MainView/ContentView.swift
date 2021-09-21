@@ -13,6 +13,7 @@ struct ContentView: View {
     @State private var isShowingDetailView = false
     @State private var selection: IronFist?
 
+    // SwiftUI has VSplitView, but it’s only available for Mac apps.
     var body: some View {
         NavigationView {
             VStack {
@@ -36,6 +37,7 @@ struct ContentView: View {
             }
             TimerView()
         }
+//        .dynamicTypeSize(.medium ... .accessibility3)
     }
 }
 
@@ -76,14 +78,16 @@ struct ContentView_Previews: PreviewProvider {
                     .environmentObject(controller)
                     .environmentObject(settingsController)
                     .environment(\.locale, .init(identifier: "es"))
-                    .previewInterfaceOrientation(.landscapeLeft)
+//                    .previewInterfaceOrientation(.landscapeLeft)
             } else {
                 // Fallback on earlier versions
             }
+            // https://swiftwithmajid.com/2021/03/10/mastering-swiftui-previews/
             ContentView()
                 .environmentObject(controller)
                 .environmentObject(settingsController)
                 .preferredColorScheme(.dark)
+                .environment(\.sizeCategory, .extraSmall)
         }
     }
 }
