@@ -74,12 +74,6 @@ public final class IronFistController: NSObject, ObservableObject {
     }
 
     // MARK: - Public methods
-    public func stopBeginButtonLabel() -> Text {
-        Text(self.timerRunning ? "Stop" : "Begin")
-            .fontWeight(.bold)
-            .font(.title)
-    }
-
     public func readyTimer() {
         self.playingIndex = 0
         self.selectedIronFist = self.ironFists.first
