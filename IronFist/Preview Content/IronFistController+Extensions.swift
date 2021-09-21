@@ -19,6 +19,10 @@ extension IronFistController {
     public static var readyController: IronFistController {
         let controller = IronFistController()
         controller.readyTimer()
+        UserDefaults.standard.set(5, forKey: UserDefaults.Keys.kFistTime)
+        UserDefaults.standard.set(3, forKey: UserDefaults.Keys.kRestTime)
+        UserDefaults.standard.set(3, forKey: UserDefaults.Keys.kRepetition)
+
         return controller
     }
 }
