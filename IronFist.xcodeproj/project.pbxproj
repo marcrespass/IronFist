@@ -10,13 +10,13 @@
 		D30B873526CC40B0007F385A /* IronFist.json in Resources */ = {isa = PBXBuildFile; fileRef = D30B873726CC40B0007F385A /* IronFist.json */; };
 		D30B873A26CC5235007F385A /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30B873926CC5235007F385A /* UserDefaults+Extensions.swift */; };
 		D3199D99266A9AC400DA4A7A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3199D98266A9AC400DA4A7A /* Colors.xcassets */; };
-		D356E7D526B2F76A00589AEE /* RoundedButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D356E7D426B2F76A00589AEE /* RoundedButtonStyle.swift */; };
 		D356E7D726B303FB00589AEE /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D356E7D626B303FB00589AEE /* SettingsController.swift */; };
 		D3597000266969A500AC2CCB /* TimerProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3596FFE266969A500AC2CCB /* TimerProgressCircle.swift */; };
 		D359700726696AC700AC2CCB /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D359700626696AC700AC2CCB /* TimerView.swift */; };
 		D35F4954265E9DE50066FBE4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D35F4956265E9DE50066FBE4 /* Localizable.strings */; };
 		D374A3C226C5C78E00283CEA /* DaySetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = D374A3C126C5C78E00283CEA /* DaySetting.swift */; };
 		D383128926B1B58C00D72821 /* IronFistController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D383128826B1B58C00D72821 /* IronFistController+Extensions.swift */; };
+		D396698A26F140D000E6A8B5 /* TextStyleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D396698926F140D000E6A8B5 /* TextStyleView.swift */; };
 		D3B6492E265BF1DB00FC88E4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B6492D265BF1DB00FC88E4 /* SettingsView.swift */; };
 		D3B7F7F426978F990010B252 /* IronFistKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3B7F7EB26978F990010B252 /* IronFistKit.framework */; };
 		D3B7F7FB26978F990010B252 /* IronFistKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B7F7FA26978F990010B252 /* IronFistKitTests.swift */; };
@@ -84,7 +84,6 @@
 		D332032826A0E78600DAC708 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D332032926A0EC3100DAC708 /* License.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
 		D33687D7268FC58800E7CAE5 /* IronFist.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IronFist.entitlements; sourceTree = "<group>"; };
-		D356E7D426B2F76A00589AEE /* RoundedButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButtonStyle.swift; sourceTree = "<group>"; };
 		D356E7D626B303FB00589AEE /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		D3596FFD266969A500AC2CCB /* IronFistController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IronFistController.swift; sourceTree = "<group>"; };
 		D3596FFE266969A500AC2CCB /* TimerProgressCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerProgressCircle.swift; sourceTree = "<group>"; };
@@ -108,6 +107,7 @@
 		D375271F26979DE40098CE16 /* Tests-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-Release.xcconfig"; sourceTree = "<group>"; };
 		D375272026979DE40098CE16 /* Tests-Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-Shared.xcconfig"; sourceTree = "<group>"; };
 		D383128826B1B58C00D72821 /* IronFistController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IronFistController+Extensions.swift"; sourceTree = "<group>"; };
+		D396698926F140D000E6A8B5 /* TextStyleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyleView.swift; sourceTree = "<group>"; };
 		D3B6492D265BF1DB00FC88E4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D3B7F7EB26978F990010B252 /* IronFistKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IronFistKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3B7F7ED26978F990010B252 /* IronFistKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IronFistKit.h; sourceTree = "<group>"; };
@@ -167,7 +167,6 @@
 			isa = PBXGroup;
 			children = (
 				D359700626696AC700AC2CCB /* TimerView.swift */,
-				D356E7D426B2F76A00589AEE /* RoundedButtonStyle.swift */,
 				D3596FFE266969A500AC2CCB /* TimerProgressCircle.swift */,
 			);
 			path = TimerViews;
@@ -309,6 +308,7 @@
 			children = (
 				D3D0BD5726587EE400CDF718 /* Preview Assets.xcassets */,
 				D383128826B1B58C00D72821 /* IronFistController+Extensions.swift */,
+				D396698926F140D000E6A8B5 /* TextStyleView.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -527,11 +527,11 @@
 				D3D0BD6926587F1500CDF718 /* IronFistApp.swift in Sources */,
 				D383128926B1B58C00D72821 /* IronFistController+Extensions.swift in Sources */,
 				D3C7B81E26619190003831A7 /* IronFistRow.swift in Sources */,
+				D396698A26F140D000E6A8B5 /* TextStyleView.swift in Sources */,
 				D3D0BD6626587F1500CDF718 /* ContentView.swift in Sources */,
 				D359700726696AC700AC2CCB /* TimerView.swift in Sources */,
 				D3B6492E265BF1DB00FC88E4 /* SettingsView.swift in Sources */,
 				D3597000266969A500AC2CCB /* TimerProgressCircle.swift in Sources */,
-				D356E7D526B2F76A00589AEE /* RoundedButtonStyle.swift in Sources */,
 				D3C7B81C2661905A003831A7 /* GroupedListHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
