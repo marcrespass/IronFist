@@ -23,10 +23,17 @@ struct GroupedListHeader: View {
             Text("Repeat:")
             Text("\(settingsController.repetition)x")
         }
-        .font(horizontalSizeClass == .compact ? .subheadline : .headline)
-        .foregroundColor(.white)
+//        .foregroundColor(.white)
+        .font(.subheadline)
+        .dynamicTypeSize(.medium ... .accessibility1)
         .padding([.leading, .trailing])
-        .background(Color.gray)
+//        .background(Color.gray)
+        .overlay(
+            Rectangle()
+                .stroke(lineWidth: 1)
+//                .fill(.gray)
+                .foregroundColor(.gray)
+        )
     }
 }
 

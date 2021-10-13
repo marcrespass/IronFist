@@ -7,25 +7,6 @@
 import SwiftUI
 import IronFistKit
 
-extension ContentSizeCategory {
-    func bestFont() -> Font {
-        switch self {
-            case .extraSmall, .small, .medium, .large, .extraLarge:
-                return .title
-            case .extraExtraLarge, .extraExtraExtraLarge, .accessibilityMedium:
-                return .title2
-            case .accessibilityLarge:
-                return .title3
-            case .accessibilityExtraLarge:
-                return .subheadline
-            case .accessibilityExtraExtraLarge, .accessibilityExtraExtraExtraLarge:
-                return .caption
-            @unknown default:
-                return .body
-        }
-    }
-}
-
 // https://useyourloaf.com/blog/swiftui-custom-view-modifiers/
 // That’s a bit ugly. A better way is to add our custom modifier as an extension on View:
 struct RepeatCaption: ViewModifier {
@@ -33,7 +14,9 @@ struct RepeatCaption: ViewModifier {
 
     func body(content: Content) -> some View {
         content
-            .font(sizeCategory.bestFont())
+//            .font(sizeCategory.bestFont())
+            .font(.title)
+            .dynamicTypeSize(.medium ... .accessibility1)
             .padding([.leading, .trailing], 8)
             .overlay(
                 RoundedRectangle(cornerRadius: 12)
@@ -74,8 +57,8 @@ struct TimerView: View {
 
     fileprivate func ButtonLabelText(label: String) -> Text {
         return Text(label)
-            .fontWeight(sizeCategory > .extraExtraExtraLarge ? .regular : .bold)
-            .font(sizeCategory.bestFont())
+            .fontWeight(.bold)
+            .font(.title)
     }
 
     var body: some View {
@@ -88,11 +71,12 @@ struct TimerView: View {
                         .padding(8)
                 }
                 .buttonStyle(RoundedButtonStyle(color: self.controller.timerRunning ? .red : .green))
+                .dynamicTypeSize(.medium ... .accessibility1)
             }
 
             TimerProgressCircle()
             HStack {
-                Text("Repeat: \(controller.repeatCount)X")
+                Text("Repeat: \(controller.maxRepetitions)X")
                 Spacer()
                 Text("\(controller.repeatCount) of \(controller.maxRepetitions)")
             }
@@ -133,6 +117,7 @@ extension TimerView {
                     .font(.body.italic())
             }
         }
+        .dynamicTypeSize(.medium ... .accessibility1)
         .padding()
         .overlay(
             RoundedRectangle(cornerRadius: 30)
@@ -151,7 +136,7 @@ extension TimerView {
                     .stroke(lineWidth: 4)
                     .foregroundColor(controller.circleState.timerCircleColor)
             )
-
+            .dynamicTypeSize(.medium ... .accessibility1)
     }
 }
 
@@ -175,7 +160,7 @@ struct TimerView_Previews: PreviewProvider {
             TimerView()
 //                .preferredColorScheme(.dark)
                 .environmentObject(IronFistController.readyController)
-                .environment(\.sizeCategory, .large) // normal is .large
+                .environment(\.sizeCategory, .accessibilityExtraLarge) // normal is .large
                 .environment(\.locale, .init(identifier: "en"))
         }
     }

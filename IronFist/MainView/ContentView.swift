@@ -31,7 +31,7 @@ struct ContentView: View {
                     }
                 }
                 .sheet(isPresented: $showingSettings, content: { SettingsView() })
-                .listStyle(DefaultListStyle())
+                .listStyle(.automatic)
                 .navigationTitle("Iron Fist")
                 .toolbar {
                     startStopToolbarItem
@@ -40,7 +40,8 @@ struct ContentView: View {
             }
             TimerView()
         }
-//        .dynamicTypeSize(.medium ... .accessibility3)
+        .navigationViewStyle(.stack)
+        .dynamicTypeSize(.medium ... .accessibility3)
     }
 }
 
