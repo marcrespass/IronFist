@@ -16,7 +16,8 @@
 "Rice time:" = "Rice:";
 "Rest time:" = "Rest: ";
 "Repeat:" = "Repeat:";
-"Repeat: %lld/%lld" = "Repeat: %lld/%lld";
+"Repeat: %lldX" = "Repeat: %lldX";
+"%lld of %lld" = "%lld of %lld";
 "Done" = "Done";
 "Settings" = "Settings";
 "Finished" = "Finished";

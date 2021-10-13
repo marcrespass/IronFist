@@ -16,7 +16,8 @@
 "Rice time:" = "Arroz:";
 "Rest time:" = "Descanso:";
 "Repeat:" = "Repetir:";
-"Repeat: %lld/%lld" = "Repetir: %lld/%lld";
+"Repeat: %lldX" = "Repetir: %lldX";
+"%lld of %lld" = "%lld de %lld";
 "Done" = "OK";
 "Settings" = "Configuración";
 "Finished" = "Terminado";
