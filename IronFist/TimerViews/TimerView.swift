@@ -14,7 +14,6 @@ struct RepeatCaption: ViewModifier {
 
     func body(content: Content) -> some View {
         content
-//            .font(sizeCategory.bestFont())
             .font(.title)
             .dynamicTypeSize(.medium ... .accessibility1)
             .padding([.leading, .trailing], 8)
@@ -160,7 +159,7 @@ struct TimerView_Previews: PreviewProvider {
             TimerView()
 //                .preferredColorScheme(.dark)
                 .environmentObject(IronFistController.readyController)
-                .environment(\.sizeCategory, .accessibilityExtraLarge) // normal is .large
+                .environment(\.sizeCategory, .large) // normal is .large
                 .environment(\.locale, .init(identifier: "en"))
         }
     }
