@@ -22,9 +22,9 @@ public extension UserDefaults {
 
     static var defaultsDictionary: [String: Any] {
         if ProcessInfo.processInfo.arguments.contains("-testingMode") {
-            return [UserDefaults.Keys.kRestTime: 3,
-                    UserDefaults.Keys.kFistTime: 5,
-                    UserDefaults.Keys.kRepetition: 1,
+            return [UserDefaults.Keys.kRestTime: 2,
+                    UserDefaults.Keys.kFistTime: 4,
+                    UserDefaults.Keys.kRepetition: 2,
                     UserDefaults.Keys.kSpeakTitle: true,
                     UserDefaults.Keys.kSpeakDescription: false,
                     UserDefaults.Keys.kSpeakMotivation: false

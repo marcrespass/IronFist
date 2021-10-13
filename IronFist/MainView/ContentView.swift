@@ -14,6 +14,9 @@ struct ContentView: View {
     @State private var selection: IronFist?
 
     // SwiftUI has VSplitView, but it’s only available for Mac apps.
+    // https://augmentedcode.io/2021/09/13/sidebar-layout-on-macos-in-swiftui/?utm_campaign=%20SwiftUI%20Weekly&utm_medium=email&utm_source=Revue%20newsletter
+    // Programmatic navigation in SwiftUI
+    // https://www.swiftbysundell.com/articles/swiftui-programmatic-navigation
     var body: some View {
         NavigationView {
             VStack {
