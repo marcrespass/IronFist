@@ -21,7 +21,21 @@ public final class SettingsController: NSObject, ObservableObject {
     // MARK: - Notification properties
     @Published public var selectedTime: Date
     @Published public var daySelection: Set<DaySetting> = []
-    @Published public var allowsNotifications: Bool
+    @Published public var allowsNotifications: Bool {
+        didSet {
+            if allowsNotifications == true {
+                self.authorizeNotifications()
+            } else {
+                self.disableNotifications()
+            }
+        }
+    }
+
+    public var canSetNotifications: Bool {
+        return allowsNotifications && notificationsEnabled
+    }
+
+    private var notificationsEnabled: Bool
 
     // MARK: - Settings Lazy Properties
     public lazy var appName: String = {
@@ -56,7 +70,8 @@ public final class SettingsController: NSObject, ObservableObject {
             let filtered = DaySetting.days.filter { array.contains($0.id) }
             self.daySelection = Set(filtered)
         }
-        self.allowsNotifications = false
+        self.allowsNotifications = UserDefaults.standard.bool(forKey: UserDefaults.Keys.kAllowsNotifications)
+        self.notificationsEnabled = false
 
         super.init()
 
@@ -94,22 +109,23 @@ public final class SettingsController: NSObject, ObservableObject {
         UNUserNotificationCenter.current().getNotificationSettings { settings in
             DispatchQueue.main.async {
                 if settings.authorizationStatus == .authorized {
-                    self.allowsNotifications = true
+                    self.notificationsEnabled = true
                 } else {
-                    self.allowsNotifications = false
+                    self.notificationsEnabled = false
                 }
             }
         }
     }
 
-    public func allowNotifications() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
-            DispatchQueue.main.async {
-                if success {
-                    self.allowsNotifications = true
-                } else if let error = error {
-                    print(error.localizedDescription)
-                    self.allowsNotifications = false
+    public func authorizeNotifications() {
+        if self.notificationsEnabled == false {
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                DispatchQueue.main.async {
+                    self.notificationsEnabled = success
+                    self.allowsNotifications = success
+                    if let error = error {
+                        print(error.localizedDescription)
+                    }
                 }
             }
         }
