@@ -15,7 +15,9 @@ struct RepeatCaption: ViewModifier {
     func body(content: Content) -> some View {
         content
             .font(.title)
+#if !targetEnvironment(macCatalyst)
             .dynamicTypeSize(.medium ... .accessibility1)
+#endif
             .padding([.leading, .trailing], 8)
             .overlay(
                 RoundedRectangle(cornerRadius: 12)
@@ -70,7 +72,9 @@ struct TimerView: View {
                         .padding(8)
                 }
                 .buttonStyle(RoundedButtonStyle(color: self.controller.timerRunning ? .red : .green))
+#if !targetEnvironment(macCatalyst)
                 .dynamicTypeSize(.medium ... .accessibility1)
+#endif
             }
 
             TimerProgressCircle()
@@ -89,6 +93,8 @@ struct TimerView: View {
             }
             Spacer()
         }
+        // https://sarunw.com/posts/custom-navigation-bar-title-view-in-swiftui/
+        .navigationBarTitleDisplayMode(.inline)
         .padding([.leading, .trailing])
         .onAppear(perform: {
             self.controller.readyTimer()
@@ -116,7 +122,9 @@ extension TimerView {
                     .font(.body.italic())
             }
         }
+#if !targetEnvironment(macCatalyst)
         .dynamicTypeSize(.medium ... .accessibility1)
+#endif
         .padding()
         .overlay(
             RoundedRectangle(cornerRadius: 30)
@@ -135,7 +143,9 @@ extension TimerView {
                     .stroke(lineWidth: 4)
                     .foregroundColor(controller.circleState.timerCircleColor)
             )
+#if !targetEnvironment(macCatalyst)
             .dynamicTypeSize(.medium ... .accessibility1)
+#endif
     }
 }
 

@@ -13,10 +13,20 @@ struct ContentView: View {
     @State private var isShowingDetailView = false
     @State private var selection: IronFist?
 
+    // https://sarunw.com/posts/what-is-keypath-in-swift/
+
     // SwiftUI has VSplitView, but it’s only available for Mac apps.
-    // https://augmentedcode.io/2021/09/13/sidebar-layout-on-macos-in-swiftui/?utm_campaign=%20SwiftUI%20Weekly&utm_medium=email&utm_source=Revue%20newsletter
+    // https://augmentedcode.io/2021/09/13/sidebar-layout-on-macos-in-swiftui
+
+    // How to compose SwiftUI views with @ViewBuilder
+    // https://www.fivestars.blog/articles/design-system-composing-views/
+
     // Programmatic navigation in SwiftUI
     // https://www.swiftbysundell.com/articles/swiftui-programmatic-navigation
+    // How Sidebar works on iPad with SwiftUI
+    // https://kristaps.me/blog/swiftui-sidebar/
+    // How do I customize the NavigationView in SwiftUI?
+    // https://www.bigmountainstudio.com/community/public/posts/80041-how-do-i-customize-the-navigationview-in-swiftui
     var body: some View {
         NavigationView {
             VStack {
@@ -33,6 +43,7 @@ struct ContentView: View {
                 .sheet(isPresented: $showingSettings, content: { SettingsView() })
                 .listStyle(.automatic)
                 .navigationTitle("Iron Fist")
+                .navigationBarTitleDisplayMode(.large)
                 .toolbar {
                     startStopToolbarItem
                     settingsToolbarItem
@@ -41,7 +52,9 @@ struct ContentView: View {
             TimerView()
         }
         .navigationViewStyle(.stack)
+#if !targetEnvironment(macCatalyst)
         .dynamicTypeSize(.medium ... .accessibility3)
+#endif
     }
 }
 
