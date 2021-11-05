@@ -95,18 +95,18 @@ extension SettingsView {
         return Section(header: Text("Configure notifications")) {
             Toggle("Allow Notifications", isOn: $settingsController.allowsNotifications)
             DatePicker("Hour", selection: $settingsController.selectedTime, displayedComponents: [.hourAndMinute])
-                .foregroundColor(self.settingsController.canSetNotifications ? Color(uiColor: .label) : Color(uiColor: .tertiaryLabel))
+                .foregroundColor(self.settingsController.notificationColor)
                 .disabled(!self.settingsController.canSetNotifications)
 
             List(DaySetting.days, id: \.self) { day in
                 HStack {
                     Text(LocalizedStringKey(day.name))
-                        .foregroundColor(self.settingsController.canSetNotifications ? Color(uiColor: .label) : Color(uiColor: .tertiaryLabel))
+                        .foregroundColor(self.settingsController.notificationColor)
                     Spacer()
                     Image(systemName: self.settingsController.daySelection.contains(day) ? "checkmark.square" : "square")
                         .resizable()
                         .frame(width: 22, height: 22)
-                        .foregroundColor(self.settingsController.canSetNotifications ? Color(uiColor: .label) : Color(uiColor: .tertiaryLabel))
+                        .foregroundColor(self.settingsController.notificationColor)
                 }
                 .onTapGesture {
                     if self.settingsController.daySelection.contains(day) {

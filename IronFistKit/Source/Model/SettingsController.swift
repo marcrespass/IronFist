@@ -35,6 +35,12 @@ public final class SettingsController: NSObject, ObservableObject {
         return allowsNotifications && notificationsEnabled
     }
 
+    public var notificationColor: Color {
+        let it = self.canSetNotifications ? UIColor.label : UIColor.tertiaryLabel
+        let color = Color(it.cgColor)
+        return color
+    }
+
     private var notificationsEnabled: Bool
 
     // MARK: - Settings Lazy Properties
