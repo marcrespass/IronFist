@@ -41,6 +41,7 @@ struct RoundedButtonStyle: ButtonStyle {
 }
 
 // https://www.fivestars.blog/articles/adaptive-swiftui-views/
+// https://swiftwithmajid.com/2021/08/24/mastering-focusstate-property-wrapper-in-swiftui/
 struct TimerView: View {
     @EnvironmentObject var controller: IronFistController
     @Environment(\.sizeCategory) var sizeCategory: ContentSizeCategory

@@ -27,6 +27,9 @@ struct ContentView: View {
     // https://kristaps.me/blog/swiftui-sidebar/
     // How do I customize the NavigationView in SwiftUI?
     // https://www.bigmountainstudio.com/community/public/posts/80041-how-do-i-customize-the-navigationview-in-swiftui
+    /*
+     You could also use `let _ = Self._printChanges()` in the body of the view that you see loosing state to see what  is causing the re-rendering.
+     */
     var body: some View {
         NavigationView {
             VStack {
@@ -34,6 +37,10 @@ struct ContentView: View {
                 GroupedListHeader()
                 List {
                     ForEach(controller.ironFists) { ironFist in
+                        // https://twitter.com/mhuletdev/status/1495123504366329859
+                        // let horizontalMax = dump(geometry.size.width) + dump(geometry.frame(in: .global).maxX)
+//                        let dmp = dump(ironFist)
+//                        _ = print(ironFist)
                         IronFistRow(showAll: (selection != nil && selection == ironFist), ironFist: ironFist)
                             .onTapGesture {
                                 selection = selection == ironFist ? nil : ironFist
@@ -95,7 +102,7 @@ struct ContentView_Previews: PreviewProvider {
                     .environmentObject(controller)
                     .environmentObject(settingsController)
                     .environment(\.locale, .init(identifier: "es"))
-//                    .previewInterfaceOrientation(.landscapeLeft)
+                //                    .previewInterfaceOrientation(.landscapeLeft)
             } else {
                 // Fallback on earlier versions
             }

@@ -9,6 +9,9 @@ import Foundation
 import UserNotifications
 import SwiftUI
 
+// MARK: - Smart Invert
+// https://useyourloaf.com/blog/accessibility-smart-invert/
+
 // MARK: - Settings Methods
 public final class SettingsController: NSObject, ObservableObject {
     // MARK: - Published Properties
@@ -109,6 +112,7 @@ public final class SettingsController: NSObject, ObservableObject {
     }
 
     // Rich Notifications
+    // https://developer.apple.com/documentation/usernotificationsui/customizing_the_appearance_of_notifications
     // https://www.avanderlee.com/swift/rich-notifications/
     // https://developer.apple.com/documentation/usernotifications/scheduling_a_notification_locally_from_your_app
     public func checkNotificationStatus() {
