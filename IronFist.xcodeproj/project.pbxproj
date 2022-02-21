@@ -265,8 +265,8 @@
 			isa = PBXGroup;
 			children = (
 				D332032826A0E78600DAC708 /* README.md */,
-				D3048AD9268E526000504711 /* .swiftlint.yml */,
 				D332032926A0EC3100DAC708 /* License.txt */,
+				D3048AD9268E526000504711 /* .swiftlint.yml */,
 				D3048AD4268E51B200504711 /* Build-Phases */,
 				D35EEBE2265B0C0F008CE2E2 /* XCConfig */,
 				D3D0BD4F26587EE300CDF718 /* IronFist */,
