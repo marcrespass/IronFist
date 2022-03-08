@@ -7,6 +7,7 @@
 import SwiftUI
 import IronFistKit
 
+// https://www.avanderlee.com/swiftui/stateobject-observedobject-differences/
 struct ContentView: View {
     @EnvironmentObject var controller: IronFistController
     @State private var showingSettings = false
