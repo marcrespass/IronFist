@@ -363,7 +363,6 @@
 			buildConfigurationList = D3D0BD5C26587EE400CDF718 /* Build configuration list for PBXNativeTarget "IronFist" */;
 			buildPhases = (
 				D3048AD8268E51C400504711 /* SwiftLint */,
-				D3048ADB268E52FD00504711 /* build-script */,
 				D3D0BD4926587EE300CDF718 /* Sources */,
 				D3D0BD4A26587EE300CDF718 /* Frameworks */,
 				D3D0BD4B26587EE300CDF718 /* Resources */,
@@ -469,24 +468,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "$SRCROOT/Build-Phases/swiftlint-command\n";
-		};
-		D3048ADB268E52FD00504711 /* build-script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "build-script";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "$SRCROOT/Build-Phases/build-script\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
