@@ -14,7 +14,15 @@ SKIP_INSTALL = YES
 DEFINES_MODULE = YES
 
 // Override
+//INFOPLIST_FILE = $(PRODUCT_NAME)/Info.plist
+GENERATE_INFOPLIST_FILE = YES
+INFOPLIST_KEY_NSHumanReadableCopyright = $(HUMAN_READABLE_COPYRIGHT)
+
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO
 CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO
 LD_RUNPATH_SEARCH_PATHS = $(inherited) @executable_path/../Frameworks @loader_path/Frameworks
 PRODUCT_BUNDLE_PREFIX = com.iliosinc // Only the app is us.me.state.courts to make it easier to find the app bundle when testing
+
+// Warning overrides
+CLANG_WARN_OBJC_EXPLICIT_OWNERSHIP_TYPE = NO
+CLANG_WARN_SEMICOLON_BEFORE_METHOD_BODY = NO
