@@ -75,7 +75,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		D3048AD5268E51B200504711 /* build-script */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "build-script"; sourceTree = "<group>"; };
 		D3048AD6268E51B200504711 /* swiftlint-command */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "swiftlint-command"; sourceTree = "<group>"; };
 		D3048AD9268E526000504711 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		D30B873626CC40B0007F385A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = Base.lproj/IronFist.json; sourceTree = "<group>"; };
@@ -111,7 +110,6 @@
 		D3B6492D265BF1DB00FC88E4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D3B7F7EB26978F990010B252 /* IronFistKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IronFistKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3B7F7ED26978F990010B252 /* IronFistKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IronFistKit.h; sourceTree = "<group>"; };
-		D3B7F7EE26978F990010B252 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3B7F7F326978F990010B252 /* IronFistKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IronFistKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3B7F7FA26978F990010B252 /* IronFistKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IronFistKitTests.swift; sourceTree = "<group>"; };
 		D3B7F7FC26978F990010B252 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -120,7 +118,6 @@
 		D3D0BD4D26587EE300CDF718 /* IronFist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IronFist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3D0BD5426587EE400CDF718 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3D0BD5726587EE400CDF718 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		D3D0BD5926587EE400CDF718 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3D0BD5F26587F1500CDF718 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D3D0BD6226587F1500CDF718 /* IronFistApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IronFistApp.swift; sourceTree = "<group>"; };
 		D3D0BD6326587F1500CDF718 /* IronFist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IronFist.swift; sourceTree = "<group>"; };
@@ -157,7 +154,6 @@
 		D3048AD4268E51B200504711 /* Build-Phases */ = {
 			isa = PBXGroup;
 			children = (
-				D3048AD5268E51B200504711 /* build-script */,
 				D3048AD6268E51B200504711 /* swiftlint-command */,
 			);
 			path = "Build-Phases";
@@ -238,7 +234,6 @@
 			children = (
 				D3B7F7ED26978F990010B252 /* IronFistKit.h */,
 				D3B7F80926978FB00010B252 /* Source */,
-				D3B7F7EE26978F990010B252 /* Info.plist */,
 			);
 			path = IronFistKit;
 			sourceTree = "<group>";
@@ -297,7 +292,6 @@
 				D3D0BD5426587EE400CDF718 /* Assets.xcassets */,
 				D3199D98266A9AC400DA4A7A /* Colors.xcassets */,
 				D35F4956265E9DE50066FBE4 /* Localizable.strings */,
-				D3D0BD5926587EE400CDF718 /* Info.plist */,
 				D3D0BD5626587EE400CDF718 /* Preview Content */,
 			);
 			path = IronFist;

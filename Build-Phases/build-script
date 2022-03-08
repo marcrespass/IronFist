@@ -1,6 +1,0 @@
-#! /bin/sh
-
-if [ ${CONFIGURATION} == "Release" ]; then
-    BUILD_NUMBER=`git rev-list HEAD --count`
-    /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $BUILD_NUMBER" "${INFOPLIST_FILE}"
-fi
