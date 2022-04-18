@@ -105,6 +105,7 @@
 		D375271E26979DE40098CE16 /* Tests-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-Debug.xcconfig"; sourceTree = "<group>"; };
 		D375271F26979DE40098CE16 /* Tests-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-Release.xcconfig"; sourceTree = "<group>"; };
 		D375272026979DE40098CE16 /* Tests-Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-Shared.xcconfig"; sourceTree = "<group>"; };
+		D382AD5E280E008800D5398B /* build-script */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "build-script"; sourceTree = "<group>"; };
 		D383128826B1B58C00D72821 /* IronFistController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IronFistController+Extensions.swift"; sourceTree = "<group>"; };
 		D396698926F140D000E6A8B5 /* TextStyleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyleView.swift; sourceTree = "<group>"; };
 		D3B6492D265BF1DB00FC88E4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -122,6 +123,7 @@
 		D3D0BD6226587F1500CDF718 /* IronFistApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IronFistApp.swift; sourceTree = "<group>"; };
 		D3D0BD6326587F1500CDF718 /* IronFist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IronFist.swift; sourceTree = "<group>"; };
 		D3D0BD6526587F1500CDF718 /* Bundle+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
+		D3F4235227FB4F0C0055A666 /*  Notes.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = " Notes.md"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 		D3048AD4268E51B200504711 /* Build-Phases */ = {
 			isa = PBXGroup;
 			children = (
+				D382AD5E280E008800D5398B /* build-script */,
 				D3048AD6268E51B200504711 /* swiftlint-command */,
 			);
 			path = "Build-Phases";
@@ -260,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				D332032826A0E78600DAC708 /* README.md */,
+				D3F4235227FB4F0C0055A666 /*  Notes.md */,
 				D332032926A0EC3100DAC708 /* License.txt */,
 				D3048AD9268E526000504711 /* .swiftlint.yml */,
 				D3048AD4268E51B200504711 /* Build-Phases */,
