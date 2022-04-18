@@ -31,17 +31,32 @@ struct ContentView: View {
     /*
      You could also use `let _ = Self._printChanges()` in the body of the view that you see loosing state to see what  is causing the re-rendering.
      */
+#if targetEnvironment(macCatalyst)
+    struct StackNavigationView<Content: View>: View {
+        @ViewBuilder let content: () -> Content
+
+        var body: some View {
+            VStack(spacing: 0, content: content)
+        }
+    }
+#else
+    struct StackNavigationView<Content: View>: View {
+        @ViewBuilder let content: () -> Content
+
+        var body: some View {
+            NavigationView(content: content)
+                .navigationViewStyle(.stack)
+        }
+    }
+#endif
+
     var body: some View {
-        NavigationView {
+        StackNavigationView {
             VStack {
                 NavigationLink(destination: TimerView(), isActive: $isShowingDetailView) { EmptyView() }
                 GroupedListHeader()
                 List {
                     ForEach(controller.ironFists) { ironFist in
-                        // https://twitter.com/mhuletdev/status/1495123504366329859
-                        // let horizontalMax = dump(geometry.size.width) + dump(geometry.frame(in: .global).maxX)
-//                        let dmp = dump(ironFist)
-//                        _ = print(ironFist)
                         IronFistRow(showAll: (selection != nil && selection == ironFist), ironFist: ironFist)
                             .onTapGesture {
                                 selection = selection == ironFist ? nil : ironFist
@@ -49,7 +64,7 @@ struct ContentView: View {
                     }
                 }
                 .sheet(isPresented: $showingSettings, content: { SettingsView() })
-                .listStyle(.automatic)
+//                .listStyle(.automatic)
                 .navigationTitle("Iron Fist")
                 .navigationBarTitleDisplayMode(.large)
                 .toolbar {
@@ -57,12 +72,13 @@ struct ContentView: View {
                     settingsToolbarItem
                 }
             }
-            TimerView()
+//            TimerView()
+        } // https://swiftwithmajid.com/2021/11/03/managing-safe-area-in-swiftui/
+        .safeAreaInset(edge: .bottom, alignment: .center, spacing: 0) {
+            Color.clear
+                .frame(height: 0)
+                .background(Material.bar)
         }
-        .navigationViewStyle(.stack)
-#if !targetEnvironment(macCatalyst)
-        .dynamicTypeSize(.medium ... .accessibility3)
-#endif
     }
 }
 
@@ -97,22 +113,18 @@ struct ContentView_Previews: PreviewProvider {
     static var settingsController = SettingsController()
 
     static var previews: some View {
+        // https://swiftwithmajid.com/2021/03/10/mastering-swiftui-previews/
         Group {
-            if #available(iOS 15.0, *) {
-                ContentView()
-                    .environmentObject(controller)
-                    .environmentObject(settingsController)
-                    .environment(\.locale, .init(identifier: "es"))
-                //                    .previewInterfaceOrientation(.landscapeLeft)
-            } else {
-                // Fallback on earlier versions
-            }
-            // https://swiftwithmajid.com/2021/03/10/mastering-swiftui-previews/
             ContentView()
                 .environmentObject(controller)
                 .environmentObject(settingsController)
-                .preferredColorScheme(.dark)
-                .environment(\.sizeCategory, .extraSmall)
+                .environment(\.locale, .init(identifier: "en"))
+//                .preferredColorScheme(.dark)
+//            ContentView()
+//                .environmentObject(controller)
+//                .environmentObject(settingsController)
+//                .preferredColorScheme(.dark)
+//                .environment(\.sizeCategory, .extraSmall)
         }
     }
 }
