@@ -99,7 +99,7 @@ public final class SettingsController: NSObject, ObservableObject {
     }
 
     public func saveDayNotificationSettings() {
-        let mapped = self.daySelection.map { $0.id }
+        let mapped = self.daySelection.map(\.id)
         UserDefaults.standard.set(mapped, forKey: UserDefaults.Keys.kDaySelection)
 
         let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: self.selectedTime)
