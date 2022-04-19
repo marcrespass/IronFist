@@ -14,6 +14,7 @@
 		D3597000266969A500AC2CCB /* TimerProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3596FFE266969A500AC2CCB /* TimerProgressCircle.swift */; };
 		D359700726696AC700AC2CCB /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D359700626696AC700AC2CCB /* TimerView.swift */; };
 		D35F4954265E9DE50066FBE4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D35F4956265E9DE50066FBE4 /* Localizable.strings */; };
+		D37179DF280EEEB000E22FBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D37179DE280EEEB000E22FBA /* LaunchScreen.storyboard */; };
 		D374A3C226C5C78E00283CEA /* DaySetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = D374A3C126C5C78E00283CEA /* DaySetting.swift */; };
 		D383128926B1B58C00D72821 /* IronFistController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D383128826B1B58C00D72821 /* IronFistController+Extensions.swift */; };
 		D396698A26F140D000E6A8B5 /* TextStyleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D396698926F140D000E6A8B5 /* TextStyleView.swift */; };
@@ -98,6 +99,9 @@
 		D35F4957265E9DE70066FBE4 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D36E1BDF26E16BF0000F1D3A /* 2Project-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "2Project-Debug.xcconfig"; sourceTree = "<group>"; };
 		D36E1BE026E16BF0000F1D3A /* 2Project-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "2Project-Release.xcconfig"; sourceTree = "<group>"; };
+		D37179DD280EED5B00E22FBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D37179DE280EEEB000E22FBA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D37179E1280EF3CA00E22FBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D374A3C126C5C78E00283CEA /* DaySetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySetting.swift; sourceTree = "<group>"; };
 		D375271B26979DE40098CE16 /* Framework-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Framework-Debug.xcconfig"; sourceTree = "<group>"; };
 		D375271C26979DE40098CE16 /* Framework-Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Framework-Shared.xcconfig"; sourceTree = "<group>"; };
@@ -175,9 +179,9 @@
 			isa = PBXGroup;
 			children = (
 				D35EEBE7265B0C0F008CE2E2 /* 1XcodeWarnings.xcconfig */,
-				D35EEBE5265B0C0F008CE2E2 /* 2Project-Shared.xcconfig */,
 				D36E1BDF26E16BF0000F1D3A /* 2Project-Debug.xcconfig */,
 				D36E1BE026E16BF0000F1D3A /* 2Project-Release.xcconfig */,
+				D35EEBE5265B0C0F008CE2E2 /* 2Project-Shared.xcconfig */,
 				D35EEBE3265B0C0F008CE2E2 /* App-Debug.xcconfig */,
 				D35EEBE4265B0C0F008CE2E2 /* App-Release.xcconfig */,
 				D35EEBE6265B0C0F008CE2E2 /* App-Shared.xcconfig */,
@@ -236,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				D3B7F7ED26978F990010B252 /* IronFistKit.h */,
+				D37179E1280EF3CA00E22FBA /* Info.plist */,
 				D3B7F80926978FB00010B252 /* Source */,
 			);
 			path = IronFistKit;
@@ -288,8 +293,10 @@
 		D3D0BD4F26587EE300CDF718 /* IronFist */ = {
 			isa = PBXGroup;
 			children = (
+				D37179DD280EED5B00E22FBA /* Info.plist */,
 				D33687D7268FC58800E7CAE5 /* IronFist.entitlements */,
 				D3D0BD6226587F1500CDF718 /* IronFistApp.swift */,
+				D37179DE280EEEB000E22FBA /* LaunchScreen.storyboard */,
 				D3931E3D2671014F00B54938 /* MainView */,
 				D359700526696AA000AC2CCB /* TimerViews */,
 				D3931E3E2671015D00B54938 /* Settings */,
@@ -329,6 +336,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D3B7F80226978F990010B252 /* Build configuration list for PBXNativeTarget "IronFistKit" */;
 			buildPhases = (
+				D37179E2280EF5CA00E22FBA /* Build Script */,
 				D3B7F7E626978F990010B252 /* Headers */,
 				D3B7F7E726978F990010B252 /* Sources */,
 				D3B7F7E826978F990010B252 /* Frameworks */,
@@ -367,6 +375,7 @@
 			buildConfigurationList = D3D0BD5C26587EE400CDF718 /* Build configuration list for PBXNativeTarget "IronFist" */;
 			buildPhases = (
 				D3048AD8268E51C400504711 /* SwiftLint */,
+				D37179E0280EF34F00E22FBA /* Build Script */,
 				D3D0BD4926587EE300CDF718 /* Sources */,
 				D3D0BD4A26587EE300CDF718 /* Frameworks */,
 				D3D0BD4B26587EE300CDF718 /* Resources */,
@@ -448,6 +457,7 @@
 				D3199D99266A9AC400DA4A7A /* Colors.xcassets in Resources */,
 				D35F4954265E9DE50066FBE4 /* Localizable.strings in Resources */,
 				D3D0BD5826587EE400CDF718 /* Preview Assets.xcassets in Resources */,
+				D37179DF280EEEB000E22FBA /* LaunchScreen.storyboard in Resources */,
 				D3D0BD5526587EE400CDF718 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -472,6 +482,42 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "$SRCROOT/Build-Phases/swiftlint-command\n";
+		};
+		D37179E0280EF34F00E22FBA /* Build Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$SRCROOT/Build-Phases/build-script\n";
+		};
+		D37179E2280EF5CA00E22FBA /* Build Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$SRCROOT/Build-Phases/build-script\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
