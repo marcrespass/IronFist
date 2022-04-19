@@ -62,7 +62,7 @@ class IronFistKitTests: XCTestCase {
 
     func testIronFistCountIs12() throws {
         let it = IronFistController()
-        XCTAssertEqual(it.ironFists.count, 2)
+        XCTAssertEqual(it.ironFists.count, 12)
     }
 
     func testVoices() {
