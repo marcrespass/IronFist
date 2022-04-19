@@ -12,14 +12,13 @@ import SwiftUI
 /// Data is read-only and loaded from a JSON in the app bundle
 /// IronFistController holds the list of IronFist objects and manages the current IronFist
 /// it also manages the timer and speech
-/// IronFistController is the AVSpeechSynthesizerDelegate
+/// IronFistController is the AVSpeechSynthesizerDelegate so it must subclass NSObject
 public final class IronFistController: NSObject, ObservableObject {
     /*
      Add support for repetitions
      keep track of how many rounds vs reptition setting
      if repeat > 1 then
         do final rest and start over instead of ending
-
      */
     // MARK: - Published properties
     @Published private (set) public var selectedIronFist: IronFist?

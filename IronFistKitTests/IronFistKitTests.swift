@@ -79,8 +79,7 @@ class IronFistKitTests: XCTestCase {
 
         let filtered = voices.filter { voice in
             voice.language.hasPrefix("en") || voice.language.hasPrefix("es")
-        }
-            .sorted { $0.language < $1.language }
+        }.sorted { $0.language < $1.language }
 
         return filtered
     }

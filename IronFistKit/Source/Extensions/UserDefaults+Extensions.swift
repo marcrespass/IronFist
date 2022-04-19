@@ -18,6 +18,7 @@ public extension UserDefaults {
         public static let kHourSelection = "HourSelection"
         public static let kMinuteSelection = "MinuteSelection"
         public static let kDaySelection = "DaySelection"
+        public static let kAllowsNotifications = "AllowsNotifications"
     }
 
     static var defaultsDictionary: [String: Any] {

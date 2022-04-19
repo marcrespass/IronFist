@@ -16,6 +16,8 @@
 import SwiftUI
 import IronFistKit
 
+// https://swiftwithmajid.com/2021/11/10/displaying-badges-in-swiftui/
+// https://swiftwithmajid.com/2021/11/17/the-many-faces-of-shapestyle-in-swiftui/
 struct TimerProgressCircle: View {
     private let baseSize: CGFloat = 220
     private let lineWidth: CGFloat = 20

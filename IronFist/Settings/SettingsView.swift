@@ -93,30 +93,31 @@ extension SettingsView {
 
     fileprivate func notificationSection() -> some View {
         return Section(header: Text("Configure notifications")) {
+            Toggle("Allow Notifications", isOn: $settingsController.allowsNotifications)
             DatePicker("Hour", selection: $settingsController.selectedTime, displayedComponents: [.hourAndMinute])
-            if self.settingsController.allowsNotifications {
-                List(DaySetting.days, id: \.self) { day in
-                    HStack {
-                        Text(LocalizedStringKey(day.name))
-                        Spacer()
-                        Image(systemName: self.settingsController.daySelection.contains(day) ? "checkmark.square" : "square")
-                            .resizable()
-                            .frame(width: 22, height: 22)
-                    }
-                    .onTapGesture {
-                        if self.settingsController.daySelection.contains(day) {
-                            self.settingsController.daySelection.remove(day)
-                        } else {
-                            self.settingsController.daySelection.insert(day)
-                        }
-                        self.settingsController.saveDayNotificationSettings()
-                    }
+                .foregroundColor(self.settingsController.notificationColor)
+                .disabled(!self.settingsController.canSetNotifications)
+
+            List(DaySetting.days, id: \.self) { day in
+                HStack {
+                    Text(LocalizedStringKey(day.name))
+                        .foregroundColor(self.settingsController.notificationColor)
+                    Spacer()
+                    Image(systemName: self.settingsController.daySelection.contains(day) ? "checkmark.square" : "square")
+                        .resizable()
+                        .frame(width: 22, height: 22)
+                        .foregroundColor(self.settingsController.notificationColor)
                 }
-            } else {
-                Button("Allow notifications") {
-                    self.settingsController.allowNotifications()
+                .onTapGesture {
+                    if self.settingsController.daySelection.contains(day) {
+                        self.settingsController.daySelection.remove(day)
+                    } else {
+                        self.settingsController.daySelection.insert(day)
+                    }
+                    self.settingsController.saveDayNotificationSettings()
                 }
             }
+            .disabled(!self.settingsController.canSetNotifications)
         }
     }
 }

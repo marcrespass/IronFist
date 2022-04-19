@@ -1,29 +1,19 @@
 
-
-CODE_SIGN_IDENTITY =
-CODE_SIGN_INJECT_BASE_ENTITLEMENTS =
-CODE_SIGN_STYLE =
-
-PRODUCT_BUNDLE_PREFIX = com.iliosinc
-
-COPY_PHASE_STRIP = YES
+// Framework= specific
 DYLIB_INSTALL_NAME_BASE = @rpath
-
-INSTALL_PATH = $(LOCAL_LIBRARY_DIR)/Frameworks
-
-SKIP_INSTALL = YES
-
 DYLIB_COMPATIBILITY_VERSION = 1
 DYLIB_CURRENT_VERSION = 1
-
-LD_RUNPATH_SEARCH_PATHS = $(inherited) @executable_path/../Frameworks @loader_path/Frameworks
-DYLIB_INSTALL_NAME_BASE = @rpath
-
-DEFINES_MODULE = YES
 FRAMEWORK_VERSION = A
+INSTALL_PATH = $(LOCAL_LIBRARY_DIR)/Frameworks
+SKIP_INSTALL = YES
 
-PRODUCT_BUNDLE_IDENTIFIER = $(PRODUCT_BUNDLE_PREFIX).$(PRODUCT_NAME)
+// You must adopt modules if you want a hybrid project.
+// https://bignerdranch.com/blog/it-looks-like-youre-still-trying-to-use-a-framework/
+// MER 2022-02-16 this appears to only be needed by frameworks
+DEFINES_MODULE = YES
 
-//CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES
-
-MTL_FAST_MATH = YES
+// Override
+ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO
+CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO
+LD_RUNPATH_SEARCH_PATHS = $(inherited) @executable_path/../Frameworks @loader_path/Frameworks
+PRODUCT_BUNDLE_PREFIX = com.iliosinc // Only the app is us.me.state.courts to make it easier to find the app bundle when testing

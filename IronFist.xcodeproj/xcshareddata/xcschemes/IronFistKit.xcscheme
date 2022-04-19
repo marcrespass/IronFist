@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1300"
+   LastUpgradeVersion = "1330"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D3D0BD4C26587EE300CDF718"
-               BuildableName = "IronFist.app"
-               BlueprintName = "IronFist"
+               BlueprintIdentifier = "D3B7F7EA26978F990010B252"
+               BuildableName = "IronFistKit.framework"
+               BlueprintName = "IronFistKit"
                ReferencedContainer = "container:IronFist.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,50 +28,18 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D3B7F7F226978F990010B252"
-               BuildableName = "IronFistKitTests.xctest"
-               BlueprintName = "IronFistKitTests"
-               ReferencedContainer = "container:IronFist.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = "es"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
-      allowLocationSimulation = "YES"
-      showNonLocalizedStrings = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D3D0BD4C26587EE300CDF718"
-            BuildableName = "IronFist.app"
-            BlueprintName = "IronFist"
-            ReferencedContainer = "container:IronFist.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
-      <CommandLineArguments>
-         <CommandLineArgument
-            argument = "-testingMode"
-            isEnabled = "NO">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "-resetDefaults 1"
-            isEnabled = "NO">
-         </CommandLineArgument>
-      </CommandLineArguments>
+      allowLocationSimulation = "YES">
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -79,16 +47,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D3D0BD4C26587EE300CDF718"
-            BuildableName = "IronFist.app"
-            BlueprintName = "IronFist"
+            BlueprintIdentifier = "D3B7F7EA26978F990010B252"
+            BuildableName = "IronFistKit.framework"
+            BlueprintName = "IronFistKit"
             ReferencedContainer = "container:IronFist.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

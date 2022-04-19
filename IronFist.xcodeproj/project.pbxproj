@@ -14,6 +14,7 @@
 		D3597000266969A500AC2CCB /* TimerProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3596FFE266969A500AC2CCB /* TimerProgressCircle.swift */; };
 		D359700726696AC700AC2CCB /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D359700626696AC700AC2CCB /* TimerView.swift */; };
 		D35F4954265E9DE50066FBE4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D35F4956265E9DE50066FBE4 /* Localizable.strings */; };
+		D37179DF280EEEB000E22FBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D37179DE280EEEB000E22FBA /* LaunchScreen.storyboard */; };
 		D374A3C226C5C78E00283CEA /* DaySetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = D374A3C126C5C78E00283CEA /* DaySetting.swift */; };
 		D383128926B1B58C00D72821 /* IronFistController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D383128826B1B58C00D72821 /* IronFistController+Extensions.swift */; };
 		D396698A26F140D000E6A8B5 /* TextStyleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D396698926F140D000E6A8B5 /* TextStyleView.swift */; };
@@ -75,7 +76,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		D3048AD5268E51B200504711 /* build-script */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "build-script"; sourceTree = "<group>"; };
 		D3048AD6268E51B200504711 /* swiftlint-command */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "swiftlint-command"; sourceTree = "<group>"; };
 		D3048AD9268E526000504711 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		D30B873626CC40B0007F385A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = Base.lproj/IronFist.json; sourceTree = "<group>"; };
@@ -83,7 +83,6 @@
 		D3199D98266A9AC400DA4A7A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		D332032826A0E78600DAC708 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D332032926A0EC3100DAC708 /* License.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
-		D33687D7268FC58800E7CAE5 /* IronFist.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IronFist.entitlements; sourceTree = "<group>"; };
 		D356E7D626B303FB00589AEE /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		D3596FFD266969A500AC2CCB /* IronFistController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IronFistController.swift; sourceTree = "<group>"; };
 		D3596FFE266969A500AC2CCB /* TimerProgressCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerProgressCircle.swift; sourceTree = "<group>"; };
@@ -99,6 +98,9 @@
 		D35F4957265E9DE70066FBE4 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D36E1BDF26E16BF0000F1D3A /* 2Project-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "2Project-Debug.xcconfig"; sourceTree = "<group>"; };
 		D36E1BE026E16BF0000F1D3A /* 2Project-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "2Project-Release.xcconfig"; sourceTree = "<group>"; };
+		D37179DD280EED5B00E22FBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D37179DE280EEEB000E22FBA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D37179E1280EF3CA00E22FBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D374A3C126C5C78E00283CEA /* DaySetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySetting.swift; sourceTree = "<group>"; };
 		D375271B26979DE40098CE16 /* Framework-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Framework-Debug.xcconfig"; sourceTree = "<group>"; };
 		D375271C26979DE40098CE16 /* Framework-Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Framework-Shared.xcconfig"; sourceTree = "<group>"; };
@@ -106,12 +108,12 @@
 		D375271E26979DE40098CE16 /* Tests-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-Debug.xcconfig"; sourceTree = "<group>"; };
 		D375271F26979DE40098CE16 /* Tests-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-Release.xcconfig"; sourceTree = "<group>"; };
 		D375272026979DE40098CE16 /* Tests-Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-Shared.xcconfig"; sourceTree = "<group>"; };
+		D382AD5E280E008800D5398B /* build-script */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "build-script"; sourceTree = "<group>"; };
 		D383128826B1B58C00D72821 /* IronFistController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IronFistController+Extensions.swift"; sourceTree = "<group>"; };
 		D396698926F140D000E6A8B5 /* TextStyleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyleView.swift; sourceTree = "<group>"; };
 		D3B6492D265BF1DB00FC88E4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D3B7F7EB26978F990010B252 /* IronFistKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IronFistKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3B7F7ED26978F990010B252 /* IronFistKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IronFistKit.h; sourceTree = "<group>"; };
-		D3B7F7EE26978F990010B252 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3B7F7F326978F990010B252 /* IronFistKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IronFistKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3B7F7FA26978F990010B252 /* IronFistKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IronFistKitTests.swift; sourceTree = "<group>"; };
 		D3B7F7FC26978F990010B252 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -120,11 +122,11 @@
 		D3D0BD4D26587EE300CDF718 /* IronFist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IronFist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3D0BD5426587EE400CDF718 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3D0BD5726587EE400CDF718 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		D3D0BD5926587EE400CDF718 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3D0BD5F26587F1500CDF718 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D3D0BD6226587F1500CDF718 /* IronFistApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IronFistApp.swift; sourceTree = "<group>"; };
 		D3D0BD6326587F1500CDF718 /* IronFist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IronFist.swift; sourceTree = "<group>"; };
 		D3D0BD6526587F1500CDF718 /* Bundle+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
+		D3F4235227FB4F0C0055A666 /* Notes.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Notes.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,7 +159,7 @@
 		D3048AD4268E51B200504711 /* Build-Phases */ = {
 			isa = PBXGroup;
 			children = (
-				D3048AD5268E51B200504711 /* build-script */,
+				D382AD5E280E008800D5398B /* build-script */,
 				D3048AD6268E51B200504711 /* swiftlint-command */,
 			);
 			path = "Build-Phases";
@@ -176,9 +178,9 @@
 			isa = PBXGroup;
 			children = (
 				D35EEBE7265B0C0F008CE2E2 /* 1XcodeWarnings.xcconfig */,
-				D35EEBE5265B0C0F008CE2E2 /* 2Project-Shared.xcconfig */,
 				D36E1BDF26E16BF0000F1D3A /* 2Project-Debug.xcconfig */,
 				D36E1BE026E16BF0000F1D3A /* 2Project-Release.xcconfig */,
+				D35EEBE5265B0C0F008CE2E2 /* 2Project-Shared.xcconfig */,
 				D35EEBE3265B0C0F008CE2E2 /* App-Debug.xcconfig */,
 				D35EEBE4265B0C0F008CE2E2 /* App-Release.xcconfig */,
 				D35EEBE6265B0C0F008CE2E2 /* App-Shared.xcconfig */,
@@ -237,8 +239,8 @@
 			isa = PBXGroup;
 			children = (
 				D3B7F7ED26978F990010B252 /* IronFistKit.h */,
+				D37179E1280EF3CA00E22FBA /* Info.plist */,
 				D3B7F80926978FB00010B252 /* Source */,
-				D3B7F7EE26978F990010B252 /* Info.plist */,
 			);
 			path = IronFistKit;
 			sourceTree = "<group>";
@@ -265,8 +267,9 @@
 			isa = PBXGroup;
 			children = (
 				D332032826A0E78600DAC708 /* README.md */,
-				D3048AD9268E526000504711 /* .swiftlint.yml */,
+				D3F4235227FB4F0C0055A666 /* Notes.md */,
 				D332032926A0EC3100DAC708 /* License.txt */,
+				D3048AD9268E526000504711 /* .swiftlint.yml */,
 				D3048AD4268E51B200504711 /* Build-Phases */,
 				D35EEBE2265B0C0F008CE2E2 /* XCConfig */,
 				D3D0BD4F26587EE300CDF718 /* IronFist */,
@@ -289,15 +292,15 @@
 		D3D0BD4F26587EE300CDF718 /* IronFist */ = {
 			isa = PBXGroup;
 			children = (
-				D33687D7268FC58800E7CAE5 /* IronFist.entitlements */,
+				D37179DD280EED5B00E22FBA /* Info.plist */,
 				D3D0BD6226587F1500CDF718 /* IronFistApp.swift */,
+				D37179DE280EEEB000E22FBA /* LaunchScreen.storyboard */,
 				D3931E3D2671014F00B54938 /* MainView */,
 				D359700526696AA000AC2CCB /* TimerViews */,
 				D3931E3E2671015D00B54938 /* Settings */,
 				D3D0BD5426587EE400CDF718 /* Assets.xcassets */,
 				D3199D98266A9AC400DA4A7A /* Colors.xcassets */,
 				D35F4956265E9DE50066FBE4 /* Localizable.strings */,
-				D3D0BD5926587EE400CDF718 /* Info.plist */,
 				D3D0BD5626587EE400CDF718 /* Preview Content */,
 			);
 			path = IronFist;
@@ -331,6 +334,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D3B7F80226978F990010B252 /* Build configuration list for PBXNativeTarget "IronFistKit" */;
 			buildPhases = (
+				D37179E2280EF5CA00E22FBA /* Build Script */,
 				D3B7F7E626978F990010B252 /* Headers */,
 				D3B7F7E726978F990010B252 /* Sources */,
 				D3B7F7E826978F990010B252 /* Frameworks */,
@@ -369,7 +373,7 @@
 			buildConfigurationList = D3D0BD5C26587EE400CDF718 /* Build configuration list for PBXNativeTarget "IronFist" */;
 			buildPhases = (
 				D3048AD8268E51C400504711 /* SwiftLint */,
-				D3048ADB268E52FD00504711 /* build-script */,
+				D37179E0280EF34F00E22FBA /* Build Script */,
 				D3D0BD4926587EE300CDF718 /* Sources */,
 				D3D0BD4A26587EE300CDF718 /* Frameworks */,
 				D3D0BD4B26587EE300CDF718 /* Resources */,
@@ -451,6 +455,7 @@
 				D3199D99266A9AC400DA4A7A /* Colors.xcassets in Resources */,
 				D35F4954265E9DE50066FBE4 /* Localizable.strings in Resources */,
 				D3D0BD5826587EE400CDF718 /* Preview Assets.xcassets in Resources */,
+				D37179DF280EEEB000E22FBA /* LaunchScreen.storyboard in Resources */,
 				D3D0BD5526587EE400CDF718 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -476,7 +481,7 @@
 			shellPath = /bin/sh;
 			shellScript = "$SRCROOT/Build-Phases/swiftlint-command\n";
 		};
-		D3048ADB268E52FD00504711 /* build-script */ = {
+		D37179E0280EF34F00E22FBA /* Build Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -485,7 +490,25 @@
 			);
 			inputPaths = (
 			);
-			name = "build-script";
+			name = "Build Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$SRCROOT/Build-Phases/build-script\n";
+		};
+		D37179E2280EF5CA00E22FBA /* Build Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build Script";
 			outputFileListPaths = (
 			);
 			outputPaths = (

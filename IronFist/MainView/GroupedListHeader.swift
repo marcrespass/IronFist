@@ -24,7 +24,9 @@ struct GroupedListHeader: View {
             Text("\(settingsController.repetition)x")
         }
         .font(.subheadline)
+#if !targetEnvironment(macCatalyst)
         .dynamicTypeSize(.medium ... .accessibility1)
+#endif
         .padding([.leading, .trailing])
         .overlay(
             Rectangle()

@@ -9,6 +9,9 @@ import Foundation
 import UserNotifications
 import SwiftUI
 
+// MARK: - Smart Invert
+// https://useyourloaf.com/blog/accessibility-smart-invert/
+
 // MARK: - Settings Methods
 public final class SettingsController: NSObject, ObservableObject {
     // MARK: - Published Properties
@@ -21,7 +24,27 @@ public final class SettingsController: NSObject, ObservableObject {
     // MARK: - Notification properties
     @Published public var selectedTime: Date
     @Published public var daySelection: Set<DaySetting> = []
-    @Published public var allowsNotifications: Bool
+    @Published public var allowsNotifications: Bool {
+        didSet {
+            if allowsNotifications == true {
+                self.authorizeNotifications()
+            } else {
+                self.disableNotifications()
+            }
+        }
+    }
+
+    public var canSetNotifications: Bool {
+        return allowsNotifications && notificationsEnabled
+    }
+
+    public var notificationColor: Color {
+        let it = self.canSetNotifications ? UIColor.label : UIColor.tertiaryLabel
+        let color = Color(it.cgColor)
+        return color
+    }
+
+    private var notificationsEnabled: Bool
 
     // MARK: - Settings Lazy Properties
     public lazy var appName: String = {
@@ -56,7 +79,8 @@ public final class SettingsController: NSObject, ObservableObject {
             let filtered = DaySetting.days.filter { array.contains($0.id) }
             self.daySelection = Set(filtered)
         }
-        self.allowsNotifications = false
+        self.allowsNotifications = UserDefaults.standard.bool(forKey: UserDefaults.Keys.kAllowsNotifications)
+        self.notificationsEnabled = false
 
         super.init()
 
@@ -75,7 +99,7 @@ public final class SettingsController: NSObject, ObservableObject {
     }
 
     public func saveDayNotificationSettings() {
-        let mapped = self.daySelection.map { $0.id }
+        let mapped = self.daySelection.map(\.id)
         UserDefaults.standard.set(mapped, forKey: UserDefaults.Keys.kDaySelection)
 
         let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: self.selectedTime)
@@ -88,28 +112,30 @@ public final class SettingsController: NSObject, ObservableObject {
     }
 
     // Rich Notifications
+    // https://developer.apple.com/documentation/usernotificationsui/customizing_the_appearance_of_notifications
     // https://www.avanderlee.com/swift/rich-notifications/
     // https://developer.apple.com/documentation/usernotifications/scheduling_a_notification_locally_from_your_app
     public func checkNotificationStatus() {
         UNUserNotificationCenter.current().getNotificationSettings { settings in
             DispatchQueue.main.async {
                 if settings.authorizationStatus == .authorized {
-                    self.allowsNotifications = true
+                    self.notificationsEnabled = true
                 } else {
-                    self.allowsNotifications = false
+                    self.notificationsEnabled = false
                 }
             }
         }
     }
 
-    public func allowNotifications() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
-            DispatchQueue.main.async {
-                if success {
-                    self.allowsNotifications = true
-                } else if let error = error {
-                    print(error.localizedDescription)
-                    self.allowsNotifications = false
+    public func authorizeNotifications() {
+        if self.notificationsEnabled == false {
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                DispatchQueue.main.async {
+                    self.notificationsEnabled = success
+                    self.allowsNotifications = success
+                    if let error = error {
+                        print(error.localizedDescription)
+                    }
                 }
             }
         }
