@@ -108,24 +108,32 @@ extension ContentView {
 }
 
 #if DEBUG
+// https://swiftwithmajid.com/2021/03/10/mastering-swiftui-previews/
+// https://www.swiftjectivec.com/design-ios-apps-using-minimum-middle-maxiumum-environments/
+extension PreviewDevice: Hashable { }
+
 struct ContentView_Previews: PreviewProvider {
     static var controller = IronFistController()
     static var settingsController = SettingsController()
 
+    static let sizes: [ContentSizeCategory] = [.extraSmall, .large, .accessibilityExtraExtraExtraLarge]
+    static let mmmDesigns: [PreviewDevice] = [.init(stringLiteral: "iPhone 13 Mini"),
+                                              .init(stringLiteral: "iPhone 13"),
+                                              .init(stringLiteral: "iPhone 13 Pro Max")]
+
     static var previews: some View {
-        // https://swiftwithmajid.com/2021/03/10/mastering-swiftui-previews/
-        Group {
-            ContentView()
-                .environmentObject(controller)
-                .environmentObject(settingsController)
-                .environment(\.locale, .init(identifier: "en"))
-//                .preferredColorScheme(.dark)
-//            ContentView()
-//                .environmentObject(controller)
-//                .environmentObject(settingsController)
-//                .preferredColorScheme(.dark)
-//                .environment(\.sizeCategory, .extraSmall)
+        ForEach(mmmDesigns, id: \.self) { deviceName in
+            ForEach(sizes, id: \.self) { contentSize in
+                ContentView()
+                    .environmentObject(controller)
+                    .environmentObject(settingsController)
+                    .environment(\.locale, .init(identifier: "es"))
+                    .environment(\.sizeCategory, contentSize)
+                    .previewDevice(deviceName)
+                    .previewDisplayName("\(deviceName.rawValue)-\(contentSize)")
+            }
         }
     }
 }
+
 #endif
