@@ -127,7 +127,7 @@
 		D3D0BD6226587F1500CDF718 /* IronFistApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IronFistApp.swift; sourceTree = "<group>"; };
 		D3D0BD6326587F1500CDF718 /* IronFist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IronFist.swift; sourceTree = "<group>"; };
 		D3D0BD6526587F1500CDF718 /* Bundle+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
-		D3F4235227FB4F0C0055A666 /*  Notes.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = " Notes.md"; sourceTree = "<group>"; };
+		D3F4235227FB4F0C0055A666 /* Notes.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Notes.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,7 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				D332032826A0E78600DAC708 /* README.md */,
-				D3F4235227FB4F0C0055A666 /*  Notes.md */,
+				D3F4235227FB4F0C0055A666 /* Notes.md */,
 				D332032926A0EC3100DAC708 /* License.txt */,
 				D3048AD9268E526000504711 /* .swiftlint.yml */,
 				D3048AD4268E51B200504711 /* Build-Phases */,
