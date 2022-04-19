@@ -11,28 +11,10 @@ ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor
 CODE_SIGN_IDENTITY = iPhone Developer
 CODE_SIGN_ENTITLEMENTS = $(PRODUCT_NAME)/$(PRODUCT_NAME).entitlements
 ENABLE_HARDENED_RUNTIME = YES
+LAUNCH_SCREEN_STORYBOARD_NAME = LaunchScreen
 // SWIFT_OBJC_BRIDGING_HEADER = $(PROJECT_DIR)/$(TARGET_NAME)/$(TARGET_NAME)-Bridging-Header.h
 SWIFT_EMIT_LOC_STRINGS = YES
 
 // Override
 LD_RUNPATH_SEARCH_PATHS = $(inherited) @executable_path/Frameworks @loader_path/Frameworks
 
-// Generated Info Plist File
-GENERATE_INFOPLIST_FILE = YES
-INFOPLIST_KEY_LSApplicationCategoryType = public.app-category.utilities
-INFOPLIST_KEY_NSHumanReadableCopyright = $(HUMAN_READABLE_COPYRIGHT)
-INFOPLIST_KEY_NSPrincipalClass = UIApplication
-INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES
-INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES
-INFOPLIST_KEY_UILaunchScreen_Generation = YES
-INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait
-INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen
-INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight
-INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight
-// INFOPLIST_KEY_NSMainNibFile = MainMenu
-// INFOPLIST_KEY_NSMainStoryboardFile = Main
-
-// Warning overrides
-// These two are needed when Obj-C is used
-// CLANG_WARN_OBJC_EXPLICIT_OWNERSHIP_TYPE = NO
-// CLANG_WARN_SEMICOLON_BEFORE_METHOD_BODY = NO
