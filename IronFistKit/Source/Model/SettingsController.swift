@@ -150,6 +150,9 @@ public final class SettingsController: NSObject, ObservableObject {
     // https://www.hackingwithswift.com/books/ios-swiftui/scheduling-local-notifications
     // This one shows how to handle if notifications are disabled in Settings
     // https://blog.techchee.com/handling-local-notification-in-swiftui/
+
+    // TODO: Read and do this
+    // https://tanaschita.com/20220321-how-to-add-and-handle-actions-for-ios-notifications/
     private func createNotifications() {
         self.disableNotifications()
         let data = IronFist.loadData()
